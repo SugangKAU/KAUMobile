@@ -7,4 +7,48 @@
         android:layout_height="match_parent"
         tools:context=".NoteActivity">
 
+    <TextView
+            android:text="안드로이드"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textTitle" android:layout_marginTop="4dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintHorizontal_bias="0.069" android:textColor="@color/design_default_color_on_secondary"/>
+    <TextView
+            android:text="복습노트 - n주차"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textNoteTitle" android:textSize="36sp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintHorizontal_bias="0.236" app:layout_constraintTop_toBottomOf="@+id/textTitle"
+            android:textColor="@color/design_default_color_on_secondary"/>
+    <Button
+            android:text="취소"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/button2" android:layout_marginEnd="8dp"
+            app:layout_constraintHorizontal_bias="0.9" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/editText" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.0"/>
+    <Button
+            android:text="확인"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button2" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="64dp"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/editText"
+            app:layout_constraintVertical_bias="0.0"/>
+    <EditText
+            android:layout_width="277dp"
+            android:layout_height="237dp"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:background="@drawable/edittext_box"
+            android:id="@+id/editText"
+            android:hint="내용을 입력해주세요" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/textNoteTitle" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
