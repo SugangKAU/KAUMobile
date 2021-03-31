@@ -1,7 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:stretchColumns="*"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+    <TableRow>
+        <TextView android:text="1주차"
+                  android:gravity="center"
+                  android:background="#eeeeee"
+                  android:id="@+id/textNum"/>
+        <TextView android:text="예습"
+                  android:gravity="center"
+                  android:background="#eeeeee"/>
+        <TextView android:text="복습"
+                  android:gravity="center"
+                  android:background="#eeeeee"/>
+        <TextView android:text="과제"
+                  android:gravity="center"
+                  android:background="#eeeeee"/>
+    </TableRow>
+    <TableRow>
+        <TextView/>
+        <TextView/>
+        <TextView/>
+        <TextView/>
+    </TableRow>
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+    <TableRow>
+        <TextView/>
+        <TextView/>
+        <TextView/>
+        <TextView/>
+    </TableRow>
 
-</LinearLayout>
+
+</TableLayout>
