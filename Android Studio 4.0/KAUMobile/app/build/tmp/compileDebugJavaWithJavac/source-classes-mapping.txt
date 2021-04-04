@@ -1,0 +1,2 @@
+com/example/kaumobile/BuildConfig.java
+ com.example.kaumobile.BuildConfig
