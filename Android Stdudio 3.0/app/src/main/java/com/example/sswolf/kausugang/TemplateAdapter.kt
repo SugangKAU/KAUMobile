@@ -7,7 +7,7 @@ import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_template.view.*
 
-data class TemplateItem(val num:Int)
+data class TemplateItem(var no: Int, var hasPreview: Boolean, var hasReview: Boolean)
 
 class TemplateAdapter : RecyclerView.Adapter<Holder>(){
 
@@ -29,6 +29,8 @@ class TemplateAdapter : RecyclerView.Adapter<Holder>(){
 
 class Holder(itemView: View): RecyclerView.ViewHolder(itemView){
     fun setItem(item: TemplateItem){
-        itemView.textNum.text = ""
+        itemView.weekNum.text = "${item.no}주차"
+        if (item.hasPreview) itemView.previewButton.setImageResource(R.drawable.isNoteTrue)
+        if (item.hasReview) itemView.reviewButton.setImageResource(R.drawable.isNoteTrue)
     }
 }
