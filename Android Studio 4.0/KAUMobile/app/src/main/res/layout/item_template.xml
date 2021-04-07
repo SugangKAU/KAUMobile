@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:stretchColumns="*"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <TableRow>
+
+        <TextView
+                android:text="1주차"
+                android:gravity="center"
+                android:background="#eeeeee"
+                android:id="@+id/weekNum" />
+
+        <TextView
+                android:text="예습"
+                android:gravity="center"
+                android:background="#eeeeee" />
+
+        <TextView
+                android:text="복습"
+                android:gravity="center"
+                android:background="#eeeeee" />
+
+        <TextView
+                android:text="과제"
+                android:gravity="center"
+                android:background="#eeeeee" />
+    </TableRow>
+
+    <TableRow android:background="#FFFFFF">
+
+        <TextView
+                android:layout_height="match_parent"
+                android:layout_width="match_parent" />
+
+        <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/is_note_false"
+                android:background="#FFFFFF"
+                android:id="@+id/previewButton" />
+
+        <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/is_note_false"
+                android:background="#FFFFFF"
+                android:id="@+id/reviewButton" />
+
+
+        <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/upload"
+                android:background="#FFFFFF"
+                android:id="@+id/imageButton2" />
+
+    </TableRow>
+
+    <TableRow
+            android:layout_height="1dp"
+            android:background="#ddd">
+
+        <View android:layout_height="1dp" />
+    </TableRow>
+
+    <TableRow android:background="#FFFFFF">
+
+        <TextView
+                android:layout_height="match_parent"
+                android:layout_width="match_parent" />
+        <TextView
+                android:layout_height="match_parent"
+                android:layout_width="match_parent" />
+        <TextView
+                android:layout_height="match_parent"
+                android:layout_width="match_parent" />
+        <TextView
+                android:layout_height="match_parent"
+                android:layout_width="match_parent" />
+    </TableRow>
+
+    <TableRow
+            android:layout_height="1dp"
+            android:background="#ddd">
+
+        <View android:layout_height="1dp" />
+    </TableRow>
+
+
+</TableLayout>
