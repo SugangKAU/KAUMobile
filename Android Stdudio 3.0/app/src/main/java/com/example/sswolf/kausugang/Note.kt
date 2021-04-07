@@ -1,5 +1,9 @@
 package com.example.sswolf.kausugang
 
-class Note( var title: String, var content: String, var time: Time, var type: {preview, review}) {
+enum class NoteType {
+    PREVIEW, REVIEW
+}
+
+class Note( var title: String, var content: String, var time: String, var type: NoteType) {
 
 }

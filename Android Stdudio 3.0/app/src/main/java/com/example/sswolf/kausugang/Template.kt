@@ -1,5 +1,5 @@
 package com.example.sswolf.kausugang
 
-class Template(weekElements: weekElement) {
+class Template(weekElements: MutableList<TemplateItem>) {
 
 }

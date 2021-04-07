@@ -30,7 +30,7 @@ class TemplateAdapter : RecyclerView.Adapter<Holder>(){
 class Holder(itemView: View): RecyclerView.ViewHolder(itemView){
     fun setItem(item: TemplateItem){
         itemView.weekNum.text = "${item.no}주차"
-        if (item.hasPreview) itemView.previewButton.setImageResource(R.drawable.isNoteTrue)
-        if (item.hasReview) itemView.reviewButton.setImageResource(R.drawable.isNoteTrue)
+        if (item.hasPreview) itemView.previewButton.setImageResource(R.drawable.is_note_true)
+        if (item.hasReview) itemView.reviewButton.setImageResource(R.drawable.is_note_true)
     }
 }

@@ -33,19 +33,19 @@
 
         <TextView
                 android:layout_height="match_parent"
-                android:layout_weight="match_parent" />
+                android:layout_width="match_parent" />
 
         <ImageButton
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:srcCompat="@drawable/isNoteFalse"
+                app:srcCompat="@drawable/is_note_false"
                 android:background="#FFFFFF"
                 android:id="@+id/previewButton" />
 
         <ImageButton
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:srcCompat="@drawable/isNoteFalse"
+                app:srcCompat="@drawable/is_note_false"
                 android:background="#FFFFFF"
                 android:id="@+id/reviewButton" />
 
@@ -70,16 +70,16 @@
 
         <TextView
                 android:layout_height="match_parent"
-                android:layout_weight="match_parent" />
+                android:layout_width="match_parent" />
         <TextView
                 android:layout_height="match_parent"
-                android:layout_weight="match_parent" />
+                android:layout_width="match_parent" />
         <TextView
                 android:layout_height="match_parent"
-                android:layout_weight="match_parent" />
+                android:layout_width="match_parent" />
         <TextView
                 android:layout_height="match_parent"
-                android:layout_weight="match_parent" />
+                android:layout_width="match_parent" />
     </TableRow>
 
     <TableRow
