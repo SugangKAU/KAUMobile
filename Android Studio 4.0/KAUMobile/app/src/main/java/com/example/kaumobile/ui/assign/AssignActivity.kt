@@ -1,9 +1,9 @@
-package com.example.sswolf.kausugang.Seong
+package com.example.kaumobile.ui.assign
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import com.example.kaumobile.R
-import kotlinx.android.synthetic.main.activity_assign.*
 
 class AssignActivity : AppCompatActivity() {
 
@@ -11,6 +11,6 @@ class AssignActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_assign)
 
-        textTitle.text = "과제 1주차"
+        findViewById<TextView>(R.id.textClass).text = "과제 1주차"
     }
 }

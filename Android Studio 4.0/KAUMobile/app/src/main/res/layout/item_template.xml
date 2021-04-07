@@ -38,14 +38,14 @@
         <ImageButton
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:srcCompat="@drawable/is_note_false"
+                app:srcCompat="@drawable/ic_is_note_false"
                 android:background="#FFFFFF"
                 android:id="@+id/previewButton" />
 
         <ImageButton
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:srcCompat="@drawable/is_note_false"
+                app:srcCompat="@drawable/ic_is_note_false"
                 android:background="#FFFFFF"
                 android:id="@+id/reviewButton" />
 
@@ -53,7 +53,7 @@
         <ImageButton
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:srcCompat="@drawable/upload"
+                app:srcCompat="@drawable/ic_upload"
                 android:background="#FFFFFF"
                 android:id="@+id/imageButton2" />
 

@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/navigation_classnote"
-        android:name="com.example.kaumobile.ui.classnote.ClassnoteFragment"
+        android:name="com.example.kaumobile.ui.classNote.ClassNoteFragment"
         android:label="@string/title_classnote"
-        tools:layout="@layout/fragment_classnote" />
+        tools:layout="@layout/fragment_class_note" />
 
     <fragment
         android:id="@+id/navigation_grade"

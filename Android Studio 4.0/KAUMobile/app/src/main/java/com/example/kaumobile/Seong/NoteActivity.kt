@@ -2,8 +2,8 @@ package com.example.sswolf.kausugang.Seong
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_note.*
-import com.example.sswolf.kausugang.Subject
+import android.widget.TextView
+import com.example.kaumobile.R
 
 class NoteActivity : AppCompatActivity() {
 
@@ -17,7 +17,7 @@ class NoteActivity : AppCompatActivity() {
 
         // subject = intent.getextra
 
-        textTitle.text = subject.className
-        textNoteTitle.text = noteType + "노트 - " + num + "주차"
+        findViewById<TextView>(R.id.textClass).text = subject.className
+        findViewById<TextView>(R.id.textNoteTitle).text = noteType + "노트 - " + num + "주차"
     }
 }

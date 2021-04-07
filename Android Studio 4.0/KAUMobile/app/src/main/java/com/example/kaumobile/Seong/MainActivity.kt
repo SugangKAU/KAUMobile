@@ -3,7 +3,8 @@ package com.example.sswolf.kausugang.Seong
 //import android.support.v7.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_note.*
+import com.example.kaumobile.R
+
 
 class MainActivity : AppCompatActivity() {
 
