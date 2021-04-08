@@ -10,6 +10,7 @@ import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kaumobile.R
+import com.example.kaumobile.ui.assign.AssignActivity
 import com.google.android.material.internal.ContextUtils.getActivity
 
 data class TemplateItem(var no: Int, var hasPreview: Boolean, var hasReview: Boolean, var hasAssign: Boolean)
@@ -37,12 +38,15 @@ class Holder(itemView: View): RecyclerView.ViewHolder(itemView){
     fun setItem(item: TemplateItem){
         itemView.findViewById<TextView>(R.id.weekNum).text = "${item.no}주차"
         if (item.hasPreview) itemView.findViewById<ImageButton>(R.id.previewButton).setImageResource(R.drawable.ic_is_note_true)
-       /* itemView.findViewById<ImageButton>(R.id.previewButton).setOnClickListener{
-            val intent = Intent(getActivity(), NoteActivity::class.java)
-            startActivity(intent) }*/
+            itemView.findViewById<ImageButton>(R.id.previewButton).setOnClickListener{
+            val intent = Intent(itemView.context, NoteActivity::class.java)
+            startActivity(itemView.context, intent, null) }
         if (item.hasReview) itemView.findViewById<ImageButton>(R.id.reviewButton).setImageResource(R.drawable.ic_is_note_true)
-        /*itemView.findViewById<ImageButton>(R.id.reviewButton).setOnClickListener{
-            val intent = Intent(getActivity(), NoteActivity::class.java)
-            startActivity(intent) }*/
+            itemView.findViewById<ImageButton>(R.id.reviewButton).setOnClickListener{
+            val intent = Intent(itemView.context, NoteActivity::class.java)
+                startActivity(itemView.context, intent, null) }
+            itemView.findViewById<ImageButton>(R.id.uploadButton).setOnClickListener{
+            val intent = Intent(itemView.context, AssignActivity::class.java)
+            startActivity(itemView.context, intent, null) }
     }
 }
