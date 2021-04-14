@@ -21,7 +21,7 @@
         <activity android:name="com.example.sswolf.kausugang.Seong.NoteActivity">
 
         </activity>
-        <activity android:name=".ui.assign.AssignActivity">
+        <activity android:name="com.example.kaumobile.ui.classNote.assign.AssignActivity">
 
         </activity>
 

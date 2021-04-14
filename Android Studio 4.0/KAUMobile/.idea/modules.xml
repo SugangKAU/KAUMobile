@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Android Studio 4.0.KAUMobile.iml" filepath="$PROJECT_DIR$/.idea/modules/Android Studio 4.0.KAUMobile.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/KAUMobile.iml" filepath="$PROJECT_DIR$/.idea/KAUMobile.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/KAUMobile.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/KAUMobile.app.iml" />
     </modules>

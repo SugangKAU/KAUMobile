@@ -1,4 +1,4 @@
-#Sat Apr 03 22:08:49 KST 2021
-base.0=C\:\\Users\\CHOI AREUM\\AndroidStudioProjects\\KAUMobile\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+#Thu Apr 15 03:32:48 KST 2021
+base.0=C\:\\Users\\CHOI AREUM\\Documents\\GitHub\\KAUMobile\\Android Studio 4.0\\KAUMobile\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

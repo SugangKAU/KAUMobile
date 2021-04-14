@@ -1,242 +1,250 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml:2:1-23:12
-INJECTED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml:2:1-23:12
-INJECTED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml:2:1-23:12
-INJECTED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml:2:1-23:12
-MERGED from [androidx.navigation:navigation-fragment-ktx:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\de400dd43f2ef8b7a90a976823df8833\navigation-fragment-ktx-2.2.2\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.fragment:fragment-ktx:1.2.4] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\cfa204ee286aa019aa81bd8731a5f08d\jetified-fragment-ktx-1.2.4\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.navigation:navigation-ui-ktx:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\f92bd52c83e57cf1c53943007a5c583c\navigation-ui-ktx-2.2.2\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.navigation:navigation-runtime-ktx:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\f2ea0cab74ac4467d3125ee42a945555\navigation-runtime-ktx-2.2.2\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.activity:activity-ktx:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\da832cd885661fe3edcb76f4a670a2f6\jetified-activity-ktx-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.core:core-ktx:1.3.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\0029f3b48d83675704c883808f36e539\jetified-core-ktx-1.3.2\AndroidManifest.xml:2:1-9:12
-MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\5128789d35340e732124a7125b4315e9\jetified-lifecycle-livedata-ktx-2.2.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\f8f97d49e98b619da16857b598e7d000\jetified-lifecycle-viewmodel-ktx-2.2.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\29a83ccc893d5a5bc006ae5021009cca\jetified-lifecycle-runtime-ktx-2.2.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\c50b1b99577ac033a7440505a09ef0ee\jetified-lifecycle-livedata-core-ktx-2.2.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.navigation:navigation-common-ktx:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\ac898b3c00892cccca059712160bd43d\navigation-common-ktx-2.2.2\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.navigation:navigation-ui:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\bfbcc0fec5753c7931523e9c4b4e446a\navigation-ui-2.2.2\AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.android.material:material:1.3.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\faecea335808a370d43ddf9ed7c5a1e9\material-1.3.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\53c83d306e922a17de670d29b8fc1d87\constraintlayout-2.0.4\AndroidManifest.xml:2:1-11:12
-MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\d478fd87d264bcbb4cbefc372cdf466b\appcompat-1.2.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\a4d667f0cd9699476e359c2ec6d5d281\jetified-appcompat-resources-1.2.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\bcdb96d706a49a0d24061639c7736998\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\739d44634dc4be7f5b1d6d4aebce4abb\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.navigation:navigation-fragment:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\bc448d732643df66c6a2759381512e5d\navigation-fragment-2.2.2\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\f54caa0c69a5f4e9244f8a3aea988d55\legacy-support-v4-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\c28ac13800cd020ca675c125a51634f3\legacy-support-core-ui-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\bd2077ec41678431f0767af846c5a1c6\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\bb29094f61e97ee7a9958a804d106453\coordinatorlayout-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\12081b42d72dbb5bb7456e89ac571010\dynamicanimation-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.transition:transition:1.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\192e405a1345aa0aa5e44f56852a2fb2\transition-1.2.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\f16bfeb20960ea9cefcb0f135c68159d\jetified-viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.fragment:fragment:1.2.4] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\ea4c424d889b98f6e7fdaa81ecc57a49\fragment-1.2.4\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.media:media:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\bdada5da95230ad1a6056e93bb66ca97\media-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\9d350d472b60be29bf15c7614c1b971f\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\489f0d3da0ff5773b2ded616d6985de0\recyclerview-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\295e3904f7399dadaf499d866a15a36d\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\5b8a70499d57ee43c6a8b75cdc9e040c\slidingpanelayout-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.customview:customview:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\185996642ab21955d49531b557eb5938\customview-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.loader:loader:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\62c543c98fcc515b7872396c2ce2bc67\loader-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.navigation:navigation-runtime:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\7cea3a152d31888183ca451825027e52\navigation-runtime-2.2.2\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.activity:activity:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\2ab0cffdfbcf766b5c2d42a3871b7fcd\jetified-activity-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.navigation:navigation-common:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\d9703ea0d11bc1f304ade33d9ea95113\navigation-common-2.2.2\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\019578ed058c12f475c96909476f3770\swiperefreshlayout-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\6019b0a4664849b1c9341d139e344c20\asynclayoutinflater-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.core:core:1.3.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\5724419690274871c2fb5f6254f4f3e7\core-1.3.2\AndroidManifest.xml:17:1-26:12
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\e8cb2c101b6e10cb0c16ee11bec66721\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\ab8ce4c1cc4cf449286283d97134645d\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\9e1e04a78fbfbb7ad32217e669b5f477\versionedparcelable-1.1.0\AndroidManifest.xml:17:1-27:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\420b01c2d5bdc654455efaa038dd04d3\jetified-lifecycle-viewmodel-savedstate-2.2.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\e75dcdfc5a5392a681c6446684f1c95b\lifecycle-viewmodel-2.2.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\2aa5e5a6a997d5c7425ecea4df76cd34\jetified-savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\e14c3a491da697ff1b36d79431b00169\lifecycle-livedata-2.2.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\d9e70afc14bd431b1200c57e318054e0\lifecycle-livedata-core-2.2.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\5cbc89502a319375fe3d3baa8bb73643\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\02549924bd91c3a197cdc3f69b59ac10\lifecycle-runtime-2.2.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\46e8c764e0241f676ba20f04d5de20b2\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\7ed92a56e2e7dd67f210f86ab2e63bd1\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.print:print:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\3c42045a155e351cc7f8e9e2f8558ce6\print-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\64e415f501163b45103f528322069681\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\15aa155ad0ec2eb1991fa443b30ecfef\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml:2:1-23:12
-INJECTED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml:2:1-23:12
-INJECTED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml:2:1-23:12
+ADDED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml:2:1-30:12
+INJECTED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml:2:1-30:12
+INJECTED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml:2:1-30:12
+INJECTED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml:2:1-30:12
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\d70c1cd28eebc433449c011b1e71afc0\navigation-fragment-ktx-2.2.2\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment-ktx:1.2.4] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\69a96fcf65db360c6133c0ee80b0b9d0\jetified-fragment-ktx-1.2.4\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-ui-ktx:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\270e97a10d392033c165415e2da3680d\navigation-ui-ktx-2.2.2\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\938499e1512608a39ce086181320a582\navigation-runtime-ktx-2.2.2\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity-ktx:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\b450e802cbd033f02c9f9d1fdc65bc92\jetified-activity-ktx-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core-ktx:1.3.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\d68f0c720b5a07aca71c83de751fea17\jetified-core-ktx-1.3.2\AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\ee8ecbdc9cc7ff04b7ba216872280776\jetified-lifecycle-livedata-ktx-2.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\a207696f8dd2900742b1f1e7f6e88456\jetified-lifecycle-viewmodel-ktx-2.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\7562ed0451dcc1657b5016eae6c76aa0\jetified-lifecycle-runtime-ktx-2.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\1b85dfe34f0c749577d84086982ebfdd\jetified-lifecycle-livedata-core-ktx-2.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-common-ktx:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\a2ad3da34bd7c1fe2b8774459ad0b4a9\navigation-common-ktx-2.2.2\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-ui:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\bdc510e4de6caf874d399b4ac872c155\navigation-ui-2.2.2\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.material:material:1.3.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\293d13a4407b1aeddb34482b8213a7d0\material-1.3.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\0f7e22744f71ef00e6245ab144eb5f4b\constraintlayout-2.0.4\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\3d06b478e61e33d212e67b3cc8ac278c\appcompat-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\0671c010b7c88c841e52afca294b1706\jetified-appcompat-resources-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\8d892b1d1bd71a0f3f06a1fa5c541282\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\de4cc8687f8dced84bfc18adb06e2e6e\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-fragment:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\3b896e80233b635dc5da802851524587\navigation-fragment-2.2.2\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\923cc9aca7418847c66de793d3ef5d62\legacy-support-v4-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\0b1317b5a2d879b8d0cd3f4723b27da1\legacy-support-core-ui-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\91c1c8d9e6475e13186442cbcfae951d\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\095636558aee9be22e35c986ed684835\coordinatorlayout-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\e1c8df8fd63a90a2414beeeef22b7100\dynamicanimation-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\1c737a6fefb1c51be6a476eafd3c80ee\transition-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\e8fab2bf8da1d3af729b8ce85c260358\jetified-viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.2.4] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\a7c60cd27f60e6cb0ec18e1a3bacb121\fragment-1.2.4\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.media:media:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\898d39500520bd1b4c207ee3c761483f\media-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\fa248bda4259c500e69a8208a9cfc07a\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\ce4a0e7f1e6c1f7c67a9a3e4474dee02\recyclerview-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\eb5209f88512ee4618b4b68d06d7d0e3\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\a2bdc3acdbd51df75cf2034cc3df9f15\slidingpanelayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\aba334f1b1fbe1ca849e8823158f677c\customview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\e916ae023e850873ddbb9101bc5af7f7\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-runtime:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\db12c5a392b878a690468513625e6c15\navigation-runtime-2.2.2\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\7c0e05f07c50237d762f77dbfade3c4a\jetified-activity-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-common:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\5f605f0086e87f5d9c5340a60dcdb4f3\navigation-common-2.2.2\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\672fd8d35664c6c0683b6e9d11deb5f9\swiperefreshlayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\f01aca3324eb41b8c6e10662b201e654\asynclayoutinflater-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.3.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\5bf85e75b2855e89d2acbda576ada631\core-1.3.2\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\09d21d0b7c130cb56690f9b506bc14d1\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\7408ea0664800e5b8584088e1e0ed9c6\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\c379cc2c62c37fb0fd623c9684d499a8\versionedparcelable-1.1.0\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\476518ac90d512dc92e37af436e7702e\jetified-lifecycle-viewmodel-savedstate-2.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\37db281264d4fa2d38652773bc62ec63\lifecycle-viewmodel-2.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\48db6fed9c60f8f7e1776a70b835075a\jetified-savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\f5c5510ec99d8a24f6c16a27e6d06fae\lifecycle-livedata-2.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\a9e0f4a5189fef2e0f70983c403e2c49\lifecycle-livedata-core-2.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\c707783a1916cf57eaaa42e03a3175a0\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\c4924924f58f4a0399d0bc00f559adb1\lifecycle-runtime-2.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\6c4784efc1e1c93dd058a243869ac008\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\69a28a81a15f8650033897b301309277\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\c7c4ca02d2f1c0cd3f7afc525d09c13d\print-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\2b49efe633671c2fbe52f8ad64b741bc\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\d276a79ea58989c5ea1191200bdff61b\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
+INJECTED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml:2:1-30:12
+INJECTED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml:2:1-30:12
+INJECTED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml:2:1-30:12
 	package
-		ADDED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml:3:5-36
-		INJECTED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml:3:5-36
+		INJECTED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml:2:1-23:12
-		INJECTED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml:2:1-30:12
+		INJECTED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml
 	android:versionCode
-		INJECTED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml:2:1-23:12
-		INJECTED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml:2:1-30:12
+		INJECTED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml:5:5-21:19
-MERGED from [com.google.android.material:material:1.3.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\faecea335808a370d43ddf9ed7c5a1e9\material-1.3.0\AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.material:material:1.3.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\faecea335808a370d43ddf9ed7c5a1e9\material-1.3.0\AndroidManifest.xml:22:5-20
-MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\53c83d306e922a17de670d29b8fc1d87\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
-MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\53c83d306e922a17de670d29b8fc1d87\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
-MERGED from [androidx.core:core:1.3.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\5724419690274871c2fb5f6254f4f3e7\core-1.3.2\AndroidManifest.xml:24:5-89
-MERGED from [androidx.core:core:1.3.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\5724419690274871c2fb5f6254f4f3e7\core-1.3.2\AndroidManifest.xml:24:5-89
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\9e1e04a78fbfbb7ad32217e669b5f477\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\9e1e04a78fbfbb7ad32217e669b5f477\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
+ADDED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml:5:5-28:19
+MERGED from [com.google.android.material:material:1.3.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\293d13a4407b1aeddb34482b8213a7d0\material-1.3.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.3.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\293d13a4407b1aeddb34482b8213a7d0\material-1.3.0\AndroidManifest.xml:22:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\0f7e22744f71ef00e6245ab144eb5f4b\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\0f7e22744f71ef00e6245ab144eb5f4b\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
+MERGED from [androidx.core:core:1.3.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\5bf85e75b2855e89d2acbda576ada631\core-1.3.2\AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.3.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\5bf85e75b2855e89d2acbda576ada631\core-1.3.2\AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\c379cc2c62c37fb0fd623c9684d499a8\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\c379cc2c62c37fb0fd623c9684d499a8\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
 	android:appComponentFactory
-		ADDED from [androidx.core:core:1.3.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\5724419690274871c2fb5f6254f4f3e7\core-1.3.2\AndroidManifest.xml:24:18-86
+		ADDED from [androidx.core:core:1.3.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\5bf85e75b2855e89d2acbda576ada631\core-1.3.2\AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml:10:9-35
+		ADDED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml:10:9-35
 	android:label
-		ADDED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml:8:9-41
+		ADDED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml:8:9-41
 	android:roundIcon
-		ADDED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml:9:9-54
+		ADDED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml:9:9-54
 	android:icon
-		ADDED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml:7:9-43
+		ADDED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml:7:9-43
 	android:allowBackup
-		ADDED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml:6:9-35
+		ADDED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml:6:9-35
 	android:theme
-		ADDED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml:11:9-47
+		ADDED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml:11:9-47
 activity#com.example.kaumobile.MainActivity
-ADDED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml:12:9-20:20
+ADDED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml:12:9-20:20
 	android:label
-		ADDED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml:14:13-45
+		ADDED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml:14:13-45
 	android:name
-		ADDED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml:13:13-41
+		ADDED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml:13:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml:15:13-19:29
+ADDED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml:15:13-19:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml:16:17-69
+ADDED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml:16:17-69
 	android:name
-		ADDED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml:16:25-66
+		ADDED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml:16:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml:18:17-77
+ADDED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml:18:17-77
 	android:name
-		ADDED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml:18:27-74
+		ADDED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml:18:27-74
+activity#com.example.sswolf.kausugang.Seong.NoteActivity
+ADDED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml:21:9-23:20
+	android:name
+		ADDED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml:21:19-81
+activity#com.example.kaumobile.ui.classNote.assign.AssignActivity
+ADDED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml:24:9-26:20
+	android:name
+		ADDED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml:24:19-90
 uses-sdk
-INJECTED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml
-MERGED from [androidx.navigation:navigation-fragment-ktx:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\de400dd43f2ef8b7a90a976823df8833\navigation-fragment-ktx-2.2.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-fragment-ktx:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\de400dd43f2ef8b7a90a976823df8833\navigation-fragment-ktx-2.2.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.fragment:fragment-ktx:1.2.4] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\cfa204ee286aa019aa81bd8731a5f08d\jetified-fragment-ktx-1.2.4\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.fragment:fragment-ktx:1.2.4] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\cfa204ee286aa019aa81bd8731a5f08d\jetified-fragment-ktx-1.2.4\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-ui-ktx:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\f92bd52c83e57cf1c53943007a5c583c\navigation-ui-ktx-2.2.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-ui-ktx:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\f92bd52c83e57cf1c53943007a5c583c\navigation-ui-ktx-2.2.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-runtime-ktx:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\f2ea0cab74ac4467d3125ee42a945555\navigation-runtime-ktx-2.2.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-runtime-ktx:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\f2ea0cab74ac4467d3125ee42a945555\navigation-runtime-ktx-2.2.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.activity:activity-ktx:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\da832cd885661fe3edcb76f4a670a2f6\jetified-activity-ktx-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.activity:activity-ktx:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\da832cd885661fe3edcb76f4a670a2f6\jetified-activity-ktx-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.core:core-ktx:1.3.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\0029f3b48d83675704c883808f36e539\jetified-core-ktx-1.3.2\AndroidManifest.xml:5:5-7:41
-MERGED from [androidx.core:core-ktx:1.3.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\0029f3b48d83675704c883808f36e539\jetified-core-ktx-1.3.2\AndroidManifest.xml:5:5-7:41
-MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\5128789d35340e732124a7125b4315e9\jetified-lifecycle-livedata-ktx-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\5128789d35340e732124a7125b4315e9\jetified-lifecycle-livedata-ktx-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\f8f97d49e98b619da16857b598e7d000\jetified-lifecycle-viewmodel-ktx-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\f8f97d49e98b619da16857b598e7d000\jetified-lifecycle-viewmodel-ktx-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\29a83ccc893d5a5bc006ae5021009cca\jetified-lifecycle-runtime-ktx-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\29a83ccc893d5a5bc006ae5021009cca\jetified-lifecycle-runtime-ktx-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\c50b1b99577ac033a7440505a09ef0ee\jetified-lifecycle-livedata-core-ktx-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\c50b1b99577ac033a7440505a09ef0ee\jetified-lifecycle-livedata-core-ktx-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-common-ktx:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\ac898b3c00892cccca059712160bd43d\navigation-common-ktx-2.2.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-common-ktx:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\ac898b3c00892cccca059712160bd43d\navigation-common-ktx-2.2.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-ui:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\bfbcc0fec5753c7931523e9c4b4e446a\navigation-ui-2.2.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-ui:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\bfbcc0fec5753c7931523e9c4b4e446a\navigation-ui-2.2.2\AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.android.material:material:1.3.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\faecea335808a370d43ddf9ed7c5a1e9\material-1.3.0\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.material:material:1.3.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\faecea335808a370d43ddf9ed7c5a1e9\material-1.3.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\53c83d306e922a17de670d29b8fc1d87\constraintlayout-2.0.4\AndroidManifest.xml:5:5-7:41
-MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\53c83d306e922a17de670d29b8fc1d87\constraintlayout-2.0.4\AndroidManifest.xml:5:5-7:41
-MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\d478fd87d264bcbb4cbefc372cdf466b\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\d478fd87d264bcbb4cbefc372cdf466b\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\a4d667f0cd9699476e359c2ec6d5d281\jetified-appcompat-resources-1.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\a4d667f0cd9699476e359c2ec6d5d281\jetified-appcompat-resources-1.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\bcdb96d706a49a0d24061639c7736998\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\bcdb96d706a49a0d24061639c7736998\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\739d44634dc4be7f5b1d6d4aebce4abb\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\739d44634dc4be7f5b1d6d4aebce4abb\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-fragment:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\bc448d732643df66c6a2759381512e5d\navigation-fragment-2.2.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-fragment:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\bc448d732643df66c6a2759381512e5d\navigation-fragment-2.2.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\f54caa0c69a5f4e9244f8a3aea988d55\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\f54caa0c69a5f4e9244f8a3aea988d55\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\c28ac13800cd020ca675c125a51634f3\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\c28ac13800cd020ca675c125a51634f3\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\bd2077ec41678431f0767af846c5a1c6\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\bd2077ec41678431f0767af846c5a1c6\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\bb29094f61e97ee7a9958a804d106453\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\bb29094f61e97ee7a9958a804d106453\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\12081b42d72dbb5bb7456e89ac571010\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\12081b42d72dbb5bb7456e89ac571010\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.transition:transition:1.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\192e405a1345aa0aa5e44f56852a2fb2\transition-1.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.transition:transition:1.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\192e405a1345aa0aa5e44f56852a2fb2\transition-1.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\f16bfeb20960ea9cefcb0f135c68159d\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\f16bfeb20960ea9cefcb0f135c68159d\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.fragment:fragment:1.2.4] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\ea4c424d889b98f6e7fdaa81ecc57a49\fragment-1.2.4\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.fragment:fragment:1.2.4] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\ea4c424d889b98f6e7fdaa81ecc57a49\fragment-1.2.4\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.media:media:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\bdada5da95230ad1a6056e93bb66ca97\media-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.media:media:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\bdada5da95230ad1a6056e93bb66ca97\media-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\9d350d472b60be29bf15c7614c1b971f\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\9d350d472b60be29bf15c7614c1b971f\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\489f0d3da0ff5773b2ded616d6985de0\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\489f0d3da0ff5773b2ded616d6985de0\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\295e3904f7399dadaf499d866a15a36d\viewpager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\295e3904f7399dadaf499d866a15a36d\viewpager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\5b8a70499d57ee43c6a8b75cdc9e040c\slidingpanelayout-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\5b8a70499d57ee43c6a8b75cdc9e040c\slidingpanelayout-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.customview:customview:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\185996642ab21955d49531b557eb5938\customview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.customview:customview:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\185996642ab21955d49531b557eb5938\customview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.loader:loader:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\62c543c98fcc515b7872396c2ce2bc67\loader-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.loader:loader:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\62c543c98fcc515b7872396c2ce2bc67\loader-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.navigation:navigation-runtime:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\7cea3a152d31888183ca451825027e52\navigation-runtime-2.2.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-runtime:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\7cea3a152d31888183ca451825027e52\navigation-runtime-2.2.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.activity:activity:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\2ab0cffdfbcf766b5c2d42a3871b7fcd\jetified-activity-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.activity:activity:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\2ab0cffdfbcf766b5c2d42a3871b7fcd\jetified-activity-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-common:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\d9703ea0d11bc1f304ade33d9ea95113\navigation-common-2.2.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-common:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\d9703ea0d11bc1f304ade33d9ea95113\navigation-common-2.2.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\019578ed058c12f475c96909476f3770\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\019578ed058c12f475c96909476f3770\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\6019b0a4664849b1c9341d139e344c20\asynclayoutinflater-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\6019b0a4664849b1c9341d139e344c20\asynclayoutinflater-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.core:core:1.3.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\5724419690274871c2fb5f6254f4f3e7\core-1.3.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.core:core:1.3.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\5724419690274871c2fb5f6254f4f3e7\core-1.3.2\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\e8cb2c101b6e10cb0c16ee11bec66721\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\e8cb2c101b6e10cb0c16ee11bec66721\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\ab8ce4c1cc4cf449286283d97134645d\cardview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\ab8ce4c1cc4cf449286283d97134645d\cardview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\9e1e04a78fbfbb7ad32217e669b5f477\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\9e1e04a78fbfbb7ad32217e669b5f477\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\420b01c2d5bdc654455efaa038dd04d3\jetified-lifecycle-viewmodel-savedstate-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\420b01c2d5bdc654455efaa038dd04d3\jetified-lifecycle-viewmodel-savedstate-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\e75dcdfc5a5392a681c6446684f1c95b\lifecycle-viewmodel-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\e75dcdfc5a5392a681c6446684f1c95b\lifecycle-viewmodel-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\2aa5e5a6a997d5c7425ecea4df76cd34\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\2aa5e5a6a997d5c7425ecea4df76cd34\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\e14c3a491da697ff1b36d79431b00169\lifecycle-livedata-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\e14c3a491da697ff1b36d79431b00169\lifecycle-livedata-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\d9e70afc14bd431b1200c57e318054e0\lifecycle-livedata-core-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\d9e70afc14bd431b1200c57e318054e0\lifecycle-livedata-core-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\5cbc89502a319375fe3d3baa8bb73643\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\5cbc89502a319375fe3d3baa8bb73643\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\02549924bd91c3a197cdc3f69b59ac10\lifecycle-runtime-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\02549924bd91c3a197cdc3f69b59ac10\lifecycle-runtime-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\46e8c764e0241f676ba20f04d5de20b2\documentfile-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\46e8c764e0241f676ba20f04d5de20b2\documentfile-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\7ed92a56e2e7dd67f210f86ab2e63bd1\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\7ed92a56e2e7dd67f210f86ab2e63bd1\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.print:print:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\3c42045a155e351cc7f8e9e2f8558ce6\print-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.print:print:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\3c42045a155e351cc7f8e9e2f8558ce6\print-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\64e415f501163b45103f528322069681\interpolator-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\64e415f501163b45103f528322069681\interpolator-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\15aa155ad0ec2eb1991fa443b30ecfef\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\15aa155ad0ec2eb1991fa443b30ecfef\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
-INJECTED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\d70c1cd28eebc433449c011b1e71afc0\navigation-fragment-ktx-2.2.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\d70c1cd28eebc433449c011b1e71afc0\navigation-fragment-ktx-2.2.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment-ktx:1.2.4] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\69a96fcf65db360c6133c0ee80b0b9d0\jetified-fragment-ktx-1.2.4\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment-ktx:1.2.4] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\69a96fcf65db360c6133c0ee80b0b9d0\jetified-fragment-ktx-1.2.4\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-ui-ktx:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\270e97a10d392033c165415e2da3680d\navigation-ui-ktx-2.2.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-ui-ktx:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\270e97a10d392033c165415e2da3680d\navigation-ui-ktx-2.2.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\938499e1512608a39ce086181320a582\navigation-runtime-ktx-2.2.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\938499e1512608a39ce086181320a582\navigation-runtime-ktx-2.2.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity-ktx:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\b450e802cbd033f02c9f9d1fdc65bc92\jetified-activity-ktx-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity-ktx:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\b450e802cbd033f02c9f9d1fdc65bc92\jetified-activity-ktx-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core-ktx:1.3.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\d68f0c720b5a07aca71c83de751fea17\jetified-core-ktx-1.3.2\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.core:core-ktx:1.3.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\d68f0c720b5a07aca71c83de751fea17\jetified-core-ktx-1.3.2\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\ee8ecbdc9cc7ff04b7ba216872280776\jetified-lifecycle-livedata-ktx-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\ee8ecbdc9cc7ff04b7ba216872280776\jetified-lifecycle-livedata-ktx-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\a207696f8dd2900742b1f1e7f6e88456\jetified-lifecycle-viewmodel-ktx-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\a207696f8dd2900742b1f1e7f6e88456\jetified-lifecycle-viewmodel-ktx-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\7562ed0451dcc1657b5016eae6c76aa0\jetified-lifecycle-runtime-ktx-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\7562ed0451dcc1657b5016eae6c76aa0\jetified-lifecycle-runtime-ktx-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\1b85dfe34f0c749577d84086982ebfdd\jetified-lifecycle-livedata-core-ktx-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\1b85dfe34f0c749577d84086982ebfdd\jetified-lifecycle-livedata-core-ktx-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-common-ktx:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\a2ad3da34bd7c1fe2b8774459ad0b4a9\navigation-common-ktx-2.2.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-common-ktx:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\a2ad3da34bd7c1fe2b8774459ad0b4a9\navigation-common-ktx-2.2.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-ui:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\bdc510e4de6caf874d399b4ac872c155\navigation-ui-2.2.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-ui:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\bdc510e4de6caf874d399b4ac872c155\navigation-ui-2.2.2\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.material:material:1.3.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\293d13a4407b1aeddb34482b8213a7d0\material-1.3.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.3.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\293d13a4407b1aeddb34482b8213a7d0\material-1.3.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\0f7e22744f71ef00e6245ab144eb5f4b\constraintlayout-2.0.4\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\0f7e22744f71ef00e6245ab144eb5f4b\constraintlayout-2.0.4\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\3d06b478e61e33d212e67b3cc8ac278c\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\3d06b478e61e33d212e67b3cc8ac278c\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\0671c010b7c88c841e52afca294b1706\jetified-appcompat-resources-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\0671c010b7c88c841e52afca294b1706\jetified-appcompat-resources-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\8d892b1d1bd71a0f3f06a1fa5c541282\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\8d892b1d1bd71a0f3f06a1fa5c541282\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\de4cc8687f8dced84bfc18adb06e2e6e\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\de4cc8687f8dced84bfc18adb06e2e6e\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-fragment:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\3b896e80233b635dc5da802851524587\navigation-fragment-2.2.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-fragment:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\3b896e80233b635dc5da802851524587\navigation-fragment-2.2.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\923cc9aca7418847c66de793d3ef5d62\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\923cc9aca7418847c66de793d3ef5d62\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\0b1317b5a2d879b8d0cd3f4723b27da1\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\0b1317b5a2d879b8d0cd3f4723b27da1\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\91c1c8d9e6475e13186442cbcfae951d\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\91c1c8d9e6475e13186442cbcfae951d\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\095636558aee9be22e35c986ed684835\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\095636558aee9be22e35c986ed684835\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\e1c8df8fd63a90a2414beeeef22b7100\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\e1c8df8fd63a90a2414beeeef22b7100\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\1c737a6fefb1c51be6a476eafd3c80ee\transition-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\1c737a6fefb1c51be6a476eafd3c80ee\transition-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\e8fab2bf8da1d3af729b8ce85c260358\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\e8fab2bf8da1d3af729b8ce85c260358\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.2.4] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\a7c60cd27f60e6cb0ec18e1a3bacb121\fragment-1.2.4\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.2.4] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\a7c60cd27f60e6cb0ec18e1a3bacb121\fragment-1.2.4\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.media:media:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\898d39500520bd1b4c207ee3c761483f\media-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\898d39500520bd1b4c207ee3c761483f\media-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\fa248bda4259c500e69a8208a9cfc07a\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\fa248bda4259c500e69a8208a9cfc07a\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\ce4a0e7f1e6c1f7c67a9a3e4474dee02\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\ce4a0e7f1e6c1f7c67a9a3e4474dee02\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\eb5209f88512ee4618b4b68d06d7d0e3\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\eb5209f88512ee4618b4b68d06d7d0e3\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\a2bdc3acdbd51df75cf2034cc3df9f15\slidingpanelayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\a2bdc3acdbd51df75cf2034cc3df9f15\slidingpanelayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\aba334f1b1fbe1ca849e8823158f677c\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\aba334f1b1fbe1ca849e8823158f677c\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\e916ae023e850873ddbb9101bc5af7f7\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\e916ae023e850873ddbb9101bc5af7f7\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\db12c5a392b878a690468513625e6c15\navigation-runtime-2.2.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-runtime:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\db12c5a392b878a690468513625e6c15\navigation-runtime-2.2.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\7c0e05f07c50237d762f77dbfade3c4a\jetified-activity-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\7c0e05f07c50237d762f77dbfade3c4a\jetified-activity-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-common:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\5f605f0086e87f5d9c5340a60dcdb4f3\navigation-common-2.2.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-common:2.2.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\5f605f0086e87f5d9c5340a60dcdb4f3\navigation-common-2.2.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\672fd8d35664c6c0683b6e9d11deb5f9\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\672fd8d35664c6c0683b6e9d11deb5f9\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\f01aca3324eb41b8c6e10662b201e654\asynclayoutinflater-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\f01aca3324eb41b8c6e10662b201e654\asynclayoutinflater-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.3.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\5bf85e75b2855e89d2acbda576ada631\core-1.3.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.3.2] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\5bf85e75b2855e89d2acbda576ada631\core-1.3.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\09d21d0b7c130cb56690f9b506bc14d1\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\09d21d0b7c130cb56690f9b506bc14d1\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\7408ea0664800e5b8584088e1e0ed9c6\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\7408ea0664800e5b8584088e1e0ed9c6\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\c379cc2c62c37fb0fd623c9684d499a8\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\c379cc2c62c37fb0fd623c9684d499a8\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\476518ac90d512dc92e37af436e7702e\jetified-lifecycle-viewmodel-savedstate-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\476518ac90d512dc92e37af436e7702e\jetified-lifecycle-viewmodel-savedstate-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\37db281264d4fa2d38652773bc62ec63\lifecycle-viewmodel-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\37db281264d4fa2d38652773bc62ec63\lifecycle-viewmodel-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\48db6fed9c60f8f7e1776a70b835075a\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\48db6fed9c60f8f7e1776a70b835075a\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\f5c5510ec99d8a24f6c16a27e6d06fae\lifecycle-livedata-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\f5c5510ec99d8a24f6c16a27e6d06fae\lifecycle-livedata-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\a9e0f4a5189fef2e0f70983c403e2c49\lifecycle-livedata-core-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\a9e0f4a5189fef2e0f70983c403e2c49\lifecycle-livedata-core-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\c707783a1916cf57eaaa42e03a3175a0\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\c707783a1916cf57eaaa42e03a3175a0\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\c4924924f58f4a0399d0bc00f559adb1\lifecycle-runtime-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\c4924924f58f4a0399d0bc00f559adb1\lifecycle-runtime-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\6c4784efc1e1c93dd058a243869ac008\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\6c4784efc1e1c93dd058a243869ac008\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\69a28a81a15f8650033897b301309277\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\69a28a81a15f8650033897b301309277\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\c7c4ca02d2f1c0cd3f7afc525d09c13d\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\c7c4ca02d2f1c0cd3f7afc525d09c13d\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\2b49efe633671c2fbe52f8ad64b741bc\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\2b49efe633671c2fbe52f8ad64b741bc\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\d276a79ea58989c5ea1191200bdff61b\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\CHOI AREUM\.gradle\caches\transforms-2\files-2.1\d276a79ea58989c5ea1191200bdff61b\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
+INJECTED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\CHOI AREUM\AndroidStudioProjects\KAUMobile\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\CHOI AREUM\Documents\GitHub\KAUMobile\Android Studio 4.0\KAUMobile\app\src\main\AndroidManifest.xml
