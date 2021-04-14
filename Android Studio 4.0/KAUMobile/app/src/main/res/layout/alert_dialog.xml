@@ -4,34 +4,10 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="28dp"
-        android:text="타이틀" />
-
-    <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/describeText"
         android:layout_width="match_parent"
         android:layout_height="85dp"
         android:gravity="center"
         android:text="설명" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="취소" />
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="right"
-            android:text="확인" />
-    </LinearLayout>
 
 </LinearLayout>

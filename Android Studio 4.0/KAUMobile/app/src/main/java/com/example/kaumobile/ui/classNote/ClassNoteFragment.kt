@@ -1,6 +1,7 @@
 package com.example.kaumobile.ui.classNote
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -15,6 +16,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kaumobile.R
+import com.example.sswolf.kausugang.Seong.NoteActivity
 import com.example.sswolf.kausugang.Seong.TemplateAdapter
 import com.example.sswolf.kausugang.Seong.TemplateItem
 
@@ -22,6 +24,7 @@ import com.example.sswolf.kausugang.Seong.TemplateItem
 class ClassNoteFragment : Fragment() {
     var SubjectTmp = listOf<String>( "안드로이드", "요하문명의 이해", "모바일SW스튜디오")
     var pos = 0
+    lateinit var ctx:Context
     private lateinit var classNoteViewModel: ClassNoteViewModel
 
     override fun onCreateView(
@@ -45,32 +48,40 @@ class ClassNoteFragment : Fragment() {
         return root
     }
 
-
-    override fun onClick(v: View?) {
-        when(v?.id){
-            R.id.previewButton->{
-                //알림창
-                val infalter = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-                val popup = infalter.inflate(R.layout.alert_dialog, null)
-
-                val popup = AlertDialog.Builder(this)
-                    .setTitle("AlertDialog CreateNote")
-                    .setPositiveButton("확인"){
-                        //노트 액티비티로 이동
-                    }
-                    .setNeutralButton("취소",null)
-                    .create()
-
-            }
-            R.id.reviewButton->{
-                //preview와 동일
-            }
-            R.id.uploadButton{
-                //과제 업로드로 연결
-            }
-
-        }
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        ctx = context
     }
+
+//    override fun onClick(v: View) {
+//        when(v.id){
+//            R.id.previewButton->{
+//                //알림창
+//
+//                val view = layoutInflater.inflate(R.layout.alert_dialog, null)
+//
+//                val popup = AlertDialog.Builder(ctx)
+//                    .setTitle("AlertDialog CreateNote")
+//                    .setPositiveButton("확인"){ dialog, which ->
+//                        val intent = Intent(ctx, NoteActivity::class.java)
+//                        startActivity(intent)
+//                    }
+//                    .setNeutralButton("취소",null)
+//                    .create()
+//
+//                popup.setView(view)
+//                popup.show()
+//
+//            }
+//            R.id.reviewButton->{
+//                //preview와 동일
+//            }
+//            R.id.uploadButton->{
+//                //과제 업로드로 연결
+//            }
+//
+//        }
+//    }
 
 
     fun getPrevClass(){

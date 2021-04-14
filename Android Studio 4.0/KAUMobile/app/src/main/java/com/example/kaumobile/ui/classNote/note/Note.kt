@@ -4,6 +4,6 @@ enum class NoteType {
     PREVIEW, REVIEW
 }
 
-class Note( var title: String, var content: String, var time: String, var type: NoteType) {
+class Note( var type: NoteType, var num: Int, var content: String) {
 
 }
