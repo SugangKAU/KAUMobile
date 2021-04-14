@@ -39,8 +39,8 @@ class Holder(itemView: View): RecyclerView.ViewHolder(itemView){
             itemView.findViewById<ImageButton>(R.id.previewButton).setOnClickListener{
             val intent = Intent(itemView.context, NoteActivity::class.java)
             startActivity(itemView.context, intent, null) }
-        if (item.hasReview) itemView.findViewById<ImageButton>(R.id.reviewButton).setImageResource(R.drawable.ic_is_note_true)
-            itemView.findViewById<ImageButton>(R.id.reviewButton).setOnClickListener{
+        if (item.hasReview) itemView.findViewById<ImageButton>(R.id.uploadButton).setImageResource(R.drawable.ic_is_note_true)
+            itemView.findViewById<ImageButton>(R.id.uploadButton).setOnClickListener{
             val intent = Intent(itemView.context, NoteActivity::class.java)
                 startActivity(itemView.context, intent, null) }
             itemView.findViewById<ImageButton>(R.id.uploadButton).setOnClickListener{

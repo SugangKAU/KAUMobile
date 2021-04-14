@@ -1,10 +1,13 @@
 package com.example.sswolf.kausugang.Seong
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
-import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 import com.example.kaumobile.R
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
@@ -35,7 +38,18 @@ class NoteActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when(v?.id){
             R.id.okButton->{
-                //파이어베이스에 전송
+                //알림창
+                val infalter = ContextCompat.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+                val popup = infalter.inflate(R.layout.alert_dialog, null)
+
+                val popup = AlertDialog.Builder(this)
+                    .setTitle("AlertDialog CreateNote")
+                    .setPositiveButton("확인"){
+                        //노트 클래스 생성
+                    }
+                    .setNeutralButton("취소",null)
+                    .create()
+
             }
             R.id.cancelButton->{
                 //뒤로가기
