@@ -66,7 +66,7 @@ class NoteActivity : AppCompatActivity(){
     fun saveFirebase(){
         var firebaseRef = database
         val text = findViewById<EditText>(R.id.editText).text.toString()
-        firebaseRef.setValue(text)
+        firebaseRef.child(num.toString()+"주차"+noteType).setValue(text)
     }
 
 //    override fun onClick(v: View) {
