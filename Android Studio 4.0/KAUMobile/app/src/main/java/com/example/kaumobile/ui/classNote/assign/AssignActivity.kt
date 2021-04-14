@@ -1,4 +1,4 @@
-package com.example.kaumobile.ui.assign
+package com.example.kaumobile.ui.classNote.assign
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

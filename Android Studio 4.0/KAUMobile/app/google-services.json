@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "746221025344",
+    "project_id": "kausugang-afa1d",
+    "storage_bucket": "kausugang-afa1d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:746221025344:android:129f24d16c914c00ca07a5",
+        "android_client_info": {
+          "package_name": "com.example.kaumobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "746221025344-6acds92437knste1jnl16l327ilacrl9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADqMUw6X4u1j6Tjxxw3EyYFwg2_ZBcrgM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "746221025344-6acds92437knste1jnl16l327ilacrl9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -6,12 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
-import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kaumobile.R
-import com.example.kaumobile.ui.assign.AssignActivity
-import com.google.android.material.internal.ContextUtils.getActivity
+import com.example.kaumobile.ui.classNote.assign.AssignActivity
 
 data class TemplateItem(var no: Int, var hasPreview: Boolean, var hasReview: Boolean, var hasAssign: Boolean)
 
