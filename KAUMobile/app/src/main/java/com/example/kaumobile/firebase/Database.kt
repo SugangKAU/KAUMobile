@@ -18,7 +18,7 @@ class Database {
           //어플 처음 실행시 Document 생성
          this.name = name
           val default_setting = hashMapOf(
-               now_semester to "현재수강학기",
+              "현재수강학기" to now_semester,
               //listOf<String>("") to "지난수강학기"
           )
           dbHandler.collection("User")
@@ -39,7 +39,7 @@ class Database {
          var current: Any? = null
          user.get()
              .addOnSuccessListener { document ->
-                current = document["현재수강학기"]
+                current = document.data!!["현재수강학기"]
                  Log.d(TAG,current.toString())
              }.addOnFailureListener { exception ->
                  Log.d("ERR", "Load failed", exception)
@@ -122,12 +122,14 @@ class Database {
      fun addNewSubject(className:String, profName:String, classRoom:String, time:String){
           //현재 학기에 새로운 과목 추가
           val data = hashMapOf(
-              className to "강의명",
-              profName to "교수명",
-              classRoom to "강의실",
-              time to "강의시간"
+              "강의명" to className,
+              "교수명" to profName,
+              "강의실" to classRoom,
+              "강의시간" to time
           )
-          val currentSemester = getCurrentSemester()
+          val currentSemester = getSemester(now_semester)
+          Log.d(TAG, "??")
+          Log.d(TAG,currentSemester.id+" aa")
           currentSemester.document(className).set(data)
      }
 
