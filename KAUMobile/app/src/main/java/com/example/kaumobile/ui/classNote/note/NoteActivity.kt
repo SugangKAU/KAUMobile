@@ -41,7 +41,9 @@ class NoteActivity : AppCompatActivity(){
         findViewById<Button>(R.id.okButton).setOnClickListener{
             showDialog()
         }
-        findViewById<Button>(R.id.cancelButton).setOnClickListener{}
+        findViewById<Button>(R.id.cancelButton).setOnClickListener{
+            onBackPressed()
+        }
 
         FirebaseApp.initializeApp(this)
       //  database = Firebase.database.reference
