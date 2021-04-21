@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.kaumobile.R
 import com.example.kaumobile.ui.classNote.assign.AssignActivity
 
-data class TemplateItem(var no: Int, var hasPreview: Boolean, var hasReview: Boolean, var hasAssign: Boolean)
+data class TemplateItem(var no: Int, var subject: String, var hasPreview: Boolean, var hasReview: Boolean, var hasAssign: Boolean)
 
 class TemplateAdapter : RecyclerView.Adapter<Holder>(){
 
@@ -38,13 +38,25 @@ class Holder(itemView: View): RecyclerView.ViewHolder(itemView){
         if (item.hasPreview) itemView.findViewById<ImageButton>(R.id.previewButton).setImageResource(R.drawable.ic_is_note_true)
             itemView.findViewById<ImageButton>(R.id.previewButton).setOnClickListener{
             val intent = Intent(itemView.context, NoteActivity::class.java)
+
+                intent.putExtra("subject", item.subject)
+                intent.putExtra("notetype","예습")
+                intent.putExtra("no",item.no)
             startActivity(itemView.context, intent, null) }
         if (item.hasReview) itemView.findViewById<ImageButton>(R.id.uploadButton).setImageResource(R.drawable.ic_is_note_true)
             itemView.findViewById<ImageButton>(R.id.uploadButton).setOnClickListener{
             val intent = Intent(itemView.context, NoteActivity::class.java)
+
+                intent.putExtra("subject", item.subject)
+                intent.putExtra("notetype","복습")
+                intent.putExtra("no",item.no)
                 startActivity(itemView.context, intent, null) }
-            itemView.findViewById<ImageButton>(R.id.uploadButton).setOnClickListener{
+
+        itemView.findViewById<ImageButton>(R.id.uploadButton).setOnClickListener{
             val intent = Intent(itemView.context, AssignActivity::class.java)
+
+                intent.putExtra("subject", item.subject)
+                intent.putExtra("no",item.no)
             startActivity(itemView.context, intent, null) }
     }
 }

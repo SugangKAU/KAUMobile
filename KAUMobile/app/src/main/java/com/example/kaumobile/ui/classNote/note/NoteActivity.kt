@@ -22,9 +22,10 @@ import com.google.firebase.ktx.Firebase
 
 class NoteActivity : AppCompatActivity(){
 
-    val subject = Subject("안드로이드","김철기","과학관 212","목요일 9시~13시")
-    val noteType: String = "복습"
-    val num: Int = 1
+   // var subject = Subject("안드로이드","김철기","과학관 212","목요일 9시~13시")
+    var subject = "안드로이드"
+    var noteType: String = "복습"
+    var num: Int = 1
     lateinit var note: EditText
     //lateinit var database : DatabaseReference
 
@@ -36,7 +37,13 @@ class NoteActivity : AppCompatActivity(){
 
         note = findViewById<EditText>(R.id.note)
 
-        findViewById<TextView>(R.id.textClass).text = subject.className
+        val intent = intent.extras
+        subject = intent!!.getString("subject").toString()
+        noteType = intent!!.getString("notetype").toString()
+        num = intent!!.getInt("no")
+
+
+        findViewById<TextView>(R.id.textClass).text = subject
         findViewById<TextView>(R.id.textNoteTitle).text = noteType + "노트 - " + num + "주차"
         findViewById<Button>(R.id.okButton).setOnClickListener{
             showDialog()
@@ -68,7 +75,7 @@ class NoteActivity : AppCompatActivity(){
                 Log.d("NoteActivity", name )
                 Log.d("NoteActivity", db.getSemester("2021년 1학기").id )
                 db.loadSubject("2021년 1학기", "안드로이드")
-                db.createNote(this.subject.className, this.noteType, note.text.toString())
+                db.createNote(this.subject, this.noteType, note.text.toString())
             }
             .setNeutralButton("취소",null)
             .create()
