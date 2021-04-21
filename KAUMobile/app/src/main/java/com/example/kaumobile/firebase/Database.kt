@@ -40,10 +40,11 @@ class Database {
          user.get()
              .addOnSuccessListener { document ->
                 current = document.data!!["현재수강학기"]
-                 Log.d(TAG,current.toString())
+                 Log.d(TAG,current.toString()+"!")
              }.addOnFailureListener { exception ->
                  Log.d("ERR", "Load failed", exception)
              }
+//         Log.d(TAG,current.toString()+"!!!")
           return getSemester(current.toString())
      }
 
