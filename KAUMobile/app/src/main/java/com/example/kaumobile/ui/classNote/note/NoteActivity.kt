@@ -3,6 +3,7 @@ package com.example.sswolf.kausugang.Seong
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
@@ -12,6 +13,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import com.example.kaumobile.R
+import com.example.kaumobile.firebase.Database
 import com.google.firebase.FirebaseApp
 //import com.google.firebase.database.DatabaseReference
 //import com.google.firebase.database.ktx.database
@@ -21,8 +23,9 @@ import com.google.firebase.ktx.Firebase
 class NoteActivity : AppCompatActivity(){
 
     val subject = Subject("안드로이드","김철기","과학관 212","목요일 9시~13시")
-    val noteType: String = "예습"
+    val noteType: String = "복습"
     val num: Int = 1
+    lateinit var note: EditText
     //lateinit var database : DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +33,8 @@ class NoteActivity : AppCompatActivity(){
         setContentView(R.layout.activity_note)
 
         // subject = intent.getextra
+
+        note = findViewById<EditText>(R.id.note)
 
         findViewById<TextView>(R.id.textClass).text = subject.className
         findViewById<TextView>(R.id.textNoteTitle).text = noteType + "노트 - " + num + "주차"
@@ -55,7 +60,13 @@ class NoteActivity : AppCompatActivity(){
             .setTitle("노트 저장")
             .setPositiveButton("확인"){ dialog, which->
               //  saveFirebase()
-                //노트 클래스 생성
+                val db = Database()
+                db.addNewUser("Cheol Gi")
+                val name = db.getCurrentSemester().id
+                Log.d("NoteActivity", name )
+                Log.d("NoteActivity", db.getSemester("2021년 1학기").id )
+                db.loadSubject("2021년 1학기", "안드로이드")
+                db.createNote(this.subject.className, this.noteType, note.text.toString())
             }
             .setNeutralButton("취소",null)
             .create()
