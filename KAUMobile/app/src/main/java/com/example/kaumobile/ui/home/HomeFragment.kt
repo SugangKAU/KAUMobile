@@ -70,9 +70,9 @@ class HomeFragment : Fragment() {
                 var edit3: EditText? = alert.findViewById<EditText>(R.id.edit_classroom_add)
             }
 
-            val weekSpinner = root.findViewById<Spinner>(R.id.spinner_week_add)
-            weekSpinner?.adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, weekList)
-            weekSpinner?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            val weekSpinner = v1.findViewById<Spinner>(R.id.spinner_week_add)
+            weekSpinner.adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, weekList)
+            weekSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                     when(position) {
                         0   ->  {
@@ -91,7 +91,7 @@ class HomeFragment : Fragment() {
                 }
             }
 
-            val startTimeSpinner = root.findViewById<Spinner>(R.id.spinner_starttime_add)
+            val startTimeSpinner = v1.findViewById<Spinner>(R.id.spinner_starttime_add)
             startTimeSpinner?.adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, timeList)
             startTimeSpinner?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -100,7 +100,7 @@ class HomeFragment : Fragment() {
                 }
             }
 
-            val endTimeSpinner = root.findViewById<Spinner>(R.id.spinner_endtime_add)
+            val endTimeSpinner = v1.findViewById<Spinner>(R.id.spinner_endtime_add)
             endTimeSpinner?.adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, timeList)
             endTimeSpinner?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
