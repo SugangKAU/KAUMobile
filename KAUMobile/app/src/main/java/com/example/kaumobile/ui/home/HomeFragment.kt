@@ -12,12 +12,18 @@ import com.example.kaumobile.R
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.navigation.Navigation
+import com.example.kaumobile.firebase.Database
 
 class HomeFragment : Fragment() {
-    private var year = 2021;
-    private var semester = 1;
+    private var year = 2021
+    private var semester = 1
+    private var weekNum = 0
+    private var startTimeNum = 0
+    private var endTimeNum = 0
     private val weekList = arrayOf("월요일","화요일","수요일","목요일","금요일")
-    private val timeList = arrayOf("9시","10시","11시","12시","13시","14시","15시","16시","17시","18시")
+    private val weekList2 = arrayOf("월","화","수","목","금")
+    private val timeList = arrayOf("9","10","11시","12시","13시","14시","15시","16시","17시","18시")
+    private val timeList2 = arrayOf("0900","1000","1100","1200","1300","1400","1500","1600","1700","1800")
 
     private lateinit var homeViewModel: HomeViewModel
 
@@ -68,42 +74,36 @@ class HomeFragment : Fragment() {
                 var edit1: EditText? = alert.findViewById<EditText>(R.id.edit_classname_add)
                 var edit2: EditText? = alert.findViewById<EditText>(R.id.edit_professor_add)
                 var edit3: EditText? = alert.findViewById<EditText>(R.id.edit_classroom_add)
+
+                Database().addNewSubject("${edit1?.text}", "${edit2?.text}", "${edit3?.text}",
+                    weekList2[weekNum]+timeList2[startTimeNum]+timeList2[endTimeNum])
             }
 
             val weekSpinner = v1.findViewById<Spinner>(R.id.spinner_week_add)
             weekSpinner.adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, weekList)
             weekSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                    when(position) {
-                        0   ->  {
-                        }
-                        1   ->  {
-                        }
-                        2   ->  {
-                        }
-                        3   ->  {
-                        }
-                        else -> {
-                        }
-                    }
+                    weekNum = position
                 }
                 override fun onNothingSelected(parent: AdapterView<*>?) {
                 }
             }
 
             val startTimeSpinner = v1.findViewById<Spinner>(R.id.spinner_starttime_add)
-            startTimeSpinner?.adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, timeList)
-            startTimeSpinner?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            startTimeSpinner.adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, timeList)
+            startTimeSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                    startTimeNum = position
                 }
                 override fun onNothingSelected(parent: AdapterView<*>?) {
                 }
             }
 
             val endTimeSpinner = v1.findViewById<Spinner>(R.id.spinner_endtime_add)
-            endTimeSpinner?.adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, timeList)
-            endTimeSpinner?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            endTimeSpinner.adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, timeList)
+            endTimeSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                    endTimeNum = position
                 }
                 override fun onNothingSelected(parent: AdapterView<*>?) {
                 }
