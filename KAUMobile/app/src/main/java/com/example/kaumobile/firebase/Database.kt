@@ -9,13 +9,14 @@ import java.util.*
 
 
 class Database {
-     val name = "KAU" // 앱 시작시 지정
-     val now_semester = "2021년 1학기"
+     var name = "KAU" // 앱 시작시 지정
+     var now_semester = "2021년 1학기"
      val dbHandler: FirebaseFirestore = FirebaseFirestore.getInstance()
     val TAG = "DEBUG"
 
      fun addNewUser(name: String) {
           //어플 처음 실행시 Document 생성
+         this.name = name
           val default_setting = hashMapOf(
                now_semester to "현재수강학기",
               //listOf<String>("") to "지난수강학기"
