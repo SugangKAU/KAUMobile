@@ -1,29 +1,23 @@
 package com.example.kaumobile.ui.home
 
+import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.kaumobile.R
-import android.graphics.Color
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
-import androidx.fragment.app.findFragment
-import com.example.kaumobile.ui.classNote.ClassNoteFragment
-import com.example.kaumobile.ui.grade.GradeFragment
-import com.example.kaumobile.ui.notifications.NotificationsFragment
-import com.example.kaumobile.ui.notifications.NotificationsViewModel
+import androidx.navigation.Navigation
 
 class HomeFragment : Fragment() {
-    var year = 2021;
-    var semester = 1;
-    var list_of_week = arrayOf("월요일","화요일","수요일","목요일","금요일")
-    var list_of_time = arrayOf("9시","10시","11시","12시","13시","14시","15시","16시","17시","18시")
+    private var year = 2021;
+    private var semester = 1;
+    private val weekList = arrayOf("월요일","화요일","수요일","목요일","금요일")
+    private val timeList = arrayOf("9시","10시","11시","12시","13시","14시","15시","16시","17시","18시")
 
     private lateinit var homeViewModel: HomeViewModel
 
@@ -39,15 +33,15 @@ class HomeFragment : Fragment() {
         root.findViewById<TextView>(R.id.text_main_semester).setText(year.toString() + "년도 " + semester.toString() + "학기")
 
         root.findViewById<View>(R.id.button_main_notifications).setOnClickListener {
-            requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, NotificationsFragment()).commit()
+            Navigation.findNavController(root).navigate(R.id.action_navigation_home_to_navigation_notifications)
         }
 
         root.findViewById<View>(R.id.button_class1).setOnClickListener {
-            requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, ClassNoteFragment()).commit()
+            Navigation.findNavController(root).navigate(R.id.action_navigation_home_to_navigation_classnote)
         }
 
         root.findViewById<View>(R.id.button_main_grade).setOnClickListener {
-            requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, GradeFragment()).commit()
+            Navigation.findNavController(root).navigate(R.id.action_navigation_home_to_navigation_grade)
         }
 
         root.findViewById<View>(R.id.button_main_prevsemester).setOnClickListener {
@@ -76,14 +70,44 @@ class HomeFragment : Fragment() {
                 var edit3: EditText? = alert.findViewById<EditText>(R.id.edit_classroom_add)
             }
 
-            /*root.findViewById<Spinner>(R.id.spinner_week_add).adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, list_of_week)
+            val weekSpinner = v1.findViewById<Spinner>(R.id.spinner_week_add)
+            weekSpinner.adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, weekList)
+            weekSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                    when(position) {
+                        0   ->  {
+                        }
+                        1   ->  {
+                        }
+                        2   ->  {
+                        }
+                        3   ->  {
+                        }
+                        else -> {
+                        }
+                    }
+                }
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                }
+            }
 
-            root.findViewById<Spinner>(R.id.spinner_week_add).onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            val startTimeSpinner = v1.findViewById<Spinner>(R.id.spinner_starttime_add)
+            startTimeSpinner?.adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, timeList)
+            startTimeSpinner?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 }
                 override fun onNothingSelected(parent: AdapterView<*>?) {
                 }
-            }*/
+            }
+
+            val endTimeSpinner = v1.findViewById<Spinner>(R.id.spinner_endtime_add)
+            endTimeSpinner?.adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, timeList)
+            endTimeSpinner?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                }
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                }
+            }
 
             builder.setPositiveButton("입력", listener)
             builder.setNegativeButton("취소", null)
