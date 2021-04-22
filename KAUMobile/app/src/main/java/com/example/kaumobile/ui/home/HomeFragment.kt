@@ -22,7 +22,7 @@ class HomeFragment : Fragment() {
     private var endTimeNum = 0
     private val weekList = arrayOf("월요일","화요일","수요일","목요일","금요일")
     private val weekList2 = arrayOf("월","화","수","목","금")
-    private val timeList = arrayOf("9","10","11시","12시","13시","14시","15시","16시","17시","18시")
+    private val timeList = arrayOf("9시","10시","11시","12시","13시","14시","15시","16시","17시","18시")
     private val timeList2 = arrayOf("0900","1000","1100","1200","1300","1400","1500","1600","1700","1800")
 
     private lateinit var homeViewModel: HomeViewModel
