@@ -16,14 +16,17 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kaumobile.R
+import com.example.kaumobile.firebase.Database
 import com.example.sswolf.kausugang.Seong.NoteActivity
 import com.example.sswolf.kausugang.Seong.TemplateAdapter
 import com.example.sswolf.kausugang.Seong.TemplateItem
 
 
 class ClassNoteFragment : Fragment() {
-    var SubjectTmp = listOf<String>( "안드로이드", "요하문명의 이해", "모바일SW스튜디오")
+    lateinit var subjectList: MutableList<String>
     var pos = 0
+    var subjectName = "안드로이드"
+    lateinit var root: View
     lateinit var ctx:Context
     private lateinit var classNoteViewModel: ClassNoteViewModel
 
@@ -33,9 +36,13 @@ class ClassNoteFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
 
-        val root = inflater.inflate(R.layout.fragment_class_note, container, false)
 
-        val template:MutableList<TemplateItem> = loadTemplate()
+        root = inflater.inflate(R.layout.fragment_class_note, container, false)
+
+        val db = Database()
+        subjectList = db.getListSubject()
+
+        var template:MutableList<TemplateItem> = loadTemplate()
         var adapter = TemplateAdapter()
         adapter.listData = template
 
@@ -85,25 +92,52 @@ class ClassNoteFragment : Fragment() {
 
 
     fun getPrevClass(){
-        if(pos-1 < 0) pos = 3
-        pos = (pos-1)%3
-        view?.findViewById<TextView>(R.id.textClass)?.text = "과목명: " + "${SubjectTmp[pos]}"
+        if(pos-1 < 0) pos = subjectList.size
+        pos = (pos-1)%subjectList.size
+        subjectName = subjectList[pos]
+        view?.findViewById<TextView>(R.id.textClass)?.text = "과목명: " + "${subjectList[pos]}"
+
+        var template:MutableList<TemplateItem> = loadTemplate()
+        var adapter = TemplateAdapter()
+        adapter.listData = template
+
+        root!!.findViewById<RecyclerView>(R.id.templateView).adapter = adapter
+        root!!.findViewById<RecyclerView>(R.id.templateView).layoutManager = LinearLayoutManager(context)
+        root!!.findViewById<ImageView>(R.id.btnPrev).setOnClickListener{ getPrevClass() }
+        root!!.findViewById<ImageView>(R.id.btnNext).setOnClickListener { getNextClass() }
         //Log.d("test","Prev+${SubjectTmp[pos]}")
     }
 
     fun getNextClass(){
-        pos = (pos+1)%3
-        view?.findViewById<TextView>(R.id.textClass)?.text = "과목명: " + "${SubjectTmp[pos]}"
-        Log.d("test","Next")
+        pos = (pos+1)%subjectList.size
+        subjectName = subjectList[pos]
+        view?.findViewById<TextView>(R.id.textClass)?.text = "과목명: " + "${subjectList[pos]}"
+
+        var template:MutableList<TemplateItem> = loadTemplate()
+        var adapter = TemplateAdapter()
+        adapter.listData = template
+
+        root!!.findViewById<RecyclerView>(R.id.templateView).adapter = adapter
+        root!!.findViewById<RecyclerView>(R.id.templateView).layoutManager = LinearLayoutManager(context)
+        root!!.findViewById<ImageView>(R.id.btnPrev).setOnClickListener{ getPrevClass() }
+        root!!.findViewById<ImageView>(R.id.btnNext).setOnClickListener { getNextClass() }
     }
 
     fun loadTemplate(): MutableList<TemplateItem> {
         val data:MutableList<TemplateItem> = mutableListOf()
         for (no in 1..16){
-            data.add(TemplateItem(no, true, false, false))
+            data.add( setTemplateItem(no) )
         }
 
         return data
+    }
+
+    fun setTemplateItem(no:Int): TemplateItem{
+        val db = Database()
+
+
+
+        return TemplateItem(no, subjectName, true, false, true)
     }
 
 

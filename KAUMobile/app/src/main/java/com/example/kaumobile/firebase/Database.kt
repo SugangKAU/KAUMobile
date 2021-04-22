@@ -40,10 +40,11 @@ class Database {
          user.get()
              .addOnSuccessListener { document ->
                 current = document.data!!["현재수강학기"]
-                 Log.d(TAG,current.toString())
+                 Log.d(TAG,current.toString()+"!")
              }.addOnFailureListener { exception ->
                  Log.d("ERR", "Load failed", exception)
              }
+//         Log.d(TAG,current.toString()+"!!!")
           return getSemester(current.toString())
      }
 
@@ -80,7 +81,7 @@ class Database {
 
      //수강 과목 관련
 
-     fun getListSubject(semester: String): MutableList<String>{
+     fun getListSubject(semester: String = now_semester): MutableList<String>{
           //학기를 입력으로 받아 과목 리스트 호출
          var listSubject = mutableListOf<String>()
          val term = getSemester(semester)
@@ -135,6 +136,12 @@ class Database {
 
      fun deleteSubject(){
           //현재 학기에서 기존 과목 제거
+     }
+
+     //수강 노트 관련
+
+     fun getItem(subject: String, no: Int){
+
      }
 
      //노트 관련
