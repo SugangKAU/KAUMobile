@@ -96,39 +96,11 @@
         app:layout_constraintHeight_percent="0.4">
 
         <LinearLayout
+            android:id="@+id/button_view"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/button_class1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:text="안드로이드\n\n김철수\n\n수요일 10시 ~ 13시"
-                android:longClickable="true"
-                app:backgroundTint="#9C27B0" />
-
-            <Button
-                android:id="@+id/button_class2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:text="요하문명의 이해\n\n우실하\n\n금요일 10시 ~ 13시"
-                android:longClickable="true"
-                app:backgroundTint="#3F51B5" />
-
-            <Button
-                android:id="@+id/button_class3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:text="모바일SW스튜디오\n\n김철기\n\n목요일 9시 ~ 13시"
-                android:longClickable="true"
-                app:backgroundTint="#2196F3" />
         </LinearLayout>
     </HorizontalScrollView>
 

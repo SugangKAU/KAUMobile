@@ -2,6 +2,7 @@ package com.example.kaumobile.ui.home
 
 import android.content.Context
 import android.content.DialogInterface
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -20,10 +21,12 @@ class HomeFragment : Fragment() {
     private var weekNum = 0
     private var startTimeNum = 0
     private var endTimeNum = 0
+    private var classNum = 0
     private val weekList = arrayOf("월요일","화요일","수요일","목요일","금요일")
     private val weekList2 = arrayOf("월","화","수","목","금")
     private val timeList = arrayOf("9시","10시","11시","12시","13시","14시","15시","16시","17시","18시")
     private val timeList2 = arrayOf("0900","1000","1100","1200","1300","1400","1500","1600","1700","1800")
+    private val colorList = arrayOf("#481677", "#7410d0", "#a648ff", "#115586", "#4a7eb2", "#0080ff", "#8977ad", "#de00e0", "#f34e00", "#cc4600")
 
     private lateinit var homeViewModel: HomeViewModel
 
@@ -36,14 +39,18 @@ class HomeFragment : Fragment() {
             ViewModelProvider(this).get(HomeViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
 
+        val buttonView = root.findViewById<LinearLayout>(R.id.button_view)
+        val dynamicClass = Array(20){Button(requireContext())}
+        val layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT
+        )
+        layoutParams.setMargins(changeDP(10), 0, changeDP(10), 0)
+
         root.findViewById<TextView>(R.id.text_main_semester).setText(year.toString() + "년도 " + semester.toString() + "학기")
 
         root.findViewById<View>(R.id.button_main_notifications).setOnClickListener {
             Navigation.findNavController(root).navigate(R.id.action_navigation_home_to_navigation_notifications)
-        }
-
-        root.findViewById<View>(R.id.button_class1).setOnClickListener {
-            Navigation.findNavController(root).navigate(R.id.action_navigation_home_to_navigation_classnote)
         }
 
         root.findViewById<View>(R.id.button_main_grade).setOnClickListener {
@@ -77,6 +84,17 @@ class HomeFragment : Fragment() {
 
                 Database().addNewSubject("${edit1?.text}", "${edit2?.text}", "${edit3?.text}",
                     weekList2[weekNum]+timeList2[startTimeNum]+timeList2[endTimeNum])
+
+                dynamicClass[classNum].layoutParams = layoutParams
+                dynamicClass[classNum].setText("${edit1?.text}\n\n${edit2?.text}\n\n${edit3?.text}\n\n" +
+                        "${weekList[weekNum]} ${timeList[startTimeNum]} ~ ${timeList[endTimeNum]}")
+                dynamicClass[classNum].width = changeDP(170)
+                dynamicClass[classNum].setBackgroundColor(Color.parseColor(colorList[classNum]))
+                dynamicClass[classNum].setTextColor(Color.parseColor("#FFFFFF"))
+                buttonView.addView(dynamicClass[classNum])
+                classNum++
+
+                weekNum = 0; startTimeNum = 0; endTimeNum = 0
             }
 
             val weekSpinner = v1.findViewById<Spinner>(R.id.spinner_week_add)
@@ -115,54 +133,30 @@ class HomeFragment : Fragment() {
             builder.show()
         }
 
-        root.findViewById<View>(R.id.button_class1).setOnLongClickListener {
-            var builder = AlertDialog.Builder(requireContext())
-            builder.setTitle("강의 삭제")
+        for(i in 0..classNum-1) {
+            dynamicClass[i].setOnLongClickListener {
+                var builder = AlertDialog.Builder(requireContext())
+                builder.setTitle("강의 삭제")
 
-            var v1 = layoutInflater.inflate(R.layout.delete_dialog, null)
-            builder.setView(v1)
+                var v1 = layoutInflater.inflate(R.layout.delete_dialog, null)
+                builder.setView(v1)
 
-            var listener = DialogInterface.OnClickListener { p0, p1 -> }
+                var listener2 = DialogInterface.OnClickListener { p0, p1 -> }
 
-            builder.setPositiveButton("삭제", listener)
-            builder.setNegativeButton("취소", null)
+                builder.setPositiveButton("삭제", listener2)
+                builder.setNegativeButton("취소", null)
 
-            builder.show()
-            true
-        }
-
-        root.findViewById<View>(R.id.button_class2).setOnLongClickListener {
-            var builder = AlertDialog.Builder(requireContext())
-            builder.setTitle("강의 삭제")
-
-            var v1 = layoutInflater.inflate(R.layout.delete_dialog, null)
-            builder.setView(v1)
-
-            var listener = DialogInterface.OnClickListener { p0, p1 -> }
-
-            builder.setPositiveButton("삭제", listener)
-            builder.setNegativeButton("취소", null)
-
-            builder.show()
-            true
-        }
-
-        root.findViewById<View>(R.id.button_class3).setOnLongClickListener {
-            var builder = AlertDialog.Builder(requireContext())
-            builder.setTitle("강의 삭제")
-
-            var v1 = layoutInflater.inflate(R.layout.delete_dialog, null)
-            builder.setView(v1)
-
-            var listener = DialogInterface.OnClickListener { p0, p1 -> }
-
-            builder.setPositiveButton("삭제", listener)
-            builder.setNegativeButton("취소", null)
-
-            builder.show()
-            true
+                builder.show()
+                true
+            }
         }
 
         return root
+    }
+
+    private fun changeDP(value : Int) : Int{
+        var displayMetrics = resources.displayMetrics
+        var dp = Math.round(value * displayMetrics.density)
+        return dp
     }
 }
