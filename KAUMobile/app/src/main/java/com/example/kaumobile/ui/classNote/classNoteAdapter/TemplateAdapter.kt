@@ -35,21 +35,27 @@ class TemplateAdapter : RecyclerView.Adapter<Holder>(){
 class Holder(itemView: View): RecyclerView.ViewHolder(itemView){
     fun setItem(item: TemplateItem){
         itemView.findViewById<TextView>(R.id.weekNum).text = "${item.no}주차"
+
         if (item.hasPreview) itemView.findViewById<ImageButton>(R.id.previewButton).setImageResource(R.drawable.ic_is_note_true)
-            itemView.findViewById<ImageButton>(R.id.previewButton).setOnClickListener{
+
+        itemView.findViewById<ImageButton>(R.id.previewButton).setOnClickListener{
             val intent = Intent(itemView.context, NoteActivity::class.java)
 
                 intent.putExtra("subject", item.subject)
                 intent.putExtra("notetype","예습")
                 intent.putExtra("no",item.no)
+
             startActivity(itemView.context, intent, null) }
-        if (item.hasReview) itemView.findViewById<ImageButton>(R.id.uploadButton).setImageResource(R.drawable.ic_is_note_true)
-            itemView.findViewById<ImageButton>(R.id.uploadButton).setOnClickListener{
+
+        if (item.hasReview) itemView.findViewById<ImageButton>(R.id.reviewButton).setImageResource(R.drawable.ic_is_note_true)
+
+        itemView.findViewById<ImageButton>(R.id.reviewButton).setOnClickListener{
             val intent = Intent(itemView.context, NoteActivity::class.java)
 
                 intent.putExtra("subject", item.subject)
                 intent.putExtra("notetype","복습")
                 intent.putExtra("no",item.no)
+
                 startActivity(itemView.context, intent, null) }
 
         itemView.findViewById<ImageButton>(R.id.uploadButton).setOnClickListener{

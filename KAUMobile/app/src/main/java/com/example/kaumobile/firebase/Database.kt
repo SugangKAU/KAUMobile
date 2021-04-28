@@ -23,7 +23,7 @@ class Database {
           )
           dbHandler.collection("User")
                   .document(name).set(default_setting)
-          Log.d("TAG","successfully add new user ${name}.")
+          Log.d("INIT","successfully add new user ${name}.")
      }
 
      fun getUser():DocumentReference {
@@ -40,7 +40,7 @@ class Database {
          user.get()
              .addOnSuccessListener { document ->
                 current = document.data!!["현재수강학기"]
-                 Log.d(TAG,current.toString()+"!")
+                 Log.d(TAG,"Load current Semester: "+current.toString()+"!")
              }.addOnFailureListener { exception ->
                  Log.d("ERR", "Load failed", exception)
              }
@@ -63,9 +63,9 @@ class Database {
             .addOnSuccessListener { document ->
                 if (document!=null){
                     lastSemesterList = document["지난수강학기"]
-                    Log.d(TAG, "${document.data}")
+                    Log.d("GET", "${document.data}")
                 }else{
-                    Log.d(TAG,"No Such Name")
+                    Log.d("GET","No Such Name")
                 }
 
             }.addOnFailureListener { exception ->
@@ -92,7 +92,7 @@ class Database {
                        for (document in documents) {
                            listSubject.add(document.id)
                        }
-                       Log.d("TAG","Success load:: ${listSubject}")
+                       Log.d("LIST","Success load:: ${listSubject}")
                   }
                   .addOnFailureListener {
                        Log.w("Error", "Load subject failed ")
@@ -101,7 +101,12 @@ class Database {
 
      }
 
-     fun loadSubject(semester: String, name: String): Map<String, Any>?{
+     fun getSubject(semester: String = now_semester, name: String): DocumentReference{
+
+         return getSemester(semester).document(name)
+     }
+
+     fun loadSubject(semester: String = now_semester, name: String): Map<String, Any>?{
           //과목에 대한 정보 호출
          var ret: Map<String, Any>? = null
          val term = getSemester(semester)
@@ -110,8 +115,8 @@ class Database {
              .get()
              .addOnSuccessListener { document->
                  ret = document.data
-                 Log.d(TAG,"${ret}")
-                 Log.d(TAG,"${ret!!["강의명"]}")
+                 Log.d("LOAD_SUBJECT","${ret}")
+                 Log.d("LOAD_SUBJECT","${ret!!["강의명"]}")
              }.addOnFailureListener { exception ->
                  Log.d("ERR", "Load failed", exception)
              }
@@ -129,9 +134,18 @@ class Database {
               "강의시간" to time
           )
           val currentSemester = getSemester(now_semester)
-          Log.d(TAG, "??")
-          Log.d(TAG,currentSemester.id+" aa")
           currentSemester.document(className).set(data)
+
+          val classNoteRef = getSubject(name = className).collection("수강노트")
+
+          val init = hashMapOf(
+                  "예습노트유무" to 0,
+                  "복습노트유무" to 0
+          )
+
+          for (no in 1..16){
+              classNoteRef.document(no.toString()+"주차").set(init)
+          }
      }
 
      fun deleteSubject(){
@@ -146,13 +160,16 @@ class Database {
 
      //노트 관련
 
-     fun createNote(subject: String, type: String, text: String){
+     fun createNote(subject: String, num: String, type: String, text: String){
           //노트 추가
           val note = hashMapOf(
-                  type to text
+                  type+"노트" to text
           )
-          getCurrentSemester().document(subject).collection("classNote")
-                  .document("1주차").update(type, text)
+          Log.d("CREATENOTE", "semester: ${subject}, type: ${type}, text: ${text}")
+          getSubject(name = subject).collection("수강노트")
+                  .document(num).set(note)
+          getSubject(name = subject).collection("수강노트")
+                  .document(num).update(type+"노트유무",1)
      }
 
      fun editNote(){

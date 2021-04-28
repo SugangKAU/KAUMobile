@@ -3,6 +3,7 @@ package com.example.kaumobile.ui.classNote
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -20,15 +21,22 @@ import com.example.kaumobile.firebase.Database
 import com.example.sswolf.kausugang.Seong.NoteActivity
 import com.example.sswolf.kausugang.Seong.TemplateAdapter
 import com.example.sswolf.kausugang.Seong.TemplateItem
+import com.google.firebase.firestore.DocumentReference
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 
 class ClassNoteFragment : Fragment() {
     lateinit var subjectList: MutableList<String>
+    lateinit var classReference: DocumentReference
     var pos = 0
-    var subjectName = "안드로이드"
+    var subjectName = "ㄱㄱㄱㄱ"
     lateinit var root: View
     lateinit var ctx:Context
     private lateinit var classNoteViewModel: ClassNoteViewModel
+
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -39,8 +47,11 @@ class ClassNoteFragment : Fragment() {
 
         root = inflater.inflate(R.layout.fragment_class_note, container, false)
 
-        val db = Database()
-        subjectList = db.getListSubject()
+        val db = Database() //db 객체 생성
+        subjectList = mutableListOf<String>("ㄱㄱㄱㄱ")
+
+        subjectName = subjectList[0]
+        classReference = db.getSubject(name = subjectName)
 
         var template:MutableList<TemplateItem> = loadTemplate()
         var adapter = TemplateAdapter()
@@ -52,6 +63,8 @@ class ClassNoteFragment : Fragment() {
         root.findViewById<ImageView>(R.id.btnPrev).setOnClickListener{ getPrevClass() }
         root.findViewById<ImageView>(R.id.btnNext).setOnClickListener { getNextClass() }
 
+        Log.d("!!!","${subjectList}")
+
         return root
     }
 
@@ -60,7 +73,73 @@ class ClassNoteFragment : Fragment() {
         ctx = context
     }
 
-//    override fun onClick(v: View) {
+
+    fun getPrevClass(){
+        Log.d("!!!","${subjectList}")
+        if(pos-1 < 0) pos = subjectList.size
+        pos = (pos-1)%subjectList.size
+        subjectName = subjectList[pos]
+        view?.findViewById<TextView>(R.id.textClass)?.text = "과목명: " + "${subjectList[pos]}"
+
+        var template:MutableList<TemplateItem> = loadTemplate()
+        var adapter = TemplateAdapter()
+        adapter.listData = template
+
+        root!!.findViewById<RecyclerView>(R.id.templateView).adapter = adapter
+        root!!.findViewById<RecyclerView>(R.id.templateView).layoutManager = LinearLayoutManager(context)
+        root!!.findViewById<ImageView>(R.id.btnPrev).setOnClickListener{ getPrevClass() }
+        root!!.findViewById<ImageView>(R.id.btnNext).setOnClickListener { getNextClass() }
+    }
+
+    fun getNextClass(){
+        pos = (pos+1)%subjectList.size
+        subjectName = subjectList[pos]
+        view?.findViewById<TextView>(R.id.textClass)?.text = "과목명: " + "${subjectList[pos]}"
+
+        var template:MutableList<TemplateItem> = loadTemplate()
+        var adapter = TemplateAdapter()
+        adapter.listData = template
+
+        root!!.findViewById<RecyclerView>(R.id.templateView).adapter = adapter
+        root!!.findViewById<RecyclerView>(R.id.templateView).layoutManager = LinearLayoutManager(context)
+        root!!.findViewById<ImageView>(R.id.btnPrev).setOnClickListener{ getPrevClass() }
+        root!!.findViewById<ImageView>(R.id.btnNext).setOnClickListener { getNextClass() }
+    }
+
+    fun loadTemplate(): MutableList<TemplateItem> {
+        val data:MutableList<TemplateItem> = mutableListOf()
+        for (no in 1..16){
+            data.add( setTemplateItem(no) )
+        }
+
+        return data
+    }
+
+    fun setTemplateItem(no:Int): TemplateItem{
+
+        val no_text = no.toString() + "주차"
+        val hasPreview = checkNote(no_text,"예습노트유무")
+        val hasReview = checkNote(no_text, "복습노트유무")
+
+        return TemplateItem(no, subjectName, true, false, true)
+    }
+
+    fun checkNote(no: String, type: String): Any?{
+
+        var ret: Any? = null
+
+        classReference.collection("수강노트").document(no).get()
+                .addOnSuccessListener { document->
+                    ret = document[type]!!
+                }
+                .addOnFailureListener {
+
+                }
+
+        return ret
+    }
+
+    //    override fun onClick(v: View) {
 //        when(v.id){
 //            R.id.previewButton->{
 //                //알림창
@@ -89,56 +168,5 @@ class ClassNoteFragment : Fragment() {
 //
 //        }
 //    }
-
-
-    fun getPrevClass(){
-        if(pos-1 < 0) pos = subjectList.size
-        pos = (pos-1)%subjectList.size
-        subjectName = subjectList[pos]
-        view?.findViewById<TextView>(R.id.textClass)?.text = "과목명: " + "${subjectList[pos]}"
-
-        var template:MutableList<TemplateItem> = loadTemplate()
-        var adapter = TemplateAdapter()
-        adapter.listData = template
-
-        root!!.findViewById<RecyclerView>(R.id.templateView).adapter = adapter
-        root!!.findViewById<RecyclerView>(R.id.templateView).layoutManager = LinearLayoutManager(context)
-        root!!.findViewById<ImageView>(R.id.btnPrev).setOnClickListener{ getPrevClass() }
-        root!!.findViewById<ImageView>(R.id.btnNext).setOnClickListener { getNextClass() }
-        //Log.d("test","Prev+${SubjectTmp[pos]}")
-    }
-
-    fun getNextClass(){
-        pos = (pos+1)%subjectList.size
-        subjectName = subjectList[pos]
-        view?.findViewById<TextView>(R.id.textClass)?.text = "과목명: " + "${subjectList[pos]}"
-
-        var template:MutableList<TemplateItem> = loadTemplate()
-        var adapter = TemplateAdapter()
-        adapter.listData = template
-
-        root!!.findViewById<RecyclerView>(R.id.templateView).adapter = adapter
-        root!!.findViewById<RecyclerView>(R.id.templateView).layoutManager = LinearLayoutManager(context)
-        root!!.findViewById<ImageView>(R.id.btnPrev).setOnClickListener{ getPrevClass() }
-        root!!.findViewById<ImageView>(R.id.btnNext).setOnClickListener { getNextClass() }
-    }
-
-    fun loadTemplate(): MutableList<TemplateItem> {
-        val data:MutableList<TemplateItem> = mutableListOf()
-        for (no in 1..16){
-            data.add( setTemplateItem(no) )
-        }
-
-        return data
-    }
-
-    fun setTemplateItem(no:Int): TemplateItem{
-        val db = Database()
-
-
-
-        return TemplateItem(no, subjectName, true, false, true)
-    }
-
 
 }

@@ -25,7 +25,7 @@ class NoteActivity : AppCompatActivity(){
    // var subject = Subject("안드로이드","김철기","과학관 212","목요일 9시~13시")
     var subject = "안드로이드"
     var noteType: String = "복습"
-    var num: Int = 1
+    var num: String = "1주차"
     lateinit var note: EditText
     //lateinit var database : DatabaseReference
 
@@ -40,11 +40,11 @@ class NoteActivity : AppCompatActivity(){
         val intent = intent.extras
         subject = intent!!.getString("subject").toString()
         noteType = intent!!.getString("notetype").toString()
-        num = intent!!.getInt("no")
+        num = intent!!.getInt("no").toString() + "주차"
 
 
         findViewById<TextView>(R.id.textClass).text = subject
-        findViewById<TextView>(R.id.textNoteTitle).text = noteType + "노트 - " + num + "주차"
+        findViewById<TextView>(R.id.textNoteTitle).text = noteType + "노트 - " + num
         findViewById<Button>(R.id.okButton).setOnClickListener{
             showDialog()
         }
@@ -70,12 +70,12 @@ class NoteActivity : AppCompatActivity(){
             .setPositiveButton("확인"){ dialog, which->
               //  saveFirebase()
                 val db = Database()
-                db.addNewUser("Cheol Gi")
+                //db.addNewUser("Cheol Gi")
                 val name = db.getCurrentSemester().id
-                Log.d("NoteActivity", name )
-                Log.d("NoteActivity", db.getSemester("2021년 1학기").id )
+                Log.d("NoteActivity", "name: " + name )
+                Log.d("NoteActivity", "semester: " + db.getSemester("2021년 1학기").id )
                 db.loadSubject("2021년 1학기", "안드로이드")
-                db.createNote(this.subject, this.noteType, note.text.toString())
+                db.createNote(this.subject, this.num,this.noteType, note.text.toString())
             }
             .setNeutralButton("취소",null)
             .create()
