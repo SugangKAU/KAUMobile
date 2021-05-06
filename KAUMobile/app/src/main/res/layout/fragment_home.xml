@@ -6,16 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-    <SearchView
+    <AutoCompleteTextView
         android:id="@+id/search_class"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:iconifiedByDefault="false"
+        android:hint="강의명을 입력해주세요"
+        android:maxLines="3"
+        app:layout_constraintEnd_toStartOf="@+id/button_main_search"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.8"
+        app:layout_constraintWidth_percent="0.65"
         tools:visibility="visible" />
+
+    <Button
+        android:id="@+id/button_main_search"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:text="이동"
+        android:backgroundTint="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/search_class"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scroll_main_class" />
 
     <ImageButton
         android:id="@+id/button_main_notifications"
