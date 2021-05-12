@@ -63,7 +63,8 @@ class HomeFragment : Fragment() {
 //        }
 
         // 검색 텍스트뷰, 버튼 기능
-        val classList = mutableListOf<String>("안드로이드 기초", "요하문명의 이해", "모바일SW스튜디오", "동양철학의 이해", "안드로이드 심화")
+        //val classList = mutableListOf<String>("안드로이드 기초", "요하문명의 이해", "모바일SW스튜디오", "동양철학의 이해", "안드로이드 심화")
+        val classList = mutableListOf<String>()
         //val classList = subjectList?.toMutableList()
         val searchAdapter = ArrayAdapter<String>(requireContext(), android.R.layout.simple_dropdown_item_1line, classList!!)
 
@@ -83,9 +84,6 @@ class HomeFragment : Fragment() {
         // 이동 버튼 리스너
         root.findViewById<Button>(R.id.button_main_search).setOnClickListener {
             // 검색어를 포함하는 강의가 있는지 검사
-            //val classList = subjectList?.toMutableList()
-            //val searchAdapter = ArrayAdapter<String>(requireContext(), android.R.layout.simple_dropdown_item_1line, classList!!)
-            //root.findViewById<AutoCompleteTextView>(R.id.search_class).setAdapter(searchAdapter)
             var searchNum = -1
             for (i in 0 until classList!!.size){
                 if(classList[i].contains(root.findViewById<AutoCompleteTextView>(R.id.search_class).text)){
@@ -156,6 +154,8 @@ class HomeFragment : Fragment() {
                     Toast.makeText(requireContext(), toastMessage, Toast.LENGTH_SHORT).show()
                 }
                 else {
+                    classList.add(edit1?.text.toString())   //******임시*******
+                    searchAdapter.notifyDataSetChanged()
                     // 데이터베이스에 새로운 강의 내용 추가
                     Database().addNewSubject("${edit1?.text}", "${edit2?.text}", "${edit3?.text}",
                         weekList2[weekNum] + timeList2[startTimeNum] + timeList2[endTimeNum])
@@ -186,6 +186,8 @@ class HomeFragment : Fragment() {
                         // 강의 삭제 다이얼로그
                         var listener2 = DialogInterface.OnClickListener { p0, p1 ->
                             val num = it.id
+                            classList.removeAt(num)  //******임시*******
+                            searchAdapter.notifyDataSetChanged()
                             buttonView.removeView(it)  // 현재 버튼 삭제
                             // 뒤에 있는 동적버튼 한칸씩 이동
                             for (i in num + 1 until classNum) {

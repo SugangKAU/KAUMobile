@@ -7,17 +7,175 @@
     tools:context=".ui.grade.GradeFragment">
 
     <TextView
-        android:id="@+id/text_grade"
-        android:layout_width="match_parent"
+        android:id="@+id/text_grade_semester"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="25dp"
+        android:text="2021년도 1학기"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/button_grade_prevsemester"
+        android:layout_width="15dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginRight="20dp"
+        android:background="@android:color/transparent"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
         app:layout_constraintTop_toTopOf="parent"
-        android:gravity="center_horizontal" />
+        app:layout_constraintEnd_toStartOf="@+id/text_grade_semester"
+        app:srcCompat="@drawable/ic_prev_black"
+        tools:ignore="VectorDrawableCompat" />
+
+    <ImageButton
+        android:id="@+id/button_grade_nextsemester"
+        android:layout_width="15dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginLeft="20dp"
+        android:background="@android:color/transparent"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/text_grade_semester"
+        app:srcCompat="@drawable/ic_next_black"
+        tools:ignore="VectorDrawableCompat" />
+
+    <TextView
+        android:id="@+id/text_grade_subject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="과목명 : 안드로이드"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_grade_semester" />
+
+    <ImageButton
+        android:id="@+id/button_grade_prevsubject"
+        android:layout_width="10dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="60dp"
+        android:background="@android:color/transparent"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        app:layout_constraintTop_toBottomOf="@+id/text_grade_semester"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_prev_black"
+        tools:ignore="VectorDrawableCompat" />
+
+    <ImageButton
+        android:id="@+id/button_grade_nextsubject"
+        android:layout_width="10dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="60dp"
+        android:background="@android:color/transparent"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        app:layout_constraintTop_toBottomOf="@+id/text_grade_semester"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_next_black"
+        tools:ignore="VectorDrawableCompat" />
+
+    <TextView
+        android:id="@+id/text_grade_full_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="종합성적"
+        android:textSize="45sp"
+        app:layout_constraintEnd_toStartOf="@+id/text_grade_full"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_grade_subject"
+        app:layout_constraintBottom_toTopOf="@+id/text_grade_prepare_name" />
+
+    <TextView
+        android:id="@+id/text_grade_full"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="B+"
+        android:textColor="#E01A00"
+        android:textSize="65sp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/text_grade_full_name"
+        app:layout_constraintTop_toBottomOf="@+id/text_grade_subject"
+        app:layout_constraintBottom_toTopOf="@+id/text_grade_prepare" />
+
+    <TextView
+        android:id="@+id/text_grade_prepare_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="예습"
+        android:textSize="45sp"
+        app:layout_constraintEnd_toStartOf="@+id/text_grade_prepare"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_grade_full_name"
+        app:layout_constraintBottom_toTopOf="@+id/text_grade_review_name" />
+
+    <TextView
+        android:id="@+id/text_grade_prepare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="A"
+        android:textColor="#D68000"
+        android:textSize="65sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/text_grade_prepare_name"
+        app:layout_constraintTop_toBottomOf="@+id/text_grade_full"
+        app:layout_constraintBottom_toTopOf="@+id/text_grade_review" />
+
+    <TextView
+        android:id="@+id/text_grade_review_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="복습"
+        android:textSize="45sp"
+        app:layout_constraintEnd_toStartOf="@+id/text_grade_review"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_grade_prepare_name"
+        app:layout_constraintBottom_toTopOf="@+id/text_grade_assign_name" />
+
+    <TextView
+        android:id="@+id/text_grade_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="A"
+        android:textColor="#D68000"
+        android:textSize="65sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/text_grade_review_name"
+        app:layout_constraintTop_toBottomOf="@+id/text_grade_prepare"
+        app:layout_constraintBottom_toTopOf="@+id/text_grade_assign" />
+
+    <TextView
+        android:id="@+id/text_grade_assign_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:text="과제"
+        android:textSize="45sp"
+        app:layout_constraintEnd_toStartOf="@+id/text_grade_assign"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_grade_review_name"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/text_grade_assign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="110dp"
+        android:text="B"
+        android:textColor="#D68000"
+        android:textSize="65sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/text_grade_assign_name"
+        app:layout_constraintTop_toBottomOf="@+id/text_grade_review"
+        app:layout_constraintBottom_toBottomOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
