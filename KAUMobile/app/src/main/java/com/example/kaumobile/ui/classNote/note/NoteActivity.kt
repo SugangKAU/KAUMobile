@@ -20,11 +20,14 @@ import com.google.firebase.FirebaseApp
 import com.google.firebase.ktx.Firebase
 
 
-class NoteActivity : AppCompatActivity(){
+data class Subject(var className:String, var profName:String, var classRoom:String, var classTime:String)
 
-    val subject = Subject("안드로이드","김철기","과학관 212","목요일 9시~13시")
-    val noteType: String = "복습"
-    val num: Int = 1
+class NoteActivity : AppCompatActivity(){
+    private val TAG = "Note"
+    var semester: String = ""
+    var className: String = ""
+    var noteType: String = ""
+    var no: Int = 0
     lateinit var note: EditText
     //lateinit var database : DatabaseReference
 
@@ -32,12 +35,15 @@ class NoteActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_note)
 
-        // subject = intent.getextra
+        semester = intent.getStringExtra("Semester")!!
+        className = intent.getStringExtra("Subject")!!
+        noteType = intent.getStringExtra("Type")!!
+        no = intent.getIntExtra("Week", 0)
 
         note = findViewById<EditText>(R.id.note)
 
-        findViewById<TextView>(R.id.textClass).text = subject.className
-        findViewById<TextView>(R.id.textNoteTitle).text = noteType + "노트 - " + num + "주차"
+        findViewById<TextView>(R.id.textClass).text = className
+        findViewById<TextView>(R.id.textNoteTitle).text = noteType + "노트 - " + no + "주차"
         findViewById<Button>(R.id.okButton).setOnClickListener{
             showDialog()
         }
@@ -61,14 +67,11 @@ class NoteActivity : AppCompatActivity(){
         val popup = AlertDialog.Builder(this)
             .setTitle("노트 저장")
             .setPositiveButton("확인"){ dialog, which->
-              //  saveFirebase()
                 val db = Database()
-                db.addNewUser("Cheol Gi")
-                val name = db.getCurrentSemester().id
-                Log.d("NoteActivity", name )
-                Log.d("NoteActivity", db.getSemester("2021년 1학기").id )
-                db.loadSubject("2021년 1학기", "안드로이드")
-                db.createNote(this.subject.className, this.noteType, note.text.toString())
+                Log.d(TAG,"Create Note")
+                db.createNote(semester, className, noteType, no, note.text.toString())
+                Log.d(TAG,"Done")
+                onBackPressed()
             }
             .setNeutralButton("취소",null)
             .create()

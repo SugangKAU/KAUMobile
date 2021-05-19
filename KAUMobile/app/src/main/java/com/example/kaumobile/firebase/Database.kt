@@ -5,6 +5,7 @@ import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import java.lang.Exception
+import java.text.DecimalFormat
 import java.util.*
 
 
@@ -26,8 +27,9 @@ class Database {
           Log.d("TAG","successfully add new user ${name}.")
      }
 
-     fun getUser():DocumentReference {
+     fun getUser(name:String ="KAU"):DocumentReference {
           //유저 이름 참조 받아오기
+         Log.d("Note","1: " +dbHandler.collection("User").document(name).id)
           return dbHandler.collection("User").document(name)
      }
 
@@ -75,6 +77,7 @@ class Database {
 
     fun getSemester(name: String): CollectionReference{
         val user = getUser()
+        Log.d("Note","2: "+user.collection(name).id)
         return user.collection(name)
     }
 
@@ -100,6 +103,11 @@ class Database {
 
      }
 
+    fun getSubject(semester: String, name: String) : DocumentReference{
+        Log.d("Note",getSemester(semester).document(name).id)
+        return getSemester(semester).document(name)
+    }
+
      fun loadSubject(semester: String, name: String): Map<String, Any>?{
           //과목에 대한 정보 호출
          var ret: Map<String, Any>? = null
@@ -119,19 +127,33 @@ class Database {
 
      }
 
-     fun addNewSubject(className:String, profName:String, classRoom:String, time:String){
-          //현재 학기에 새로운 과목 추가
-          val data = hashMapOf(
-              "강의명" to className,
-              "교수명" to profName,
-              "강의실" to classRoom,
-              "강의시간" to time
-          )
-          val currentSemester = getSemester(now_semester)
-          Log.d(TAG, "??")
-          Log.d(TAG,currentSemester.id+" aa")
-          currentSemester.document(className).set(data)
-     }
+    fun addNewSubject(className:String, profName:String, classRoom:String, time:String) {
+        //현재 학기에 새로운 과목 추가
+        val data = hashMapOf(
+                "강의명" to className,
+                "교수명" to profName,
+                "강의실" to classRoom,
+                "강의시간" to time
+        )
+        val currentSemester = getSemester(now_semester)
+        currentSemester.document(className).set(data)
+
+        val classNoteRef = getSubject(now_semester, className).collection("수강노트")
+
+
+        fun init(no: Int): HashMap<String, Int> {
+            val item = hashMapOf(
+                    "no" to no,
+                    "hasPreview" to 0,
+                    "hasReview" to 0
+            )
+
+            return item
+        }
+        for (no in 1..16) {
+            classNoteRef.document(DecimalFormat("000").format(no) + "주차").set(init(no))
+        }
+    }
 
      fun deleteSubject(){
           //현재 학기에서 기존 과목 제거
@@ -139,17 +161,25 @@ class Database {
 
      //노트 관련
 
-     fun createNote(subject: String, type: String, text: String){
+     fun createNote(semester: String, subject: String, type: String, no:Int, text: String){
           //노트 추가
-          val note = hashMapOf(
-                  type to text
-          )
-          getCurrentSemester().document(subject).collection("classNote")
-                  .document("1주차").update(type, text)
+         Log.d("Note", "Note: ${semester} ${subject} ${type} ${no} ${text}")
+         var noteRef =  getSubject(semester, subject)
+         noteRef = noteRef.collection("수강노트")
+                 .document(DecimalFormat("000").format(no) + "주차")
+         Log.d("Note", "${noteRef.id}")
+         Log.d("Note", "${text}")
+         noteRef.collection("텍스트").document(DecimalFormat("000").format(no)).set(hashMapOf("text" to  text))
+         if(type == "예습") noteRef.update("hasPreview",1)
+         else if (type == "복습") noteRef.update("hasReview",1)
+         Log.d("Note", "Done")
      }
 
-     fun editNote(){
+     fun editNote(semester: String, subject: String, type: String, no:Int, text: String){
           //노트 수정
+         var noteRef =  getSubject(semester, subject)
+         noteRef = noteRef.collection("수강노트")
+                 .document(DecimalFormat("000").format(no) + "주차")
      }
 
      fun delNote(){

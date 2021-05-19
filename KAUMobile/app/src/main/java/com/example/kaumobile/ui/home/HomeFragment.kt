@@ -17,8 +17,8 @@ import com.example.kaumobile.R
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.core.os.bundleOf
+import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
 import com.example.kaumobile.firebase.Database
 
 class HomeFragment : Fragment() {
@@ -30,8 +30,11 @@ class HomeFragment : Fragment() {
     private val timeList = arrayOf("9시","10시","11시","12시","13시","14시","15시","16시","17시","18시")
     private val timeList2 = arrayOf("0900","1000","1100","1200","1300","1400","1500","1600","1700","1800")
     private val colorList = arrayOf("#481677", "#7410d0", "#a648ff", "#115586", "#4a7eb2", "#0080ff", "#8977ad", "#de00e0", "#f34e00", "#cc4600")
-
     private lateinit var homeViewModel: HomeViewModel
+    private var init = 2
+
+    var classList : ArrayList<String> = arrayListOf()
+    var subjectInfoList : ArrayList<Subject> = arrayListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,6 +44,7 @@ class HomeFragment : Fragment() {
         homeViewModel =
             ViewModelProvider(this).get(HomeViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
+
 
         // 동적 버튼
         val buttonView = root.findViewById<LinearLayout>(R.id.button_view)
@@ -53,20 +57,53 @@ class HomeFragment : Fragment() {
         layoutParams.setMargins(changeDP(10), 0, changeDP(10), 0)
         addEmptyButton(buttonView, requireContext())
         // 데이터베이스에서 과목 리스트 받기
-        val subjectList = arguments?.getStringArrayList("subjects")
+      //  val subjectList = arguments?.getStringArrayList("subjects")
         // val bundle = bundleOf("subjects" to subjectList)
 
-        Log.d("???", "${subjectList}")
-
-//        for (i in 0..subjectList!!.size-1){
-//
-//        }
 
         // 검색 텍스트뷰, 버튼 기능
         //val classList = mutableListOf<String>("안드로이드 기초", "요하문명의 이해", "모바일SW스튜디오", "동양철학의 이해", "안드로이드 심화")
-        val classList = mutableListOf<String>()
         //val classList = subjectList?.toMutableList()
         val searchAdapter = ArrayAdapter<String>(requireContext(), android.R.layout.simple_dropdown_item_1line, classList!!)
+
+        val subjectObserver : Observer<ArrayList<Subject>> by lazy {
+            Observer<ArrayList<Subject>>{ _subjectList->
+                if(init>0){
+                    init --
+                    Log.d("???", "Enter init")
+                    Log.d("???","${_subjectList}")
+                    for (i in _subjectList) {
+                        Log.d("???", "${i}")
+                        if (classNum == 0)
+                            buttonView.removeAllViews()
+
+                        classList.add(i.name)
+                        subjectInfoList.add(i)
+                        dynamicClass[classNum].layoutParams = layoutParams
+                        dynamicClass[classNum].id = classNum
+                        dynamicClass[classNum].setText("${i.name}\n\n${i.profName}\n\n${i.classRoom}\n\n" +
+                                i.time)
+                        dynamicClass[classNum].width = changeDP(170)
+                        dynamicClass[classNum].setBackgroundColor(Color.parseColor(colorList[classNum]))
+                        dynamicClass[classNum].setTextColor(Color.parseColor("#FFFFFF"))
+                        buttonView.addView(dynamicClass[classNum])
+                        // 동적버튼 리스너
+                        dynamicClass[classNum].setOnClickListener {
+                            Navigation.findNavController(root).navigate(R.id.action_navigation_home_to_navigation_classnote, bundleOf("subjects" to classList))
+                        }
+
+                        searchAdapter.notifyDataSetChanged()
+                        classNum++
+                    }
+                }
+
+                Log.d("???", "new ${classList}")
+            } }
+
+        homeViewModel.subjectList.observe(viewLifecycleOwner,subjectObserver)
+
+        Log.d("???", "First ${classList}")
+
 
         root.findViewById<AutoCompleteTextView>(R.id.search_class).threshold = 1
         root.findViewById<AutoCompleteTextView>(R.id.search_class).setAdapter(searchAdapter)
@@ -97,7 +134,7 @@ class HomeFragment : Fragment() {
             else if(searchNum == -2)
                 Toast.makeText(requireContext(), "검색어를 포함한 강의가 2개 이상입니다", Toast.LENGTH_SHORT).show()
             else {
-                Navigation.findNavController(root).navigate(R.id.action_navigation_home_to_navigation_classnote, bundleOf("subjects" to subjectList))
+                Navigation.findNavController(root).navigate(R.id.action_navigation_home_to_navigation_classnote, bundleOf("subjects" to this.classList))
             }
         }
 
@@ -173,8 +210,8 @@ class HomeFragment : Fragment() {
                     buttonView.addView(dynamicClass[classNum])
                     // 동적버튼 리스너
                     dynamicClass[classNum].setOnClickListener {
-                        Log.d("toClass", "${subjectList}")
-                        Navigation.findNavController(root).navigate(R.id.action_navigation_home_to_navigation_classnote, bundleOf("subjects" to subjectList))
+                        Log.d("toClass", "${this.classList}")
+                        Navigation.findNavController(root).navigate(R.id.action_navigation_home_to_navigation_classnote, bundleOf("subjects" to this.classList))
                     }
                     // 동적버튼 롱클릭 리스너(삭제)
                     dynamicClass[classNum].setOnLongClickListener {
