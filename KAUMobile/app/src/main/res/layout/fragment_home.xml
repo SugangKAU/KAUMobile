@@ -111,7 +111,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_main_semester"
         app:layout_constraintWidth_percent="0.9"
-        app:layout_constraintHeight_percent="0.4">
+        app:layout_constraintHeight_percent="0.42">
 
         <LinearLayout
             android:id="@+id/button_view"

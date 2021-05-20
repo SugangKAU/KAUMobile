@@ -27,7 +27,7 @@ class HomeFragment : Fragment() {
     private var classNum = 0
     private val weekList = arrayOf("월요일","화요일","수요일","목요일","금요일")
     private val weekList2 = arrayOf("월","화","수","목","금")
-    private val timeList = arrayOf("9시","10시","11시","12시","13시","14시","15시","16시","17시","18시")
+    private val timeList = arrayOf("09시","10시","11시","12시","13시","14시","15시","16시","17시","18시")
     private val timeList2 = arrayOf("0900","1000","1100","1200","1300","1400","1500","1600","1700","1800")
     private val colorList = arrayOf("#481677", "#7410d0", "#a648ff", "#115586", "#4a7eb2", "#0080ff", "#8977ad", "#de00e0", "#f34e00", "#cc4600")
     private lateinit var homeViewModel: HomeViewModel
@@ -81,8 +81,15 @@ class HomeFragment : Fragment() {
                         subjectInfoList.add(i)
                         dynamicClass[classNum].layoutParams = layoutParams
                         dynamicClass[classNum].id = classNum
-                        dynamicClass[classNum].setText("${i.name}\n\n${i.profName}\n\n${i.classRoom}\n\n" +
-                                i.time)
+                        if(i.time == "#")
+                            dynamicClass[classNum].setText("${i.name}\n\n${i.profName}\n\n${i.classRoom}\n\n")
+                        else if(i.time.length <= 12)
+                            dynamicClass[classNum].setText("${i.name}\n\n${i.profName}\n\n${i.classRoom}\n\n" +
+                                "${i.time.substring(1..1)}요일 ${i.time.substring(2..3)}시 ~ ${i.time.substring(6..7)}시")
+                        else
+                            dynamicClass[classNum].setText("${i.name}\n\n${i.profName}\n\n${i.classRoom}\n\n" +
+                                    "${i.time.substring(1..1)}요일 ${i.time.substring(2..3)}시 ~ ${i.time.substring(6..7)}시\n" +
+                                    "${i.time.substring(11..11)}요일 ${i.time.substring(12..13)}시 ~ ${i.time.substring(16..17)}시")
                         dynamicClass[classNum].width = changeDP(170)
                         dynamicClass[classNum].setBackgroundColor(Color.parseColor(colorList[classNum]))
                         dynamicClass[classNum].setTextColor(Color.parseColor("#FFFFFF"))
@@ -163,6 +170,10 @@ class HomeFragment : Fragment() {
             var weekNum = 0
             var startTimeNum = 0
             var endTimeNum = 0
+            var weekNum2 = 0
+            var startTimeNum2 = 0
+            var endTimeNum2 = 0
+            var timeCnt = 1
 
             var builder = AlertDialog.Builder(requireContext())
             builder.setTitle("강의 추가")
@@ -178,15 +189,18 @@ class HomeFragment : Fragment() {
                 var edit3: EditText? = alert.findViewById<EditText>(R.id.edit_classroom_add)
 
                 // 입력 조건을 달성하지 못한 경우 강의 추가 X
-                if(edit1?.text?.trim()?.length == 0 || edit2?.text?.trim()?.length == 0 || startTimeNum >= endTimeNum) {
+                if(edit1?.text?.trim()?.length == 0 || edit2?.text?.trim()?.length == 0 || (timeCnt != 0 && ((startTimeNum >= endTimeNum && timeCnt >= 1) || (startTimeNum2 >= endTimeNum2 && timeCnt == 2)))
+                    || (timeCnt == 2 && weekNum == weekNum2 && ((startTimeNum >= startTimeNum2 && startTimeNum < endTimeNum2) || (startTimeNum2 >= startTimeNum && startTimeNum2 < endTimeNum)))) {
                     var toastMessage = "[강의 추가를 실패하였습니다]"
 
                     if(edit1?.text?.trim()?.length == 0)
                         toastMessage = "$toastMessage\n강의명을 입력해주세요!"
                     if(edit2?.text?.trim()?.length == 0)
                         toastMessage = "$toastMessage\n교수명을 입력해주세요!"
-                    if(startTimeNum >= endTimeNum)
+                    if(timeCnt != 0 && ((startTimeNum >= endTimeNum && timeCnt >= 1) || (startTimeNum2 >= endTimeNum2 && timeCnt == 2)))
                         toastMessage = "$toastMessage\n종료시간이 시작시간보다 같거나 빠릅니다!"
+                    if(timeCnt == 2 && weekNum == weekNum2 && ((startTimeNum >= startTimeNum2 && startTimeNum < endTimeNum2) || (startTimeNum2 >= startTimeNum && startTimeNum2 < endTimeNum)))
+                        toastMessage = "$toastMessage\n강의시간이 서로 겹칩니다!"
 
                     Toast.makeText(requireContext(), toastMessage, Toast.LENGTH_SHORT).show()
                 }
@@ -194,16 +208,28 @@ class HomeFragment : Fragment() {
                     classList.add(edit1?.text.toString())   //******임시*******
                     searchAdapter.notifyDataSetChanged()
                     // 데이터베이스에 새로운 강의 내용 추가
-                    Database().addNewSubject("${edit1?.text}", "${edit2?.text}", "${edit3?.text}",
-                        weekList2[weekNum] + timeList2[startTimeNum] + timeList2[endTimeNum])
+                    if(timeCnt == 0)
+                        Database().addNewSubject("${edit1?.text}", "${edit2?.text}", "${edit3?.text}", "#")
+                    else if(timeCnt == 1)
+                        Database().addNewSubject("${edit1?.text}", "${edit2?.text}", "${edit3?.text}",
+                            "#" + weekList2[weekNum] + timeList2[startTimeNum] + timeList2[endTimeNum])
+                    else
+                        Database().addNewSubject("${edit1?.text}", "${edit2?.text}", "${edit3?.text}",
+                            "#" + weekList2[weekNum] + timeList2[startTimeNum] + timeList2[endTimeNum] + "#" + weekList2[weekNum2] + timeList2[startTimeNum2] + timeList2[endTimeNum2])
                     // 현재 강좌가 없으면 일단 빈 버튼 삭제
                     if (classNum == 0)
-                        buttonView.removeAllViews()
+                        Database()
                     // 새 강의 동적 버튼 추가
                     dynamicClass[classNum].layoutParams = layoutParams
                     dynamicClass[classNum].id = classNum
-                    dynamicClass[classNum].setText("${edit1?.text}\n\n${edit2?.text}\n\n${edit3?.text}\n\n" +
-                            "${weekList[weekNum]} ${timeList[startTimeNum]} ~ ${timeList[endTimeNum]}")
+                    if(timeCnt == 0)
+                        dynamicClass[classNum].setText("${edit1?.text}\n\n${edit2?.text}\n\n${edit3?.text}\n\n")
+                    else if(timeCnt == 1)
+                        dynamicClass[classNum].setText("${edit1?.text}\n\n${edit2?.text}\n\n${edit3?.text}\n\n" +
+                                "${weekList[weekNum]} ${timeList[startTimeNum]} ~ ${timeList[endTimeNum]}")
+                    else
+                        dynamicClass[classNum].setText("${edit1?.text}\n\n${edit2?.text}\n\n${edit3?.text}\n\n" +
+                                "${weekList[weekNum]} ${timeList[startTimeNum]} ~ ${timeList[endTimeNum]}\n${weekList[weekNum2]} ${timeList[startTimeNum2]} ~ ${timeList[endTimeNum2]}")
                     dynamicClass[classNum].width = changeDP(170)
                     dynamicClass[classNum].setBackgroundColor(Color.parseColor(colorList[classNum]))
                     dynamicClass[classNum].setTextColor(Color.parseColor("#FFFFFF"))
@@ -248,6 +274,37 @@ class HomeFragment : Fragment() {
                     classNum++
                 }
             }
+
+            // 강의 시간 추가 버튼
+            v1.findViewById<View>(R.id.button_add_addtime)?.setOnClickListener {
+                if(timeCnt == 1){
+                    timeCnt++
+                    v1.findViewById<View>(R.id.spinner_week_add2).setVisibility(View.VISIBLE)
+                    v1.findViewById<View>(R.id.spinner_starttime_add2).setVisibility(View.VISIBLE)
+                    v1.findViewById<View>(R.id.spinner_endtime_add2).setVisibility(View.VISIBLE)
+                } else if(timeCnt == 0){
+                    timeCnt++
+                    v1.findViewById<View>(R.id.spinner_week_add).setVisibility(View.VISIBLE)
+                    v1.findViewById<View>(R.id.spinner_starttime_add).setVisibility(View.VISIBLE)
+                    v1.findViewById<View>(R.id.spinner_endtime_add).setVisibility(View.VISIBLE)
+                }
+            }
+            // 강의 시간 삭제 버튼
+            v1.findViewById<View>(R.id.button_add_deletetime).setOnClickListener {
+                if(timeCnt == 2){
+                    timeCnt--
+                    v1.findViewById<View>(R.id.spinner_week_add2).setVisibility(View.INVISIBLE)
+                    v1.findViewById<View>(R.id.spinner_starttime_add2).setVisibility(View.INVISIBLE)
+                    v1.findViewById<View>(R.id.spinner_endtime_add2).setVisibility(View.INVISIBLE)
+                }
+                else if(timeCnt == 1){
+                    timeCnt--
+                    v1.findViewById<View>(R.id.spinner_week_add).setVisibility(View.INVISIBLE)
+                    v1.findViewById<View>(R.id.spinner_starttime_add).setVisibility(View.INVISIBLE)
+                    v1.findViewById<View>(R.id.spinner_endtime_add).setVisibility(View.INVISIBLE)
+                }
+            }
+
             // 강의 요일 스피너
             val weekSpinner = v1.findViewById<Spinner>(R.id.spinner_week_add)
             weekSpinner.adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, weekList)
@@ -274,6 +331,36 @@ class HomeFragment : Fragment() {
             endTimeSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                     endTimeNum = position
+                }
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                }
+            }
+            // 2번째 강의 요일 스피너
+            val weekSpinner2 = v1.findViewById<Spinner>(R.id.spinner_week_add2)
+            weekSpinner2.adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, weekList)
+            weekSpinner2.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                    weekNum2 = position
+                }
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                }
+            }
+            // 2번째 강의 시작시간 스피너
+            val startTimeSpinner2 = v1.findViewById<Spinner>(R.id.spinner_starttime_add2)
+            startTimeSpinner2.adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, timeList)
+            startTimeSpinner2.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                    startTimeNum2 = position
+                }
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                }
+            }
+            // 2번째 강의 종료시간 스피너
+            val endTimeSpinner2 = v1.findViewById<Spinner>(R.id.spinner_endtime_add2)
+            endTimeSpinner2.adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, timeList)
+            endTimeSpinner2.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                    endTimeNum2 = position
                 }
                 override fun onNothingSelected(parent: AdapterView<*>?) {
                 }

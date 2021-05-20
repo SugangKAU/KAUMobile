@@ -54,12 +54,34 @@
             android:ems="10"
             android:inputType="textPersonName" />
 
-        <TextView
-            android:id="@+id/text_classtime_add"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="강의 시간(요일, 시작시간, 종료시간)" />
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp" >
+
+            <TextView
+                android:id="@+id/text_classtime_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="강의 시간(요일, 시작시간, 종료시간)" />
+
+            <ImageButton
+                android:id="@+id/button_add_addtime"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="30dp"
+                app:srcCompat="@drawable/ic_plus_20dp"
+                tools:ignore="VectorDrawableCompat" />
+
+            <ImageButton
+                android:id="@+id/button_add_deletetime"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="10dp"
+                app:srcCompat="@drawable/ic_minus_20dp"
+                tools:ignore="VectorDrawableCompat" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -78,6 +100,27 @@
                     android:id="@+id/spinner_endtime_add"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:orientation="horizontal">
+            <Spinner
+                android:id="@+id/spinner_week_add2"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:visibility="invisible" />
+            <Spinner
+                android:id="@+id/spinner_starttime_add2"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:visibility="invisible" />
+            <Spinner
+                android:id="@+id/spinner_endtime_add2"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:visibility="invisible" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

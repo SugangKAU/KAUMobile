@@ -175,15 +175,23 @@ class Database {
          Log.d("Note", "Done")
      }
 
-     fun editNote(semester: String, subject: String, type: String, no:Int, text: String){
-          //노트 수정
-         var noteRef =  getSubject(semester, subject)
-         noteRef = noteRef.collection("수강노트")
+     fun getNote(semester: String, subject: String, type: String, no:Int, text: String): DocumentReference{
+          //노트 가져오기
+         var noteRef =  getSubject(semester, subject).collection("수강노트")
                  .document(DecimalFormat("000").format(no) + "주차")
+                 .collection("텍스트").document(DecimalFormat("000").format(no))
+
+
+         return noteRef
      }
 
-     fun delNote(){
+     fun delNote(semester: String, subject: String, type: String, no:Int){
           //노트 제거
+         var noteRef =  getSubject(semester, subject).collection("수강노트")
+                 .document(DecimalFormat("000").format(no) + "주차")
+         var noteRef2 = noteRef.collection("텍스트").document(DecimalFormat("000").format(no))
+         if(type == "예습") noteRef.update("hasPreview",0)
+         else if (type == "복습") noteRef.update("hasReview",0)
      }
 
 }
