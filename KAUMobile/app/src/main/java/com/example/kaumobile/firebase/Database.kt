@@ -165,6 +165,7 @@ class Database {
                  .document("학습관리")
          Log.d("grade","init")
          val grade = hashMapOf(
+                 "현재 주차" to 0,
                  "총 예습수행" to 0,
                  "총 복습수행" to 0,
                  "총 과제수행" to 0
@@ -206,15 +207,39 @@ class Database {
 
      fun createNote(semester: String, subject: String, type: String, no:Int, text: String){
           //노트 추가
-         var noteRef =  getSubject(semester, subject).collection("수강노트")
+         val noteRef =  getSubject(semester, subject).collection("수강노트")
                  .document(DecimalFormat("000").format(no) + "주차")
+
          Log.d("Note", "${noteRef.id}")
          Log.d("Note", "${text}")
          noteRef.set(hashMapOf("${type}" to text), SetOptions.merge())
-         if(type == "예습") noteRef.update("hasPreview",1)
-         else if (type == "복습") noteRef.update("hasReview",1)
+         if(type == "예습") {
+             noteRef.update("hasPreview", 1)
+             doAssign(semester, subject, type)
+         }
+         else if (type == "복습") {
+             noteRef.update("hasReview",1)
+             doAssign(semester,subject, type)
+         }
          Log.d("Note", "Done")
      }
+
+    fun editNote(semester: String, subject: String, type: String, no:Int, text: String){
+        //노트 추가
+        val noteRef =  getSubject(semester, subject).collection("수강노트")
+                .document(DecimalFormat("000").format(no) + "주차")
+
+        Log.d("Note", "${noteRef.id}")
+        Log.d("Note", "${text}")
+        noteRef.set(hashMapOf("${type}" to text), SetOptions.merge())
+        if(type == "예습") {
+            noteRef.update("hasPreview", 1)
+        }
+        else if (type == "복습") {
+            noteRef.update("hasReview",1)
+        }
+        Log.d("Note", "Done")
+    }
 
      fun getNoteRef(semester: String, subject: String, type: String, no:Int): DocumentReference{
 

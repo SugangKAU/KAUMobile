@@ -29,6 +29,7 @@ class NoteActivity : AppCompatActivity(){
     var className: String = ""
     var noteType: String = ""
     var no: Int = 0
+    var newNote = false
     lateinit var note: EditText
     //lateinit var database : DatabaseReference
 
@@ -51,6 +52,7 @@ class NoteActivity : AppCompatActivity(){
                 Log.d("note", "note success load")
             }catch (e: NullPointerException){
                 Log.d("note", "no field")
+                newNote = true
             }
         }
 
@@ -85,8 +87,14 @@ class NoteActivity : AppCompatActivity(){
             .setTitle("노트 저장")
             .setPositiveButton("확인"){ dialog, which->
                 val db = Database()
-                Log.d(TAG,"Create Note")
-                db.createNote(semester, className, noteType, no, note.text.toString())
+                if (newNote) {
+                    Log.d(TAG,"Create Note")
+                    db.createNote(semester, className, noteType, no, note.text.toString())
+                }
+                else {
+                    Log.d(TAG,"Edit Note")
+                    db.editNote(semester, className, noteType, no, note.text.toString())
+                }
                 Log.d(TAG,"Done")
                 onBackPressed()
             }
