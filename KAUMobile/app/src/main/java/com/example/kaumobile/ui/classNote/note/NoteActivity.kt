@@ -18,6 +18,7 @@ import com.google.firebase.FirebaseApp
 //import com.google.firebase.database.DatabaseReference
 //import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import java.lang.NullPointerException
 
 
 data class Subject(var className:String, var profName:String, var classRoom:String, var classTime:String)
@@ -35,15 +36,24 @@ class NoteActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_note)
 
-        semester = intent.getStringExtra("Semester")!!
-        className = intent.getStringExtra("Subject")!!
-        noteType = intent.getStringExtra("Type")!!
-        no = intent.getIntExtra("Week", 0)
+        get_from_intent()
 
         note = findViewById<EditText>(R.id.note)
 
         findViewById<TextView>(R.id.textClass).text = className
         findViewById<TextView>(R.id.textNoteTitle).text = noteType + "노트 - " + no + "주차"
+
+        val noteRef = Database().getNoteRef(semester, className, noteType, no)
+        noteRef.get().addOnSuccessListener {
+            try{
+                var note_txt = it.get("${noteType}") as String
+                note.setText(note_txt)
+                Log.d("note", "note success load")
+            }catch (e: NullPointerException){
+                Log.d("note", "no field")
+            }
+        }
+
         findViewById<Button>(R.id.okButton).setOnClickListener{
             showDialog()
         }
@@ -54,6 +64,13 @@ class NoteActivity : AppCompatActivity(){
         FirebaseApp.initializeApp(this)
       //  database = Firebase.database.reference
 
+    }
+
+    fun get_from_intent(){
+        semester = intent.getStringExtra("Semester")!!
+        className = intent.getStringExtra("Subject")!!
+        noteType = intent.getStringExtra("Type")!!
+        no = intent.getIntExtra("Week", 0)
     }
 
 

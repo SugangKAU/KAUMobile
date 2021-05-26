@@ -21,16 +21,18 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kaumobile.R
 import com.example.kaumobile.ui.classNote.classNoteAdapter.TemplateItem
+import com.example.kaumobile.ui.home.HomeViewModel
 import com.example.kaumobile.ui.home.Subject
 import com.example.sswolf.kausugang.Seong.NoteActivity
 import com.example.sswolf.kausugang.Seong.TemplateAdapter
-
+import java.lang.Exception
 
 
 class ClassNoteFragment : Fragment() {
-    var subjectList = arrayListOf<String>()
+    var subjectList = arrayListOf<Subject>()
     var pos = 0
     var max = 0
+    lateinit var recycler: RecyclerView
     lateinit var ctx:Context
     private val classNoteViewModel: ClassNoteViewModel by viewModels()
 
@@ -41,26 +43,40 @@ class ClassNoteFragment : Fragment() {
     ): View? {
 
         val root = inflater.inflate(R.layout.fragment_class_note, container, false)
-        var adapter = TemplateAdapter("2021년 1학기","안드")
+       recycler = root.findViewById<RecyclerView>(R.id.templateView)
 
-        classNoteViewModel.classList = requireArguments().get("subjects") as ArrayList<String>
+       try{
+           pos = requireArguments().get("subject") as Int
+           Log.d("ClassNote", "${pos} th subject")
+       }catch (e: Exception){
+           pos = 0
+           Log.d("ERR", "${e}")
+       }
 
-        subjectList = classNoteViewModel.classList
+        subjectList = HomeViewModel.subjectList.value!!
+        classNoteViewModel.subject.value = subjectList[pos]
+
+        root.findViewById<TextView>(R.id.textClass)?.text = "과목명: " + subjectList[pos].name
+
+        var adapter = TemplateAdapter("2021년 1학기",subjectList[pos].name)
+
+        val subjectObserver = Observer<Subject>{
+            view?.findViewById<TextView>(R.id.textClass)?.text = "과목명: " + it.name
+            adapter = TemplateAdapter(it.semester, it.name)
+            recycler.adapter = adapter
+        }
+
         max = subjectList.size
-        root.findViewById<TextView>(R.id.textClass)?.text = "과목명: " + subjectList[0]
 
-        Log.d("!!!","${subjectList}")
         val templateObserver = Observer<ArrayList<TemplateItem>> { template ->
             adapter.listData = template
-            root.findViewById<RecyclerView>(R.id.templateView).adapter = adapter
+            recycler.adapter = adapter
         }
+
+        classNoteViewModel.subject.observe(viewLifecycleOwner, subjectObserver)
         classNoteViewModel.template.observe(viewLifecycleOwner, templateObserver)
 
-        //classNoteViewModel = ViewModelProvider(this).get(ClassNoteViewModel::class.java)
-
-
-
-        root.findViewById<RecyclerView>(R.id.templateView).adapter = adapter
+    root.findViewById<RecyclerView>(R.id.templateView).adapter = adapter
         root.findViewById<RecyclerView>(R.id.templateView).layoutManager = LinearLayoutManager(context)
 
         root.findViewById<ImageView>(R.id.btnPrev).setOnClickListener{ getPrevClass() }
@@ -78,12 +94,12 @@ class ClassNoteFragment : Fragment() {
     fun getPrevClass(){
         if(pos-1 < 0) pos = max
         pos = (pos-1)%max
-        view?.findViewById<TextView>(R.id.textClass)?.text = "과목명: " + subjectList[pos]
+        classNoteViewModel.subject.value = subjectList[pos]
     }
 
     fun getNextClass(){
         pos = (pos+1)%max
-        view?.findViewById<TextView>(R.id.textClass)?.text = "과목명: " + subjectList[pos]
+        classNoteViewModel.subject.value = subjectList[pos]
     }
 
 

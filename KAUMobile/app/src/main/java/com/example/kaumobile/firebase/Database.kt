@@ -1,10 +1,9 @@
 package com.example.kaumobile.firebase
 
 import android.util.Log
-import com.google.firebase.firestore.CollectionReference
-import com.google.firebase.firestore.DocumentReference
-import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.*
 import java.lang.Exception
+import java.lang.NullPointerException
 import java.text.DecimalFormat
 import java.util.*
 
@@ -13,7 +12,7 @@ class Database {
      var name = "KAU" // 앱 시작시 지정
      var now_semester = "2021년 1학기"
      val dbHandler: FirebaseFirestore = FirebaseFirestore.getInstance()
-    val TAG = "DEBUG"
+    val TAG = "DB"
 
      fun addNewUser(name: String) {
           //어플 처음 실행시 Document 생성
@@ -24,12 +23,12 @@ class Database {
           )
           dbHandler.collection("User")
                   .document(name).set(default_setting)
-          Log.d("TAG","successfully add new user ${name}.")
+          Log.d(TAG,"successfully add new user ${name}.")
      }
 
      fun getUser(name:String ="KAU"):DocumentReference {
           //유저 이름 참조 받아오기
-         Log.d("Note","1: " +dbHandler.collection("User").document(name).id)
+         Log.d(TAG+":USER",dbHandler.collection("User").document(name).id)
           return dbHandler.collection("User").document(name)
      }
 
@@ -42,7 +41,7 @@ class Database {
          user.get()
              .addOnSuccessListener { document ->
                 current = document.data!!["현재수강학기"]
-                 Log.d(TAG,current.toString())
+                 Log.d(TAG+"getCurrentSemester",current.toString())
              }.addOnFailureListener { exception ->
                  Log.d("ERR", "Load failed", exception)
              }
@@ -77,7 +76,6 @@ class Database {
 
     fun getSemester(name: String): CollectionReference{
         val user = getUser()
-        Log.d("Note","2: "+user.collection(name).id)
         return user.collection(name)
     }
 
@@ -104,7 +102,7 @@ class Database {
      }
 
     fun getSubject(semester: String, name: String) : DocumentReference{
-        Log.d("Note",getSemester(semester).document(name).id)
+        Log.d(TAG,getSemester(semester).document(name).id)
         return getSemester(semester).document(name)
     }
 
@@ -153,36 +151,94 @@ class Database {
         for (no in 1..16) {
             classNoteRef.document(DecimalFormat("000").format(no) + "주차").set(init(no))
         }
+
+        initGrade(now_semester, className)
     }
 
      fun deleteSubject(){
           //현재 학기에서 기존 과목 제거
      }
 
+     //성적 관련
+    fun initGrade(semester: String, subject: String){
+         val gradeRef = getSubject(semester, subject).collection("성적")
+                 .document("학습관리")
+         Log.d("grade","init")
+         val grade = hashMapOf(
+                 "총 예습수행" to 0,
+                 "총 복습수행" to 0,
+                 "총 과제수행" to 0
+         )
+
+         gradeRef.set(grade, SetOptions.merge())
+     }
+
+    fun getGradeRef(semester: String, subject: String): DocumentReference{
+
+        return getSubject(semester, subject).collection("성적")
+                .document("학습관리")
+    }
+
+    fun doAssign(semester: String, subject: String, type: String){
+        var assign_type = ""
+        if (type=="예습") assign_type = "총 예습수행"
+        else if (type=="복습") assign_type = "총 복습수행"
+        else if (type=="과제") assign_type = "총 과제수행"
+        else Log.d("grade", "wrong type")
+
+        val gradeRef = getGradeRef(semester, subject)
+
+        var value: Long? = null
+        gradeRef.get().addOnSuccessListener { documentSnapshot ->
+            value = documentSnapshot
+                .get(assign_type) as Long
+            Log.d("assign", "value before: ${assign_type}: ${value}")
+            gradeRef.update(assign_type, value!! + 1)
+
+            gradeRef.get().addOnSuccessListener {
+                Log.d("assign", "value after: ${assign_type}: ${it.get(assign_type)}")
+            }
+
+        }
+    }
+
      //노트 관련
 
      fun createNote(semester: String, subject: String, type: String, no:Int, text: String){
           //노트 추가
-         Log.d("Note", "Note: ${semester} ${subject} ${type} ${no} ${text}")
-         var noteRef =  getSubject(semester, subject)
-         noteRef = noteRef.collection("수강노트")
+         var noteRef =  getSubject(semester, subject).collection("수강노트")
                  .document(DecimalFormat("000").format(no) + "주차")
          Log.d("Note", "${noteRef.id}")
          Log.d("Note", "${text}")
-         noteRef.collection("텍스트").document(DecimalFormat("000").format(no)).set(hashMapOf("text" to  text))
+         noteRef.set(hashMapOf("${type}" to text), SetOptions.merge())
          if(type == "예습") noteRef.update("hasPreview",1)
          else if (type == "복습") noteRef.update("hasReview",1)
          Log.d("Note", "Done")
      }
 
-     fun getNote(semester: String, subject: String, type: String, no:Int, text: String): DocumentReference{
+     fun getNoteRef(semester: String, subject: String, type: String, no:Int): DocumentReference{
+
+         return getSubject(semester, subject).collection("수강노트")
+                 .document(DecimalFormat("000").format(no) + "주차")
+     }
+
+     fun getNote(semester: String, subject: String, type: String, no:Int): String{
           //노트 가져오기
          var noteRef =  getSubject(semester, subject).collection("수강노트")
                  .document(DecimalFormat("000").format(no) + "주차")
-                 .collection("텍스트").document(DecimalFormat("000").format(no))
 
+         var note_txt = ""
+         noteRef.get().addOnSuccessListener {
+             try{
+                 note_txt = it.get("${type}") as String
+                 Log.d("note", "get_note: ${note_txt}")
+             }catch (e:NullPointerException){
+                 Log.d("note", "no field")
+             }
 
-         return noteRef
+         }
+         Log.d("note", "data returned: ${note_txt}")
+         return note_txt
      }
 
      fun delNote(semester: String, subject: String, type: String, no:Int){

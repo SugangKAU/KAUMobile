@@ -70,7 +70,7 @@ class Holder(itemView: View): RecyclerView.ViewHolder(itemView) {
             startActivity(itemView.context, intent, null)
         }
 
-        if (item.hasReview == 1) itemView.findViewById<ImageButton>(R.id.uploadButton).setImageResource(R.drawable.ic_is_note_true)
+        if (item.hasReview == 1) itemView.findViewById<ImageButton>(R.id.reviewButton).setImageResource(R.drawable.ic_is_note_true)
         else {
             itemView.findViewById<ImageButton>(R.id.reviewButton).setImageResource(R.drawable.ic_is_note_false)
         }

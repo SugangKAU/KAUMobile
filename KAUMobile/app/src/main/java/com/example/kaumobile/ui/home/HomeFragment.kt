@@ -32,6 +32,7 @@ class HomeFragment : Fragment() {
     private val colorList = arrayOf("#481677", "#7410d0", "#a648ff", "#115586", "#4a7eb2", "#0080ff", "#8977ad", "#de00e0", "#f34e00", "#cc4600")
     private lateinit var homeViewModel: HomeViewModel
     private var init = 2
+    private val TAG = "Home"
 
     var classList : ArrayList<String> = arrayListOf()
     var subjectInfoList : ArrayList<Subject> = arrayListOf()
@@ -68,12 +69,13 @@ class HomeFragment : Fragment() {
 
         val subjectObserver : Observer<ArrayList<Subject>> by lazy {
             Observer<ArrayList<Subject>>{ _subjectList->
+                classNum = 0
                 if(init>0){
                     init --
-                    Log.d("???", "Enter init")
-                    Log.d("???","${_subjectList}")
+                    Log.d(TAG, "Load Dynamic Button")
+                    Log.d(TAG,"${_subjectList}")
                     for (i in _subjectList) {
-                        Log.d("???", "${i}")
+                        Log.d("Loop", "${i} classNum: ${classNum}")
                         if (classNum == 0)
                             buttonView.removeAllViews()
 
@@ -96,7 +98,7 @@ class HomeFragment : Fragment() {
                         buttonView.addView(dynamicClass[classNum])
                         // 동적버튼 리스너
                         dynamicClass[classNum].setOnClickListener {
-                            Navigation.findNavController(root).navigate(R.id.action_navigation_home_to_navigation_classnote, bundleOf("subjects" to classList))
+                            Navigation.findNavController(root).navigate(R.id.action_navigation_home_to_navigation_classnote, bundleOf("subject" to dynamicClass.indexOf(it)))
                         }
 
                         searchAdapter.notifyDataSetChanged()
@@ -104,12 +106,12 @@ class HomeFragment : Fragment() {
                     }
                 }
 
-                Log.d("???", "new ${classList}")
+                Log.d(TAG, "new ${classList}")
             } }
 
-        homeViewModel.subjectList.observe(viewLifecycleOwner,subjectObserver)
+        HomeViewModel.subjectList.observe(viewLifecycleOwner,subjectObserver)
 
-        Log.d("???", "First ${classList}")
+        Log.d(TAG, "First ${classList}")
 
 
         root.findViewById<AutoCompleteTextView>(R.id.search_class).threshold = 1
