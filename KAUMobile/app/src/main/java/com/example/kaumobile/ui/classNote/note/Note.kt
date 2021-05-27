@@ -1,5 +1,7 @@
 package com.example.sswolf.kausugang.Seong
 
+import androidx.lifecycle.MutableLiveData
+
 enum class NoteType {
     PREVIEW, REVIEW
 }

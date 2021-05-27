@@ -18,14 +18,18 @@ import com.google.firebase.FirebaseApp
 //import com.google.firebase.database.DatabaseReference
 //import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import java.lang.NullPointerException
 
+
+data class Subject(var className:String, var profName:String, var classRoom:String, var classTime:String)
 
 class NoteActivity : AppCompatActivity(){
-
-   // var subject = Subject("안드로이드","김철기","과학관 212","목요일 9시~13시")
-    var subject = "안드로이드"
-    var noteType: String = "복습"
-    var num: Int = 1
+    private val TAG = "Note"
+    var semester: String = ""
+    var className: String = ""
+    var noteType: String = ""
+    var no: Int = 0
+    var newNote = false
     lateinit var note: EditText
     //lateinit var database : DatabaseReference
 
@@ -33,18 +37,25 @@ class NoteActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_note)
 
-        // subject = intent.getextra
+        get_from_intent()
 
         note = findViewById<EditText>(R.id.note)
 
-        val intent = intent.extras
-        subject = intent!!.getString("subject").toString()
-        noteType = intent!!.getString("notetype").toString()
-        num = intent!!.getInt("no")
+        findViewById<TextView>(R.id.textClass).text = className
+        findViewById<TextView>(R.id.textNoteTitle).text = noteType + "노트 - " + no + "주차"
 
+        val noteRef = Database().getNoteRef(semester, className, noteType, no)
+        noteRef.get().addOnSuccessListener {
+            try{
+                var note_txt = it.get("${noteType}") as String
+                note.setText(note_txt)
+                Log.d("note", "note success load")
+            }catch (e: NullPointerException){
+                Log.d("note", "no field")
+                newNote = true
+            }
+        }
 
-        findViewById<TextView>(R.id.textClass).text = subject
-        findViewById<TextView>(R.id.textNoteTitle).text = noteType + "노트 - " + num + "주차"
         findViewById<Button>(R.id.okButton).setOnClickListener{
             showDialog()
         }
@@ -55,6 +66,13 @@ class NoteActivity : AppCompatActivity(){
         FirebaseApp.initializeApp(this)
       //  database = Firebase.database.reference
 
+    }
+
+    fun get_from_intent(){
+        semester = intent.getStringExtra("Semester")!!
+        className = intent.getStringExtra("Subject")!!
+        noteType = intent.getStringExtra("Type")!!
+        no = intent.getIntExtra("Week", 0)
     }
 
 
@@ -68,14 +86,17 @@ class NoteActivity : AppCompatActivity(){
         val popup = AlertDialog.Builder(this)
             .setTitle("노트 저장")
             .setPositiveButton("확인"){ dialog, which->
-              //  saveFirebase()
                 val db = Database()
-                db.addNewUser("Cheol Gi")
-                val name = db.getCurrentSemester().id
-                Log.d("NoteActivity", name )
-                Log.d("NoteActivity", db.getSemester("2021년 1학기").id )
-                db.loadSubject("2021년 1학기", "안드로이드")
-                db.createNote(this.subject, this.noteType, note.text.toString())
+                if (newNote) {
+                    Log.d(TAG,"Create Note")
+                    db.createNote(semester, className, noteType, no, note.text.toString())
+                }
+                else {
+                    Log.d(TAG,"Edit Note")
+                    db.editNote(semester, className, noteType, no, note.text.toString())
+                }
+                Log.d(TAG,"Done")
+                onBackPressed()
             }
             .setNeutralButton("취소",null)
             .create()

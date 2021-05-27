@@ -1,6 +1,7 @@
 package com.example.sswolf.kausugang.Seong
 
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,13 +10,32 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kaumobile.R
+import com.example.kaumobile.firebase.Database
 import com.example.kaumobile.ui.classNote.assign.AssignActivity
+import com.example.kaumobile.ui.classNote.classNoteAdapter.TemplateItem
+import com.google.firebase.firestore.FirebaseFirestore
 
-data class TemplateItem(var no: Int, var subject: String, var hasPreview: Boolean, var hasReview: Boolean, var hasAssign: Boolean)
 
-class TemplateAdapter : RecyclerView.Adapter<Holder>(){
+class TemplateAdapter(val semester: String, val name: String) : RecyclerView.Adapter<Holder>(){
 
-    var listData = mutableListOf<TemplateItem>()
+
+    val subject = name
+    var listData = ArrayList<TemplateItem>()
+
+    init {
+        val ref = Database().getSubject(semester,name)
+
+        ref.collection("수강노트").addSnapshotListener { querySnapshot, firebaseError ->
+            for (snapshot in querySnapshot!!.documents){
+
+                Log.d("DEBUG", "${snapshot.data}")
+                var item = snapshot.toObject(TemplateItem::class.java)
+                listData.add(item!!)
+            }
+            notifyDataSetChanged()
+        }
+        
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
                 return Holder(LayoutInflater.from(parent.context).inflate(R.layout.item_template, parent, false))
@@ -27,36 +47,44 @@ class TemplateAdapter : RecyclerView.Adapter<Holder>(){
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
         val item = listData.get(position)
-        holder.setItem(item)
+        holder.setItem(item, subject, semester)
     }
+
 }
 
+class Holder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    fun setItem(item: TemplateItem, subject: String, semester: String) {
+        val intent = Intent(itemView.context, NoteActivity::class.java)
+        intent.putExtra("Semester", semester)
+        intent.putExtra("Subject", subject)
+        intent.putExtra("Week", item.no)
 
-class Holder(itemView: View): RecyclerView.ViewHolder(itemView){
-    fun setItem(item: TemplateItem){
         itemView.findViewById<TextView>(R.id.weekNum).text = "${item.no}주차"
-        if (item.hasPreview) itemView.findViewById<ImageButton>(R.id.previewButton).setImageResource(R.drawable.ic_is_note_true)
-            itemView.findViewById<ImageButton>(R.id.previewButton).setOnClickListener{
-            val intent = Intent(itemView.context, NoteActivity::class.java)
+        if (item.hasPreview == 1) itemView.findViewById<ImageButton>(R.id.previewButton).setImageResource(R.drawable.ic_is_note_true)
+        else {
+            itemView.findViewById<ImageButton>(R.id.previewButton).setImageResource(R.drawable.ic_is_note_false)
+        }
 
-                intent.putExtra("subject", item.subject)
-                intent.putExtra("notetype","예습")
-                intent.putExtra("no",item.no)
-            startActivity(itemView.context, intent, null) }
-        if (item.hasReview) itemView.findViewById<ImageButton>(R.id.uploadButton).setImageResource(R.drawable.ic_is_note_true)
-            itemView.findViewById<ImageButton>(R.id.uploadButton).setOnClickListener{
-            val intent = Intent(itemView.context, NoteActivity::class.java)
+        itemView.findViewById<ImageButton>(R.id.previewButton).setOnClickListener {
+            intent.putExtra("Type","예습")
+            startActivity(itemView.context, intent, null)
+        }
 
-                intent.putExtra("subject", item.subject)
-                intent.putExtra("notetype","복습")
-                intent.putExtra("no",item.no)
-                startActivity(itemView.context, intent, null) }
+        if (item.hasReview == 1) itemView.findViewById<ImageButton>(R.id.reviewButton).setImageResource(R.drawable.ic_is_note_true)
+        else {
+            itemView.findViewById<ImageButton>(R.id.reviewButton).setImageResource(R.drawable.ic_is_note_false)
+        }
 
-        itemView.findViewById<ImageButton>(R.id.uploadButton).setOnClickListener{
+        itemView.findViewById<ImageButton>(R.id.reviewButton).setOnClickListener {
+            intent.putExtra("Type","복습")
+            startActivity(itemView.context, intent, null)
+        }
+
+        itemView.findViewById<ImageButton>(R.id.uploadButton).setOnClickListener {
             val intent = Intent(itemView.context, AssignActivity::class.java)
-
-                intent.putExtra("subject", item.subject)
-                intent.putExtra("no",item.no)
-            startActivity(itemView.context, intent, null) }
+            startActivity(itemView.context, intent, null)
+        }
     }
 }
+
+
