@@ -21,6 +21,7 @@ import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import com.example.kaumobile.firebase.Database
+import com.example.kaumobile.ui.Activity.TimeScheduleActivity
 import com.example.kaumobile.ui.home.calendar.CalendarActivity
 
 class HomeFragment : Fragment() {
@@ -381,15 +382,21 @@ class HomeFragment : Fragment() {
             Navigation.findNavController(root).navigate(R.id.action_navigation_home_to_navigation_grade)
         }
 
+        // 캘린더 기능
         root.findViewById<View>(R.id.button_main_calender).setOnClickListener {
             var myIntent = Intent(requireContext(), CalendarActivity::class.java)
             var classTimeList : ArrayList<String> = arrayListOf()
 
             for (i in 0 until subjectInfoList!!.size)
-                classTimeList.add(subjectInfoList[i].time)
+                classTimeList.add(subjectInfoList[i].classTime)
             myIntent.putExtra("name", classList)
             myIntent.putExtra("time", classTimeList)
             startActivity(myIntent)
+        }
+
+        // 시간표 보기
+        root.findViewById<View>(R.id.button_main_timetable).setOnClickListener {
+            startActivity(Intent(requireContext(), TimeScheduleActivity::class.java))
         }
 
         return root

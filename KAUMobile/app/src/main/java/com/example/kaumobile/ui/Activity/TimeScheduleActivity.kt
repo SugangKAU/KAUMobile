@@ -1,5 +1,6 @@
 package com.example.kaumobile.ui.Activity
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -15,6 +16,7 @@ class TimeScheduleActivity : AppCompatActivity() {
     var Wednesday = Array<String>(18,{i ->""})
     var Thursday = Array<String>(18,{i ->""})
     var Friday = Array<String>(18,{i ->""})
+    var test = 1
 
     var mondayTextViews = Array<TextView?>(18, {i->null})
     var tuesdayTextViews = Array<TextView?>(18, {i->null})
@@ -39,23 +41,23 @@ class TimeScheduleActivity : AppCompatActivity() {
         R.id.friday4, R.id.friday4_5, R.id.friday5, R.id.friday5_5, R.id.friday6, R.id.friday6_5, R.id.friday7,
         R.id.friday7_5, R.id.friday8, R.id.friday8_5, R.id.friday9, R.id.friday9_5)
 
-    init{
-        for(i in 0..cellIDs.size){
+    fun initiate(){
+        for(i in 0..cellIDs.size-1){
             when(i/18){
                 0->{
-                    for(j in 0..18) mondayTextViews[j] = findViewById<TextView>(i)
+                    mondayTextViews[i%18] = findViewById<TextView>(cellIDs[i])
                 }
                 1->{
-                    for(j in 0..18) tuesdayTextViews[j] = findViewById<TextView>(i)
+                    tuesdayTextViews[i%18] = findViewById<TextView>(cellIDs[i])
                 }
                 2->{
-                    for(j in 0..18) wednesdayTextViews[j] = findViewById<TextView>(i)
+                    wednesdayTextViews[i%18] = findViewById<TextView>(cellIDs[i])
                 }
                 3->{
-                    for(j in 0..18) thursdayTextViews[j] = findViewById<TextView>(i)
+                    thursdayTextViews[i%18] = findViewById<TextView>(cellIDs[i])
                 }
                 4->{
-                    for(j in 0..18) fridayTextViews[j] = findViewById<TextView>(i)
+                    fridayTextViews[i%18] = findViewById<TextView>(cellIDs[i])
                 }
             }
         }
@@ -64,17 +66,19 @@ class TimeScheduleActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_time_schedule)
+        initiate()
         setSchedule(UserData.subjectList)
     }
 
     fun setSchedule(subjectList: ArrayList<Subject>){
 
-        fun setTimeArray(start: Int, end: Int, time: Array<String>, cells: Array<TextView?>, subject: String): Array<String>{
-            var idxStart = start-900
-            var idxEnd = end-900
+        fun setTimeArray(start: Int, end: Int, time: Array<String>, subject: String): Array<String>{
+            var idxStart = start
+            var idxEnd = end
+            Log.e("Schedule", "Wrong Time ${idxStart}-${idxEnd}")
             val calculate = { x: Int -> when(x%100){
-                0 -> x/100
-                30 -> x/100 + 1
+                0 -> 2*(x/100)
+                30 -> 2*(x/100) + 1
                 else -> Log.e("Schedule", "Wrong Time ${start}-${end}")
             }
             }
@@ -84,35 +88,53 @@ class TimeScheduleActivity : AppCompatActivity() {
 
             for(i in idxStart..idxEnd){
                 time[i] = subject
-                cells[i]!!.setText(subject)
+                Log.e("Schedule", "${i}  ${subject} ${idxStart}-${idxEnd}")
             }
 
             return time
         }
 
+        @SuppressLint("ResourceAsColor")
+        fun drawSubjects(time: Array<String>, cells: Array<TextView?>){
+            Log.e("Schedule", "${time}")
+            for(i in 0..time.size-1){
+                if(time[i]!=""){
+                    Log.e("Schedule", "${i} ${time[i]}")
+                    cells[i]!!.setBackgroundColor(resources.getColor(R.color.black))
+                    cells[i]!!.setText(time[i])
+                }
+            }
+        }
 
-        for(i in 0..subjectList.size){
+
+        for(i in 0..subjectList.size-1){
             var time = subjectList[i].classTime.split("#")
             var data = subjectList[i].className
-            for(j in 0..time.size){
+            Log.e("Schedule", "${time}${data}")
+            for(j in 1..time.size-1){
                 var day = time[j][0]
                 var start = time[j].slice(IntRange(1,4)).toInt()-900
                 var end = time[j].slice(IntRange(5,8)).toInt()-900
                 when(day){
                     '월' -> {
-                        Monday = setTimeArray(start, end, Monday, mondayTextViews, data)
+                        Monday = setTimeArray(start, end, Monday, data)
+                        drawSubjects(Monday, mondayTextViews)
                     }
                     '화' -> {
-                        Tuesday = setTimeArray(start, end, Tuesday, tuesdayTextViews, data)
+                        Tuesday = setTimeArray(start, end, Tuesday,data)
+                        drawSubjects(Tuesday, tuesdayTextViews)
                     }
                     '수'-> {
-                        Wednesday = setTimeArray(start, end, Wednesday, wednesdayTextViews, data)
+                        Wednesday = setTimeArray(start, end, Wednesday, data)
+                        drawSubjects(Wednesday, wednesdayTextViews)
                     }
                     '목' -> {
-                        Thursday = setTimeArray(start, end, Thursday, thursdayTextViews, data)
+                        Thursday = setTimeArray(start, end, Thursday, data)
+                        drawSubjects(Thursday, thursdayTextViews)
                     }
                     '금' -> {
-                        Friday = setTimeArray(start, end, Friday, fridayTextViews, data)
+                        Friday = setTimeArray(start, end, Friday, data)
+                        drawSubjects(Friday, fridayTextViews)
                     }
                     else -> {
                         Log.e("Schedule","Wrong Input: Incorrect day name${day}")
