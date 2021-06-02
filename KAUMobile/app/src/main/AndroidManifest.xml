@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KAUMobile">
+        <activity android:name=".ui.home.calendar.CalendarActivity"></activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">
@@ -18,13 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.sswolf.kausugang.Seong.NoteActivity">
-
-        </activity>
-        <activity android:name="com.example.kaumobile.ui.classNote.assign.AssignActivity">
-
-        </activity>
-
+        <activity android:name="com.example.sswolf.kausugang.Seong.NoteActivity"></activity>
+        <activity android:name=".ui.classNote.assign.AssignActivity"></activity>
     </application>
 
 </manifest>
