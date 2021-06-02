@@ -50,7 +50,7 @@ class GradeFragment : Fragment() {
                 Log.d("???","${_subjectList}")
                 classList.clear()
                 for (i in _subjectList) {
-                    classList.add(i.name)
+                    classList.add(i.className)
                 }
                 if(classList!!.size != 0) {
                     root.findViewById<TextView>(R.id.text_grade_subject).setText("과목명 : " + "${classList!![0]}")

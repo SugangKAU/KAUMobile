@@ -79,19 +79,19 @@ class HomeFragment : Fragment() {
                         if (classNum == 0)
                             buttonView.removeAllViews()
 
-                        classList.add(i.name)
+                        classList.add(i.className)
                         subjectInfoList.add(i)
                         dynamicClass[classNum].layoutParams = layoutParams
                         dynamicClass[classNum].id = classNum
-                        if(i.time == "#")
-                            dynamicClass[classNum].setText("${i.name}\n\n${i.profName}\n\n${i.classRoom}\n\n")
-                        else if(i.time.length <= 12)
-                            dynamicClass[classNum].setText("${i.name}\n\n${i.profName}\n\n${i.classRoom}\n\n" +
-                                "${i.time.substring(1..1)}요일 ${i.time.substring(2..3)}시 ~ ${i.time.substring(6..7)}시")
+                        if(i.classTime == "#")
+                            dynamicClass[classNum].setText("${i.className}\n\n${i.profName}\n\n${i.classRoom}\n\n")
+                        else if(i.classTime.length <= 12)
+                            dynamicClass[classNum].setText("${i.className}\n\n${i.profName}\n\n${i.classRoom}\n\n" +
+                                "${i.classTime.substring(1..1)}요일 ${i.classTime.substring(2..3)}시 ~ ${i.classTime.substring(6..7)}시")
                         else
-                            dynamicClass[classNum].setText("${i.name}\n\n${i.profName}\n\n${i.classRoom}\n\n" +
-                                    "${i.time.substring(1..1)}요일 ${i.time.substring(2..3)}시 ~ ${i.time.substring(6..7)}시\n" +
-                                    "${i.time.substring(11..11)}요일 ${i.time.substring(12..13)}시 ~ ${i.time.substring(16..17)}시")
+                            dynamicClass[classNum].setText("${i.className}\n\n${i.profName}\n\n${i.classRoom}\n\n" +
+                                    "${i.classTime.substring(1..1)}요일 ${i.classTime.substring(2..3)}시 ~ ${i.classTime.substring(6..7)}시\n" +
+                                    "${i.classTime.substring(11..11)}요일 ${i.classTime.substring(12..13)}시 ~ ${i.classTime.substring(16..17)}시")
                         dynamicClass[classNum].width = changeDP(170)
                         dynamicClass[classNum].setBackgroundColor(Color.parseColor(colorList[classNum]))
                         dynamicClass[classNum].setTextColor(Color.parseColor("#FFFFFF"))

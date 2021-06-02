@@ -56,13 +56,13 @@ class ClassNoteFragment : Fragment() {
         subjectList = HomeViewModel.subjectList.value!!
         classNoteViewModel.subject.value = subjectList[pos]
 
-        root.findViewById<TextView>(R.id.textClass)?.text = "과목명: " + subjectList[pos].name
+        root.findViewById<TextView>(R.id.textClass)?.text = "과목명: " + subjectList[pos].className
 
-        var adapter = TemplateAdapter("2021년 1학기",subjectList[pos].name)
+        var adapter = TemplateAdapter("2021년 1학기",subjectList[pos].className)
 
         val subjectObserver = Observer<Subject>{
-            view?.findViewById<TextView>(R.id.textClass)?.text = "과목명: " + it.name
-            adapter = TemplateAdapter(it.semester, it.name)
+            view?.findViewById<TextView>(R.id.textClass)?.text = "과목명: " + it.className
+            adapter = TemplateAdapter(it.semester, it.className)
             recycler.adapter = adapter
         }
 
