@@ -2,6 +2,7 @@ package com.example.kaumobile.ui.home
 
 import android.content.Context
 import android.content.DialogInterface
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
@@ -20,6 +21,7 @@ import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import com.example.kaumobile.firebase.Database
+import com.example.kaumobile.ui.home.calendar.CalendarActivity
 
 class HomeFragment : Fragment() {
     private var year = 2021
@@ -377,6 +379,17 @@ class HomeFragment : Fragment() {
         // 성적 버튼 기능
         root.findViewById<View>(R.id.button_main_grade).setOnClickListener {
             Navigation.findNavController(root).navigate(R.id.action_navigation_home_to_navigation_grade)
+        }
+
+        root.findViewById<View>(R.id.button_main_calender).setOnClickListener {
+            var myIntent = Intent(requireContext(), CalendarActivity::class.java)
+            var classTimeList : ArrayList<String> = arrayListOf()
+
+            for (i in 0 until subjectInfoList!!.size)
+                classTimeList.add(subjectInfoList[i].time)
+            myIntent.putExtra("name", classList)
+            myIntent.putExtra("time", classTimeList)
+            startActivity(myIntent)
         }
 
         return root
