@@ -1,6 +1,7 @@
 package com.example.kaumobile.ui.Activity
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -23,6 +24,8 @@ class TimeScheduleActivity : AppCompatActivity() {
     var wednesdayTextViews = Array<TextView?>(18, {i->null})
     var thursdayTextViews = Array<TextView?>(18, {i->null})
     var fridayTextViews = Array<TextView?>(18, {i->null})
+
+    private val colorList = arrayOf("#481677", "#7410d0", "#a648ff", "#115586", "#4a7eb2", "#0080ff", "#8977ad", "#de00e0", "#f34e00", "#cc4600")
 
 
     val cellIDs = listOf(R.id.monday1,R.id.monday1_5,R.id.monday2,R.id.monday2_5,R.id.monday3,R.id.monday3_5,
@@ -100,7 +103,7 @@ class TimeScheduleActivity : AppCompatActivity() {
             for(i in 0..time.size-1){
                 if(time[i]!=""){
                     Log.e("Schedule", "${i} ${time[i]}")
-                    cells[i]!!.setBackgroundColor(resources.getColor(R.color.black))
+                    cells[i]!!.setBackgroundColor(Color.parseColor(colorList[subjectList.indexOf(time[i])]))
                     cells[i]!!.setText(time[i])
                 }
             }
