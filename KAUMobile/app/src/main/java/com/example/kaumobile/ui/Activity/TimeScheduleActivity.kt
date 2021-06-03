@@ -9,6 +9,7 @@ import android.widget.TextView
 import com.example.kaumobile.R
 import com.example.kaumobile.ui.home.Subject
 import com.example.kaumobile.user.UserData
+import com.google.firebase.firestore.auth.User
 
 
 class TimeScheduleActivity : AppCompatActivity() {
@@ -17,7 +18,8 @@ class TimeScheduleActivity : AppCompatActivity() {
     var Wednesday = Array<String>(18,{i ->""})
     var Thursday = Array<String>(18,{i ->""})
     var Friday = Array<String>(18,{i ->""})
-    var test = 1
+
+
 
     var mondayTextViews = Array<TextView?>(18, {i->null})
     var tuesdayTextViews = Array<TextView?>(18, {i->null})
@@ -26,7 +28,7 @@ class TimeScheduleActivity : AppCompatActivity() {
     var fridayTextViews = Array<TextView?>(18, {i->null})
 
     private val colorList = arrayOf("#481677", "#7410d0", "#a648ff", "#115586", "#4a7eb2", "#0080ff", "#8977ad", "#de00e0", "#f34e00", "#cc4600")
-
+    var _subjectList:ArrayList<String> = arrayListOf<String>()
 
     val cellIDs = listOf(R.id.monday1,R.id.monday1_5,R.id.monday2,R.id.monday2_5,R.id.monday3,R.id.monday3_5,
         R.id.monday4, R.id.monday4_5, R.id.monday5, R.id.monday5_5, R.id.monday6, R.id.monday6_5, R.id.monday7,
@@ -64,6 +66,10 @@ class TimeScheduleActivity : AppCompatActivity() {
                 }
             }
         }
+
+        for(i in UserData.subjectList){
+            _subjectList.add(i.className)
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -100,11 +106,24 @@ class TimeScheduleActivity : AppCompatActivity() {
         @SuppressLint("ResourceAsColor")
         fun drawSubjects(time: Array<String>, cells: Array<TextView?>){
             Log.e("Schedule", "${time}")
+            var tmp = ""
+            var color = 0
             for(i in 0..time.size-1){
-                if(time[i]!=""){
+                if(time[i]!="" && tmp ==""){
+                    Log.e("Schedule", "${_subjectList} ${time[i]}")
+                    color = _subjectList.indexOf(time[i])
                     Log.e("Schedule", "${i} ${time[i]}")
-                    cells[i]!!.setBackgroundColor(Color.parseColor(colorList[subjectList.indexOf(time[i])]))
+                    cells[i]!!.setBackgroundColor(Color.parseColor(colorList[color]))
                     cells[i]!!.setText(time[i])
+                    tmp = time[i]
+                }else if(time[i]!="" && time[i]==tmp){
+                    cells[i]!!.setBackgroundColor(Color.parseColor(colorList[color]))
+                    cells[i]!!.setText("")
+                }else if(time[i]!="" && time[i]!=tmp){
+                    color = _subjectList.indexOf(time[i])
+                    cells[i]!!.setBackgroundColor(Color.parseColor(colorList[color]))
+                    cells[i]!!.setText(time[i])
+                    tmp = time[i]
                 }
             }
         }
