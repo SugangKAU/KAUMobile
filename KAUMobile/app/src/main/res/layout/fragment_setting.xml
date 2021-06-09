@@ -1,19 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.setting.SettingFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:id="@+id/text_grade_semester"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_marginLeft="25dp"
-        android:text="설정"
-        android:textSize="35sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <PreferenceCategory
+        android:title="예습 알림"
+        android:iconSpaceReserved="false">
+
+        <CheckBoxPreference
+            android:key="key_prepare_lock"
+            android:title="잠금화면"
+            />
+
+        <CheckBoxPreference
+            android:key="key_prepare_notify"
+            android:title="푸시"
+            />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="복습 알림"
+        android:iconSpaceReserved="false">
+
+        <CheckBoxPreference
+            android:key="key_review_lock"
+            android:title="잠금화면"
+            />
+
+        <CheckBoxPreference
+            android:key="key_review_notify"
+            android:title="푸시"
+            />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="과제 알림"
+        android:iconSpaceReserved="false">
+
+        <CheckBoxPreference
+            android:key="key_assign_lock"
+            android:title="잠금화면"
+            />
+
+        <CheckBoxPreference
+            android:key="key_assign_notify"
+            android:title="푸시"
+            />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="그 외"
+        android:iconSpaceReserved="false">
+
+        <SwitchPreferenceCompat
+            android:key="key_vibe"
+            app:title="진동"
+            />
+
+        <SwitchPreferenceCompat
+            android:key="key_lms"
+            app:title="LMS 연동 관리"
+            />
+
+        <Preference
+            android:key="blank"
+            android:visibility="invisible"
+            />
+
+    </PreferenceCategory>
+</PreferenceScreen>
