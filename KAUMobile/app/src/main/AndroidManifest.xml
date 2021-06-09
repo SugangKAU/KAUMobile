@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KAUMobile">
+        <activity android:name=".ui.Activity.TimeScheduleActivity"></activity>
         <activity android:name=".ui.home.calendar.CalendarActivity"></activity>
         <activity
             android:name=".MainActivity"

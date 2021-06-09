@@ -1,6 +1,5 @@
 package com.example.kaumobile.ui.grade
 
-import android.content.DialogInterface
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -9,11 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
 import com.example.kaumobile.R
 import com.example.kaumobile.firebase.Database
 import com.example.kaumobile.ui.home.Subject
@@ -28,7 +25,6 @@ class GradeFragment : Fragment() {
     private var year = 2021
     private var semester = 1
     private var pos = 0
-    var gradeTmp = listOf<String>( "B+", "A", "A", "B", "B", "A", "B", "C", "B", "C+", "B+", "B", "A+", "A+", "A+", "A" )
     var classList : MutableList<String> = mutableListOf()
     var countList : MutableList<Int> = mutableListOf()
 
@@ -49,23 +45,26 @@ class GradeFragment : Fragment() {
             Observer<ArrayList<Subject>>{ _subjectList->
                 Log.d("???","${_subjectList}")
                 classList.clear()
-                for (i in _subjectList) {
-                    classList.add(i.name)
+                for (i in 0 until _subjectList.size) {
+                    classList.add(_subjectList[i].className)
+                    Database().getGradeRef("2021년 1학기", _subjectList[i].className).addSnapshotListener { snapshot, error ->
+                        countList.add(snapshot!!.data!!.get("총 예습수행").toString().toInt())
+                        countList.add(snapshot!!.data!!.get("총 복습수행").toString().toInt())
+                        countList.add(snapshot!!.data!!.get("총 과제수행").toString().toInt())
+                        if(pos == i) {
+                            root.findViewById<TextView>(R.id.text_grade_full).setText("${grading((countList[pos * 3] + countList[pos * 3 + 1] + countList[pos * 3 + 2]).toDouble() / 3.0)}")
+                            root.findViewById<TextView>(R.id.text_grade_prepare).setText("${grading(countList[pos * 3].toDouble())}")
+                            root.findViewById<TextView>(R.id.text_grade_review).setText("${grading(countList[pos * 3 + 1].toDouble())}")
+                            root.findViewById<TextView>(R.id.text_grade_assign).setText("${grading(countList[pos * 3 + 2].toDouble())}")
+                            root.findViewById<View>(R.id.text_grade_full).setVisibility(View.VISIBLE)
+                            root.findViewById<View>(R.id.text_grade_prepare).setVisibility(View.VISIBLE)
+                            root.findViewById<View>(R.id.text_grade_review).setVisibility(View.VISIBLE)
+                            root.findViewById<View>(R.id.text_grade_assign).setVisibility(View.VISIBLE)
+                        }
+                    }
                 }
                 if(classList!!.size != 0) {
                     root.findViewById<TextView>(R.id.text_grade_subject).setText("과목명 : " + "${classList!![0]}")
-                    root.findViewById<View>(R.id.text_grade_full).setVisibility(View.VISIBLE)
-                    root.findViewById<View>(R.id.text_grade_prepare).setVisibility(View.VISIBLE)
-                    root.findViewById<View>(R.id.text_grade_review).setVisibility(View.VISIBLE)
-                    root.findViewById<View>(R.id.text_grade_assign).setVisibility(View.VISIBLE)
-                    root.findViewById<TextView>(R.id.text_grade_full).setText("${gradeTmp[(pos*4)%16]}")
-                    root.findViewById<TextView>(R.id.text_grade_prepare).setText("${gradeTmp[(pos*4)%16+1]}")
-                    root.findViewById<TextView>(R.id.text_grade_review).setText("${gradeTmp[(pos*4)%16+2]}")
-                    root.findViewById<TextView>(R.id.text_grade_assign).setText("${gradeTmp[(pos*4)%16+3]}")
-                    //root.findViewById<TextView>(R.id.text_grade_full).setText("${grading((countList[pos*3]+countList[pos*3+1]+countList[pos*3+2]).toDouble()/3.0)}")
-                    //root.findViewById<TextView>(R.id.text_grade_prepare).setText("${grading(countList[pos*3].toDouble())}")
-                    //root.findViewById<TextView>(R.id.text_grade_review).setText("${grading(countList[pos*3+1].toDouble())}")
-                    //root.findViewById<TextView>(R.id.text_grade_assign).setText("${grading(countList[pos*3+2].toDouble())}")
                 }
                 else {
                     root.findViewById<TextView>(R.id.text_grade_subject).setText("학기 내 강의가 없습니다")
@@ -75,11 +74,6 @@ class GradeFragment : Fragment() {
                     root.findViewById<View>(R.id.text_grade_assign).setVisibility(View.INVISIBLE)
                 }
                 searchAdapter.notifyDataSetChanged()
-            }
-        }
-
-        val gradeObserver : Observer<ArrayList<Subject>> by lazy {
-            Observer<ArrayList<Subject>> { _subjectList ->
             }
         }
         gradeViewModel.subjectList.observe(viewLifecycleOwner,subjectObserver)
@@ -104,10 +98,10 @@ class GradeFragment : Fragment() {
                     pos = classList!!.size - 1
                 else pos--
                 root.findViewById<TextView>(R.id.text_grade_subject).setText("과목명 : " + "${classList!![pos]}")
-                root.findViewById<TextView>(R.id.text_grade_full).setText("${gradeTmp[(pos*4)%16]}")
-                root.findViewById<TextView>(R.id.text_grade_prepare).setText("${gradeTmp[(pos*4)%16+1]}")
-                root.findViewById<TextView>(R.id.text_grade_review).setText("${gradeTmp[(pos*4)%16+2]}")
-                root.findViewById<TextView>(R.id.text_grade_assign).setText("${gradeTmp[(pos*4)%16+3]}")
+                root.findViewById<TextView>(R.id.text_grade_full).setText("${grading((countList[pos * 3] + countList[pos * 3 + 1] + countList[pos * 3 + 2]).toDouble() / 3.0)}")
+                root.findViewById<TextView>(R.id.text_grade_prepare).setText("${grading(countList[pos * 3].toDouble())}")
+                root.findViewById<TextView>(R.id.text_grade_review).setText("${grading(countList[pos * 3 + 1].toDouble())}")
+                root.findViewById<TextView>(R.id.text_grade_assign).setText("${grading(countList[pos * 3 + 2].toDouble())}")
             }
         }
         root.findViewById<View>(R.id.button_grade_nextsubject).setOnClickListener {
@@ -116,10 +110,10 @@ class GradeFragment : Fragment() {
                     pos = 0
                 else pos++
                 root.findViewById<TextView>(R.id.text_grade_subject).setText("과목명 : " + "${classList!![pos]}")
-                root.findViewById<TextView>(R.id.text_grade_full).setText("${gradeTmp[(pos*4)%16]}")
-                root.findViewById<TextView>(R.id.text_grade_prepare).setText("${gradeTmp[(pos*4)%16+1]}")
-                root.findViewById<TextView>(R.id.text_grade_review).setText("${gradeTmp[(pos*4)%16+2]}")
-                root.findViewById<TextView>(R.id.text_grade_assign).setText("${gradeTmp[(pos*4)%16+3]}")
+                root.findViewById<TextView>(R.id.text_grade_full).setText("${grading((countList[pos * 3] + countList[pos * 3 + 1] + countList[pos * 3 + 2]).toDouble() / 3.0)}")
+                root.findViewById<TextView>(R.id.text_grade_prepare).setText("${grading(countList[pos * 3].toDouble())}")
+                root.findViewById<TextView>(R.id.text_grade_review).setText("${grading(countList[pos * 3 + 1].toDouble())}")
+                root.findViewById<TextView>(R.id.text_grade_assign).setText("${grading(countList[pos * 3 + 2].toDouble())}")
             }
         }
 
@@ -133,12 +127,9 @@ class GradeFragment : Fragment() {
                 v1.findViewById<TextView>(R.id.text_graph_class).setText("과목명 : " + "${classList!![pos]}")
 
                 val values = mutableListOf<BarEntry>()
-                values.add(BarEntry(1f, 10f))
-                values.add(BarEntry(2f, 14f))
-                values.add(BarEntry(3f, 8f))
-                //values.add(BarEntry(1f, countList[pos*3].toFloat()))
-                //values.add(BarEntry(1f, countList[pos*3+1].toFloat()))
-                //values.add(BarEntry(1f, countList[pos*3+2].toFloat()))
+                values.add(BarEntry(1f, countList[pos*3].toFloat()))
+                values.add(BarEntry(2f, countList[pos*3+1].toFloat()))
+                values.add(BarEntry(3f, countList[pos*3+2].toFloat()))
 
                 val set = BarDataSet(values, "없음").apply {
                     setDrawIcons(false)
@@ -221,8 +212,7 @@ class GradeFragment : Fragment() {
 
                 val values = mutableListOf<Entry>()
                 for (i in 0 until classList!!.size) {
-                    values.add(BarEntry((i+1).toFloat(), gradeToScore(gradeTmp[(i*4)%16])))
-                    //values.add(BarEntry((i+1).toFloat(), gradeToScore(grading((countList[pos*3]+countList[pos*3+1]+countList[pos*3+2]).toDouble()/3.0))))
+                    values.add(BarEntry((i+1).toFloat(), gradeToScore(grading((countList[i*3]+countList[i*3+1]+countList[i*3+2]).toDouble()/3.0))))
                 }
 
                 val set = LineDataSet(values, "없음").apply {
