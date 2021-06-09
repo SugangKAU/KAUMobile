@@ -1,28 +1,28 @@
 package com.example.kaumobile.ui.setting
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.example.kaumobile.R
+import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.PreferenceManager
 
-class SettingFragment : Fragment() {
+class SettingFragment : PreferenceFragmentCompat() {
 
-    private lateinit var settingViewModel: SettingViewModel
+    @SuppressLint("ResourceType")
+    override fun onCreatePreferences(bundle: Bundle?, s: String?) {
+        addPreferencesFromResource(R.layout.fragment_setting)
+        val sps = PreferenceManager.getDefaultSharedPreferences(requireContext())
+        val prepareLock = sps.getBoolean("key_prepare_lock", false)
+        val prepareNotify = sps.getBoolean("key_prepare_notify", false)
+        val reviewLock = sps.getBoolean("key_review_lock", false)
+        val reviewNotify = sps.getBoolean("key_review_notify", false)
+        val assignLock = sps.getBoolean("key_assign_lock", false)
+        val assignNotify = sps.getBoolean("key_assign_notify", false)
+        val vibe = sps.getBoolean("key_vibe", false)
+        val lms = sps.getBoolean("key_lms", false)
 
-    override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View? {
-        settingViewModel =
-                ViewModelProvider(this).get(SettingViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_setting, container, false)
+        if(prepareLock){
 
-        return root
+        }
     }
 }
