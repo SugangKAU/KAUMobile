@@ -10,8 +10,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KAUMobile">
-        <activity android:name=".ui.Activity.TimeScheduleActivity"></activity>
-        <activity android:name=".ui.home.calendar.CalendarActivity"></activity>
+        <receiver
+            android:name=".ui.notifications.notification.AlarmReceiver"
+            android:enabled="true"
+            android:exported="true"></receiver>
+
+        <activity android:name=".ui.Activity.TimeScheduleActivity" />
+        <activity android:name=".ui.home.calendar.CalendarActivity" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">
@@ -21,8 +26,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.sswolf.kausugang.Seong.NoteActivity"></activity>
-        <activity android:name=".ui.classNote.assign.AssignActivity"></activity>
+        <activity android:name="com.example.sswolf.kausugang.Seong.NoteActivity" />
+        <activity android:name=".ui.classNote.assign.AssignActivity" />
     </application>
 
 </manifest>
