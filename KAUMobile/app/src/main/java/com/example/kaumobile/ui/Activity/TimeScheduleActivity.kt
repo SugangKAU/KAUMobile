@@ -114,7 +114,14 @@ class TimeScheduleActivity : AppCompatActivity() {
                     color = _subjectList.indexOf(time[i])
                     Log.e("Schedule", "${i} ${time[i]}")
                     cells[i]!!.setBackgroundColor(Color.parseColor(colorList[color]))
-                    cells[i]!!.setText(time[i])
+                    if(time[i].length <= 5) {
+                        var temp = ""
+                        for(j in time[i].length .. 5)
+                            temp = temp.plus(" ")
+                        cells[i]!!.setText(time[i]+temp)
+                    }
+                    else
+                        cells[i]!!.setText(time[i].slice(IntRange(0,3))+"..")
                     tmp = time[i]
                 }else if(time[i]!="" && time[i]==tmp){
                     cells[i]!!.setBackgroundColor(Color.parseColor(colorList[color]))
@@ -122,7 +129,14 @@ class TimeScheduleActivity : AppCompatActivity() {
                 }else if(time[i]!="" && time[i]!=tmp){
                     color = _subjectList.indexOf(time[i])
                     cells[i]!!.setBackgroundColor(Color.parseColor(colorList[color]))
-                    cells[i]!!.setText(time[i])
+                    if(time[i].length <= 5) {
+                        var temp = ""
+                        for(j in time[i].length .. 5)
+                            temp = temp.plus(" ")
+                        cells[i]!!.setText(time[i]+temp)
+                    }
+                    else
+                        cells[i]!!.setText(time[i].slice(IntRange(0,3))+"..")
                     tmp = time[i]
                 }
             }

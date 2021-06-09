@@ -143,7 +143,8 @@ class Database {
             val item = hashMapOf(
                     "no" to no,
                     "hasPreview" to 0,
-                    "hasReview" to 0
+                    "hasReview" to 0,
+                    "hasAssign" to 0
             )
 
             return item
@@ -221,6 +222,10 @@ class Database {
              noteRef.update("hasReview",1)
              doAssign(semester,subject, type)
          }
+         else if (type == "과제") {
+             noteRef.update("hasAssign",1)
+             doAssign(semester,subject, type)
+         }
          Log.d("Note", "Done")
      }
 
@@ -237,6 +242,9 @@ class Database {
         }
         else if (type == "복습") {
             noteRef.update("hasReview",1)
+        }
+        else if (type == "과제") {
+            noteRef.update("hasAssign",1)
         }
         Log.d("Note", "Done")
     }
@@ -273,6 +281,7 @@ class Database {
          var noteRef2 = noteRef.collection("텍스트").document(DecimalFormat("000").format(no))
          if(type == "예습") noteRef.update("hasPreview",0)
          else if (type == "복습") noteRef.update("hasReview",0)
+         else if (type == "과제") noteRef.update("hasAssign",0)
      }
 
 }
