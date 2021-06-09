@@ -13,22 +13,28 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kaumobile.R
-import com.example.kaumobile.firebase.Database
+import com.example.kaumobile.ui.classNote.classNoteAdapter.TemplateItem
+import com.example.kaumobile.ui.home.HomeViewModel
+import com.example.kaumobile.ui.home.Subject
 import com.example.sswolf.kausugang.Seong.NoteActivity
 import com.example.sswolf.kausugang.Seong.TemplateAdapter
-import com.example.sswolf.kausugang.Seong.TemplateItem
+import java.lang.Exception
 
 
 class ClassNoteFragment : Fragment() {
-    lateinit var subjectList: MutableList<String>
+    var subjectList = arrayListOf<Subject>()
     var pos = 0
-    var subjectName = "안드로이드"
-    lateinit var root: View
+    var max = 0
+    lateinit var recycler: RecyclerView
     lateinit var ctx:Context
-    private lateinit var classNoteViewModel: ClassNoteViewModel
+    private val classNoteViewModel: ClassNoteViewModel by viewModels()
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -36,17 +42,41 @@ class ClassNoteFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
 
+        val root = inflater.inflate(R.layout.fragment_class_note, container, false)
+       recycler = root.findViewById<RecyclerView>(R.id.templateView)
 
-        root = inflater.inflate(R.layout.fragment_class_note, container, false)
+       try{
+           pos = requireArguments().get("subject") as Int
+           Log.d("ClassNote", "${pos} th subject")
+       }catch (e: Exception){
+           pos = 0
+           Log.d("ERR", "${e}")
+       }
 
-        val db = Database()
-        subjectList = db.getListSubject()
+        subjectList = HomeViewModel.subjectList.value!!
+        classNoteViewModel.subject.value = subjectList[pos]
 
-        var template:MutableList<TemplateItem> = loadTemplate()
-        var adapter = TemplateAdapter()
-        adapter.listData = template
+        root.findViewById<TextView>(R.id.textClass)?.text = "과목명: " + subjectList[pos].className
 
-        root.findViewById<RecyclerView>(R.id.templateView).adapter = adapter
+        var adapter = TemplateAdapter("2021년 1학기",subjectList[pos].className)
+
+        val subjectObserver = Observer<Subject>{
+            view?.findViewById<TextView>(R.id.textClass)?.text = "과목명: " + it.className
+            adapter = TemplateAdapter(it.semester, it.className)
+            recycler.adapter = adapter
+        }
+
+        max = subjectList.size
+
+        val templateObserver = Observer<ArrayList<TemplateItem>> { template ->
+            adapter.listData = template
+            recycler.adapter = adapter
+        }
+
+        classNoteViewModel.subject.observe(viewLifecycleOwner, subjectObserver)
+        classNoteViewModel.template.observe(viewLifecycleOwner, templateObserver)
+
+    root.findViewById<RecyclerView>(R.id.templateView).adapter = adapter
         root.findViewById<RecyclerView>(R.id.templateView).layoutManager = LinearLayoutManager(context)
 
         root.findViewById<ImageView>(R.id.btnPrev).setOnClickListener{ getPrevClass() }
@@ -60,7 +90,20 @@ class ClassNoteFragment : Fragment() {
         ctx = context
     }
 
-//    override fun onClick(v: View) {
+
+    fun getPrevClass(){
+        if(pos-1 < 0) pos = max
+        pos = (pos-1)%max
+        classNoteViewModel.subject.value = subjectList[pos]
+    }
+
+    fun getNextClass(){
+        pos = (pos+1)%max
+        classNoteViewModel.subject.value = subjectList[pos]
+    }
+
+
+    //    override fun onClick(v: View) {
 //        when(v.id){
 //            R.id.previewButton->{
 //                //알림창
@@ -90,55 +133,6 @@ class ClassNoteFragment : Fragment() {
 //        }
 //    }
 
-
-    fun getPrevClass(){
-        if(pos-1 < 0) pos = subjectList.size
-        pos = (pos-1)%subjectList.size
-        subjectName = subjectList[pos]
-        view?.findViewById<TextView>(R.id.textClass)?.text = "과목명: " + "${subjectList[pos]}"
-
-        var template:MutableList<TemplateItem> = loadTemplate()
-        var adapter = TemplateAdapter()
-        adapter.listData = template
-
-        root!!.findViewById<RecyclerView>(R.id.templateView).adapter = adapter
-        root!!.findViewById<RecyclerView>(R.id.templateView).layoutManager = LinearLayoutManager(context)
-        root!!.findViewById<ImageView>(R.id.btnPrev).setOnClickListener{ getPrevClass() }
-        root!!.findViewById<ImageView>(R.id.btnNext).setOnClickListener { getNextClass() }
-        //Log.d("test","Prev+${SubjectTmp[pos]}")
-    }
-
-    fun getNextClass(){
-        pos = (pos+1)%subjectList.size
-        subjectName = subjectList[pos]
-        view?.findViewById<TextView>(R.id.textClass)?.text = "과목명: " + "${subjectList[pos]}"
-
-        var template:MutableList<TemplateItem> = loadTemplate()
-        var adapter = TemplateAdapter()
-        adapter.listData = template
-
-        root!!.findViewById<RecyclerView>(R.id.templateView).adapter = adapter
-        root!!.findViewById<RecyclerView>(R.id.templateView).layoutManager = LinearLayoutManager(context)
-        root!!.findViewById<ImageView>(R.id.btnPrev).setOnClickListener{ getPrevClass() }
-        root!!.findViewById<ImageView>(R.id.btnNext).setOnClickListener { getNextClass() }
-    }
-
-    fun loadTemplate(): MutableList<TemplateItem> {
-        val data:MutableList<TemplateItem> = mutableListOf()
-        for (no in 1..16){
-            data.add( setTemplateItem(no) )
-        }
-
-        return data
-    }
-
-    fun setTemplateItem(no:Int): TemplateItem{
-        val db = Database()
-
-
-
-        return TemplateItem(no, subjectName, true, false, true)
-    }
 
 
 }
