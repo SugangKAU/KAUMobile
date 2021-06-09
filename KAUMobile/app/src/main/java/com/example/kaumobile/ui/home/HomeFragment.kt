@@ -77,6 +77,8 @@ class HomeFragment : Fragment() {
                     init --
                     Log.d(TAG, "Load Dynamic Button")
                     Log.d(TAG,"${_subjectList}")
+                    classList.clear()
+                    subjectInfoList.clear()
                     for (i in _subjectList) {
                         Log.d("Loop", "${i} classNum: ${classNum}")
                         if (classNum == 0)
@@ -146,7 +148,7 @@ class HomeFragment : Fragment() {
             else if(searchNum == -2)
                 Toast.makeText(requireContext(), "검색어를 포함한 강의가 2개 이상입니다", Toast.LENGTH_SHORT).show()
             else {
-                Navigation.findNavController(root).navigate(R.id.action_navigation_home_to_navigation_classnote, bundleOf("subjects" to this.classList))
+                Navigation.findNavController(root).navigate(R.id.action_navigation_home_to_navigation_classnote, bundleOf("subject" to searchNum))
             }
         }
 
@@ -391,6 +393,8 @@ class HomeFragment : Fragment() {
                 classTimeList.add(subjectInfoList[i].classTime)
             myIntent.putExtra("name", classList)
             myIntent.putExtra("time", classTimeList)
+            myIntent.putExtra("year", year.toString())
+            myIntent.putExtra("semester", semester.toString())
             startActivity(myIntent)
         }
 

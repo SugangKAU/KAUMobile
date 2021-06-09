@@ -20,6 +20,8 @@ var nowDay = Calendar.getInstance().get(Calendar.DATE)
 var classNameList : ArrayList<String> = arrayListOf()
 var classTimeList : ArrayList<String> = arrayListOf()
 var calendarList : Array<String?> = arrayOfNulls(32)
+var year = 2021
+var semester = 1
 private val colorList = arrayOf("#481677", "#7410d0", "#a648ff", "#115586", "#4a7eb2", "#0080ff", "#8977ad", "#de00e0", "#f34e00", "#cc4600")
 
 class CalendarActivity : AppCompatActivity() {
@@ -30,6 +32,10 @@ class CalendarActivity : AppCompatActivity() {
         var intent = getIntent()
         classNameList = intent.getStringArrayListExtra("name")!!
         classTimeList = intent.getStringArrayListExtra("time")!!
+        year = intent.getStringExtra("year")!!.toInt()
+        semester = intent.getStringExtra("semester")!!.toInt()
+
+        Log.d("ff", "${classNameList}")
 
         findViewById<TextView>(R.id.text_calendar_month).setText(nowYear.toString() + "년 " + nowMonth.toString() + "월")
 
@@ -43,7 +49,8 @@ class CalendarActivity : AppCompatActivity() {
             findViewById<TextView>(R.id.text_calendar_month).setText(nowYear.toString() + "년 " + nowMonth.toString() + "월")
             calendarList = arrayOfNulls(32)
             findViewById<ExpCalendarView>(R.id.calendarView).travelTo(DateData(nowYear, nowMonth, 0))
-            markCalendar(findViewById(R.id.calendarView))
+            if(nowYear == year && nowMonth >= semester*6-3 && nowMonth <= semester*6)
+                markCalendar(findViewById(R.id.calendarView))
             findViewById<TextView>(R.id.text_calendar_content).setText("")
         }
         findViewById<View>(R.id.button_calendar_nextmonth).setOnClickListener {
@@ -56,7 +63,8 @@ class CalendarActivity : AppCompatActivity() {
             findViewById<TextView>(R.id.text_calendar_month).setText(nowYear.toString() + "년 " + nowMonth.toString() + "월")
             calendarList = arrayOfNulls(32)
             findViewById<ExpCalendarView>(R.id.calendarView).travelTo(DateData(nowYear, nowMonth, 0))
-            markCalendar(findViewById(R.id.calendarView))
+            if(nowYear == year && nowMonth >= semester*6-3 && nowMonth <= semester*6)
+                markCalendar(findViewById(R.id.calendarView))
             findViewById<TextView>(R.id.text_calendar_content).setText("")
         }
 
@@ -76,7 +84,8 @@ class CalendarActivity : AppCompatActivity() {
         })
 
         findViewById<ExpCalendarView>(R.id.calendarView).travelTo(DateData(nowYear, nowMonth, 0))
-        markCalendar(findViewById(R.id.calendarView))
+        if(nowYear == year && nowMonth >= semester*6-3 && nowMonth <= semester*6)
+            markCalendar(findViewById(R.id.calendarView))
     }
 
     fun markCalendar(calendar: ExpCalendarView) {
@@ -84,6 +93,7 @@ class CalendarActivity : AppCompatActivity() {
         var cal = Calendar.getInstance()
         cal.set(nowYear, nowMonth-1, 1)
         var last = cal.getActualMaximum(Calendar.DAY_OF_MONTH)
+        calendarList = arrayOfNulls(32)
 
         for (i in classTimeList!!.size-1 downTo 0){
             for(j in 0 until classTimeList[i].length){

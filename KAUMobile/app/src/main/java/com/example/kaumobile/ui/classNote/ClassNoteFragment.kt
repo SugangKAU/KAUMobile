@@ -1,29 +1,22 @@
 package com.example.kaumobile.ui.classNote
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.inflate
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kaumobile.R
 import com.example.kaumobile.ui.classNote.classNoteAdapter.TemplateItem
 import com.example.kaumobile.ui.home.HomeViewModel
 import com.example.kaumobile.ui.home.Subject
-import com.example.sswolf.kausugang.Seong.NoteActivity
 import com.example.sswolf.kausugang.Seong.TemplateAdapter
 import java.lang.Exception
 
