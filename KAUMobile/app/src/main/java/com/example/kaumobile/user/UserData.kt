@@ -1,6 +1,11 @@
 package com.example.kaumobile.user
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.util.Log
+import androidx.lifecycle.*
+import androidx.preference.PreferenceManager
+import com.example.kaumobile.application.Initialize
 import com.example.kaumobile.firebase.Database
 import com.example.kaumobile.ui.home.HomeViewModel
 import com.example.kaumobile.ui.home.Subject

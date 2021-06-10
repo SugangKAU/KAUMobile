@@ -116,8 +116,6 @@ class HomeFragment : Fragment() {
 
         HomeViewModel.subjectList.observe(viewLifecycleOwner,subjectObserver)
 
-        Log.d(TAG, "First ${classList}")
-
 
         root.findViewById<AutoCompleteTextView>(R.id.search_class).threshold = 1
         root.findViewById<AutoCompleteTextView>(R.id.search_class).setAdapter(searchAdapter)

@@ -1,8 +1,16 @@
 package com.example.kaumobile.ui.notifications
 
+import android.app.Notification
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.Drawable
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
@@ -10,10 +18,16 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.work.impl.foreground.SystemForegroundService
+import com.example.kaumobile.MainActivity
 import com.example.kaumobile.R
+import com.example.kaumobile.user.UserData
 
 private val colorList = arrayOf("#FF3721", "#213EFF")
 
@@ -53,6 +67,39 @@ class NotificationsFragment : Fragment() {
 
             }
         }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val name = "name"
+            val descriptionText = "desp"
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val channel = NotificationChannel("1000", name, importance).apply {
+                description = descriptionText
+            }
+            // Register the channel with the system
+            val notificationManager: NotificationManager =
+                requireContext().getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+        }
+
+        val btn = root.findViewById<Button>(R.id.button)
+        btn.setOnClickListener {
+            val _intent = PendingIntent.getActivity(requireContext(),0, Intent(requireContext(),MainActivity::class.java),PendingIntent.FLAG_UPDATE_CURRENT)
+            val builder = NotificationCompat.Builder(requireContext(),"1000")
+               .setSmallIcon(R.drawable.ic_alarm)
+               .setContentTitle("${UserData.subjectList[0].className}")
+               .setContentText("복습 노트를 작성하세요")
+               .setDefaults(Notification.DEFAULT_VIBRATE)
+               .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+               .setAutoCancel(true)
+               .setContentIntent(_intent)
+            with(NotificationManagerCompat.from(requireContext())) {
+                // notificationId is a unique int for each notification that you must define
+                notify(1000, builder.build())
+                Log.d("Alarm","5${builder}")
+            }
+        }
+
+
         return root
     }
 
