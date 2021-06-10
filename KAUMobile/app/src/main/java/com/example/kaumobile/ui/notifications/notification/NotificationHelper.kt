@@ -17,8 +17,21 @@ import java.util.*
 class NotificationHelper {
     private val NOTIFICATION_CHANNEL_ID = "alarm"
     private val NOTIFICATION_NAME = "study"
-    private val WORK_A_NOTIFICATION_CODE = 0
-    private val WORK_B_NOTIFICATION_CODE = 1
+    val alarmList = mutableMapOf<String,Int>()
+    var cnt = 0
+
+    companion object{
+        var inst: NotificationHelper? = null
+
+
+        fun getInstance(): NotificationHelper{
+            if (inst == null) {
+                inst = NotificationHelper()
+            }
+            return inst!!
+        }
+    }
+
 
 
     fun createNotificationChannel(context: Context) {
@@ -45,7 +58,7 @@ class NotificationHelper {
     }
 
 
-    fun setAlarm(ctx:Context, type: String){
+    fun setAlarm(ctx:Context, type: String, isCreate: Boolean){
         val weekList = arrayOf("일","월","화","수","목","금","토")
         val calendar = Calendar.getInstance(TimeZone.getTimeZone("Asia/Seoul"), Locale.KOREA)
         val alarmManager = ctx.getSystemService(Context.ALARM_SERVICE) as AlarmManager
@@ -55,70 +68,124 @@ class NotificationHelper {
 
         calendar.set(Calendar.SECOND, 0)
         calendar.set(Calendar.MILLISECOND,0)
-        for (i in subjectList){
+        if(isCreate){
+            for (i in subjectList) {
+                val intent = Intent(ctx, AlarmReceiver::class.java)
+                intent.putExtra("className", "${i.className}")
+                intent.putExtra("profName", "${i.profName}")
+                intent.putExtra("classRoom", "${i.classRoom}")
+                intent.putExtra("type", type)
+                val pendingIntent = PendingIntent.getBroadcast(ctx, cnt, intent, 0)
+                alarmList.put("${i.className}${type}", cnt)
+                cnt++
+
+                if (debug) {
+                    debug = false
+                    alarmManager.set(AlarmManager.RTC, calendar.timeInMillis, pendingIntent)
+                    Log.d("Alarmm", "${i.className}: ${calendar.get(Calendar.MONTH)} ${calendar.get(Calendar.DATE)}")
+                }
+
+                if (i.classTime == "#") continue
+                else if (i.classTime.length <= 12) {
+                    var alarmDay = weekList.indexOf("${i.classTime.substring(1..1)}") + 1
+                    var d_Interval = (alarmDay - currentDay + 7) % 7
+                    var day = calendar.get(Calendar.DATE) + d_Interval
+                    when (type) {
+                        "예습" -> {
+                            calendar.set(Calendar.DATE, day)
+                            calendar.set(
+                                Calendar.HOUR_OF_DAY,
+                                (i.classTime.substring(2..3).toInt()) - 1
+                            )
+                            calendar.set(Calendar.MINUTE, 60 - 10)
+                            alarmManager.setRepeating(
+                                AlarmManager.RTC,
+                                calendar.timeInMillis,
+                                interval,
+                                pendingIntent
+                            )
+                        }
+                        "복습" -> {
+                            calendar.set(Calendar.DATE, day)
+                            calendar.set(
+                                Calendar.HOUR_OF_DAY,
+                                (i.classTime.substring(6..7).toInt())
+                            )
+                            calendar.set(Calendar.MINUTE, 10)
+                            alarmManager.setRepeating(
+                                AlarmManager.RTC,
+                                calendar.timeInMillis,
+                                interval,
+                                pendingIntent
+                            )
+                        }
+                    }
+                } else {
+                    var alarmDay = weekList.indexOf("${i.classTime.substring(1..1)}") + 1
+                    var d_Interval = (alarmDay - currentDay + 7) % 7
+                    var day = calendar.get(Calendar.DATE) + d_Interval
+                    var alarmDay2 = weekList.indexOf("${i.classTime.substring(11..11)}") + 1
+                    var d_Interval2 = (alarmDay2 - currentDay + 7) % 7
+                    var day2 = calendar.get(Calendar.DATE) + d_Interval2
+                    when (type) {
+                        "예습" -> {
+                            calendar.set(Calendar.DATE, day)
+                            calendar.set(
+                                Calendar.HOUR_OF_DAY,
+                                (i.classTime.substring(2..3).toInt()) - 1
+                            )
+                            calendar.set(Calendar.MINUTE, 60 - 10)
+                            alarmManager.set(AlarmManager.RTC, calendar.timeInMillis, pendingIntent)
+                            calendar.set(Calendar.DATE, day2)
+                            calendar.set(
+                                Calendar.HOUR_OF_DAY,
+                                (i.classTime.substring(12..13).toInt()) - 1
+                            )
+                            calendar.set(Calendar.MINUTE, 60 - 10)
+                            alarmManager.setRepeating(
+                                AlarmManager.RTC,
+                                calendar.timeInMillis,
+                                interval,
+                                pendingIntent
+                            )
+                        }
+                        "복습" -> {
+                            calendar.set(Calendar.DATE, day)
+                            calendar.set(
+                                Calendar.HOUR_OF_DAY,
+                                (i.classTime.substring(6..7).toInt())
+                            )
+                            calendar.set(Calendar.MINUTE, 10)
+                            alarmManager.set(AlarmManager.RTC, calendar.timeInMillis, pendingIntent)
+                            calendar.set(Calendar.DATE, day2)
+                            calendar.set(
+                                Calendar.HOUR_OF_DAY,
+                                (i.classTime.substring(16..17).toInt())
+                            )
+                            calendar.set(Calendar.MINUTE, 10)
+                            alarmManager.setRepeating(
+                                AlarmManager.RTC,
+                                calendar.timeInMillis,
+                                interval,
+                                pendingIntent
+                            )
+                        }
+                    }
+                }
+            }
+        }else{
             val intent = Intent(ctx, AlarmReceiver::class.java)
-            intent.putExtra("className", "${i.className}")
-            intent.putExtra("profName", "${i.profName}")
-            intent.putExtra("classRoom", "${i.classRoom}")
-            intent.putExtra("type", type)
-            val pendingIntent = PendingIntent.getBroadcast(ctx, 0, intent, 0)
 
-            if(debug) {
-                debug = false
-                alarmManager.set(AlarmManager.RTC, calendar.timeInMillis, pendingIntent)
-                Log.d("Alarmm","${i.className}: ${calendar.timeInMillis}")
-            }
-
-            if(i.classTime == "#") continue
-            else if(i.classTime.length <= 12){
-                var alarmDay = weekList.indexOf("${i.classTime.substring(1..1)}") + 1
-                var d_Interval = (alarmDay - currentDay + 7) % 7
-                var day = calendar.get(Calendar.DATE) + d_Interval
-                when(type){
-                    "예습"->{
-                        calendar.set(Calendar.DATE, day)
-                        calendar.set(Calendar.HOUR_OF_DAY, (i.classTime.substring(2..3).toInt()) -1 )
-                        calendar.set(Calendar.MINUTE, 60-10)
-                        alarmManager.setRepeating(AlarmManager.RTC, calendar.timeInMillis, interval, pendingIntent)
-                    }
-                    "복습"->{
-                        calendar.set(Calendar.DATE, day)
-                        calendar.set(Calendar.HOUR_OF_DAY, (i.classTime.substring(6..7).toInt()))
-                        calendar.set(Calendar.MINUTE, 10)
-                        alarmManager.setRepeating(AlarmManager.RTC, calendar.timeInMillis, interval, pendingIntent)
-                    }
-                }
-            }else{
-                var alarmDay = weekList.indexOf("${i.classTime.substring(1..1)}") + 1
-                var d_Interval = (alarmDay - currentDay + 7) % 7
-                var day = calendar.get(Calendar.DATE) + d_Interval
-                var alarmDay2 = weekList.indexOf("${i.classTime.substring(11..11)}") + 1
-                var d_Interval2 = (alarmDay2 - currentDay + 7) % 7
-                var day2 = calendar.get(Calendar.DATE) + d_Interval2
-                when(type){
-                    "예습"->{
-                        calendar.set(Calendar.DATE, day)
-                        calendar.set(Calendar.HOUR_OF_DAY, (i.classTime.substring(2..3).toInt()) -1 )
-                        calendar.set(Calendar.MINUTE, 60-10)
-                        alarmManager.set(AlarmManager.RTC, calendar.timeInMillis, pendingIntent)
-                        calendar.set(Calendar.DATE, day2)
-                        calendar.set(Calendar.HOUR_OF_DAY, (i.classTime.substring(12..13).toInt()) -1 )
-                        calendar.set(Calendar.MINUTE, 60-10)
-                        alarmManager.setRepeating(AlarmManager.RTC, calendar.timeInMillis, interval, pendingIntent)
-                    }
-                    "복습"->{
-                        calendar.set(Calendar.DATE, day)
-                        calendar.set(Calendar.HOUR_OF_DAY, (i.classTime.substring(6..7).toInt()))
-                        calendar.set(Calendar.MINUTE, 10)
-                        alarmManager.set(AlarmManager.RTC, calendar.timeInMillis, pendingIntent)
-                        calendar.set(Calendar.DATE, day2)
-                        calendar.set(Calendar.HOUR_OF_DAY, (i.classTime.substring(16..17).toInt()))
-                        calendar.set(Calendar.MINUTE, 10)
-                        alarmManager.setRepeating(AlarmManager.RTC, calendar.timeInMillis, interval, pendingIntent)
-                    }
+            for( i in alarmList.keys){
+                if(type in i){
+                    val sender = PendingIntent.getBroadcast(ctx, alarmList[i]!!, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+                    alarmManager.cancel(sender)
+                    sender.cancel()
                 }
             }
+
         }
+        checkAlarm(ctx)
     }
 
 
@@ -154,5 +221,11 @@ class NotificationHelper {
 //            .setAutoCancel(true) // 클릭 시 Notification 제거
 
 
+    }
+
+    fun checkAlarm(ctx: Context){
+        for( i in alarmList.keys){
+            Log.d("Alarmm", "check " + i + "Alarm: ${PendingIntent.getBroadcast(ctx, alarmList[i]!!, Intent(ctx, AlarmReceiver::class.java), PendingIntent.FLAG_NO_CREATE)}")
+        }
     }
 }

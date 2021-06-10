@@ -24,15 +24,19 @@ class SettingFragment : PreferenceFragmentCompat() {
         val vibe = sps.getBoolean("key_vibe", false)
         val lms = sps.getBoolean("key_lms", false)
 
+        val noti = NotificationHelper.getInstance()
+
         if(prepareNotify){
-            NotificationHelper().setAlarm(requireContext().applicationContext, "예습")
-            Log.d("Alarmm","init ${UserData.subjectList}")
+            noti.setAlarm(requireContext().applicationContext, "예습", true)
+        }else{
+            noti.setAlarm(requireContext().applicationContext, "예습", false)
         }
         if(reviewNotify){
-            if(prepareNotify){
-                NotificationHelper().setAlarm(requireContext().applicationContext, "복습")
-                Log.d("Alarmm","init ${UserData.subjectList}")
-            }
+            noti.setAlarm(requireContext().applicationContext, "복습", true)
+        }else{
+            noti.setAlarm(requireContext().applicationContext, "복습", false)
         }
+        Log.d("Alarmm","subject list ${UserData.subjectList}")
+        Log.d("Alarmm","alarm list ${noti.alarmList}")
     }
 }

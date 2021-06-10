@@ -27,6 +27,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.work.impl.foreground.SystemForegroundService
 import com.example.kaumobile.MainActivity
 import com.example.kaumobile.R
+import com.example.kaumobile.user.UserData
 
 private val colorList = arrayOf("#FF3721", "#213EFF")
 
@@ -85,8 +86,8 @@ class NotificationsFragment : Fragment() {
             val _intent = PendingIntent.getActivity(requireContext(),0, Intent(requireContext(),MainActivity::class.java),PendingIntent.FLAG_UPDATE_CURRENT)
             val builder = NotificationCompat.Builder(requireContext(),"1000")
                .setSmallIcon(R.drawable.ic_alarm)
-               .setContentTitle("title")
-               .setContentText("content")
+               .setContentTitle("${UserData.subjectList[0].className}")
+               .setContentText("복습 노트를 작성하세요")
                .setDefaults(Notification.DEFAULT_VIBRATE)
                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                .setAutoCancel(true)
