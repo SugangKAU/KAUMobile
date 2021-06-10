@@ -21,6 +21,7 @@ import com.google.firebase.ktx.Firebase
 import java.lang.NullPointerException
 
 
+data class Subject(var className:String, var profName:String, var classRoom:String, var classTime:String)
 
 class NoteActivity : AppCompatActivity(){
     private val TAG = "Note"
